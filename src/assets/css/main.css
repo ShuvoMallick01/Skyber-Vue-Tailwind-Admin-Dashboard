@@ -1,3 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.125rem;
+  }
+  h6 {
+    font-size: 0.875rem;
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
+  /* Global */
+  container-primary {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .container-fluid {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Animation */
+  .transition-300 {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Shape */
+  /* .shape-rouned {
+    @apply rounded-md;
+  } */
+
+  .shape-rounded-btn {
+    border-radius: 4px;
+  }
+
+  /* Button Size */
+  .btn-sm {
+    padding: 5px 20px;
+    @apply text-xs font-semibold;
+  }
+  .btn-md {
+    padding: 10px 20px;
+    @apply text-xs font-semibold;
+  }
+  .btn-lg {
+    padding: 15px 20px;
+    @apply text-xs font-semibold;
+  }
+
+  /* Test */
+  .test {
+    @apply text-slate-400;
+  }
+}
