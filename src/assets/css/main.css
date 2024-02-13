@@ -42,7 +42,7 @@
 
   /* Filled Button Color */
   .filled-primary {
-    @apply bg-primary hover:bg-primary-darker;
+    @apply text-white bg-primary hover:bg-primary-darker;
   }
   .filled-secondary {
     @apply text-text-400 bg-secondary hover:bg-secondary-darker;
@@ -132,5 +132,10 @@
   .icon-btn-lg {
     padding: 10px 10px;
     @apply text-xs font-semibold;
+  }
+
+  /* TEST */
+  .test {
+    @apply text-sm;
   }
 }

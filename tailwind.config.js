@@ -27,6 +27,10 @@ export default {
         "text-200": "#A7BEDA",
         "text-100": "#CCDDF0",
       },
+
+      borderWidth: {
+        ".6": "0.6px",
+      },
     },
   },
   plugins: [],
