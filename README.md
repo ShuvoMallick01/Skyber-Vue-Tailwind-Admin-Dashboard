@@ -1,6 +1,6 @@
 # SKYBER-VUE-Admin-Dashboard-V-1.0
 
-Live Explore:
+Live Explore: https://admin-dashboard-vue-tailwindcss.netlify.app/
 
 This template should help get you started developing with Vue 3 in Vite.
 
