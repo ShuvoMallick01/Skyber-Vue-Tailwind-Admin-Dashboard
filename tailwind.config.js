@@ -12,7 +12,7 @@ export default {
         "primary-darker": "#0E73BE",
         secondary: "#F1F6F9",
         "secondary-darker": "#C1D2E5",
-        info: "#6667FF",
+        info: "#585FDD",
         "info-darker": "#525B93",
         success: "#09BA70",
         "success-darker": "#209E5F",
@@ -22,8 +22,8 @@ export default {
         "error-darker": "#D62B64",
 
         "text-main": "#011E3D",
-        "text-400": "#335474",
         "text-muted": "#738499",
+        "text-400": "#335474",
         "text-200": "#A7BEDA",
         "text-100": "#CCDDF0",
       },

@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
 <script setup>
-import { cn } from "../../utils/cn";
+import { cn } from "../utils/cn";
 import { cva } from "class-variance-authority";
 import { ref } from "vue";
 
@@ -12,23 +12,18 @@ const props = defineProps({
   shape: { type: String },
   size: { type: String },
 
-  href: { type: String, default: "" },
-  disabled: { type: Boolean, default: false },
   shadow: String,
 });
 
-const buttonComponent = ref(props.href ? "router-link" : "button");
-const linkAttr = ref(props.href ? "to" : "");
-
 // Button Classes
-const button = cva(["leading-normal transition-300 flex items-center group"], {
+const button = cva(["leading-normal transition-300 group px-6 py-4"], {
   variants: {
     variant: {
-      filled: "text-white bg-black text-center focus:outline-none outline-none",
-      outline:
+      normal: "text-white bg-black text-center focus:outline-none outline-none",
+      action:
         "text-black text-center border outline-none focus:outline-none border-black dark:text-white dark:border-white",
-      translucent:
-        "text-gray-400 bg-black/10 text-center focus:outline-none outline-none",
+      outline: "",
+      filled: "",
     },
     color: {
       primary: "filled-primary",
@@ -43,9 +38,7 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
       pill: "rounded-full",
     },
     size: {
-      large: "btn-lg",
-      medium: "btn-md",
-      small: "btn-sm",
+      medium: "px-14 py-10",
     },
   },
 
@@ -123,17 +116,22 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
 });
 </script>
 
-<!-- TEMPLATE -->
+<!-- === TEMPLATE ===  -->
 <template>
-  <component
-    :is="buttonComponent"
-    :[linkAttr]="href"
-    :disabled="buttonComponent === 'button' && disabled"
-    v-bind="$attrs"
-    :class="cn(button({ variant, color, shape, size }))"
-  >
-    <slot name="prefix"></slot>
-    {{ title }}
-    <slot name="suffix"></slot>
-  </component>
+  <div v-bind="$attrs" :class="cn(button({ variant, color, shape, size }))">
+    <div class="flex gap-3 items-center justify-between">
+      <div class="flex gap-3 items-center">
+        <i class="icon-Dot"></i>
+        <p>This is an primary alert — check it out!</p>
+      </div>
+      <i class="icon-Dot"></i>
+    </div>
+    <slot name="description">
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus dicta
+        laboriosam odio quia inventore illo possimus deserunt, nam a accusamus
+        est optio quam voluptatibus hic eveniet ad fugiat nisi numquam.
+      </p>
+    </slot>
+  </div>
 </template>

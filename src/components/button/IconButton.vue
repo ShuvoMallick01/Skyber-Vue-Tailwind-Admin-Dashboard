@@ -40,12 +40,12 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
     },
     shape: {
       rounded: "shape-rounded-btn",
-      pill: "rounded-full",
+      circle: "rounded-full",
     },
     size: {
-      large: "btn-lg",
-      medium: "btn-md",
-      small: "btn-sm",
+      large: "icon-btn-lg",
+      medium: "icon-btn-md",
+      small: "icon-btn-sm",
     },
   },
 
@@ -132,8 +132,6 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
     v-bind="$attrs"
     :class="cn(button({ variant, color, shape, size }))"
   >
-    <slot name="prefix"></slot>
-    {{ title }}
-    <slot name="suffix"></slot>
+    <slot name="icon"></slot>
   </component>
 </template>
