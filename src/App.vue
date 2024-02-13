@@ -1,9 +1,35 @@
+<!-- SCRIPT -->
 <script setup>
 import Button from "./components/button/Button.vue";
+import { ref, onMounted, computed, reactive } from "vue";
+import {
+  useDark,
+  useToggle,
+  useElementHover,
+  onClickOutside,
+} from "@vueuse/core";
+
+// State
+const isDark = useDark();
+// const target = ref(null);
+const toggleDark = useToggle(isDark);
+
+// Methods
+// onClickOutside(target, (event) => {
+//   navHidden.value = true;
+// });
 </script>
 
 <!-- TEMPLATE -->
 <template>
+  <div class="container mx-auto py-10 flex gap-6 flex-wrap items-center">
+    <button @click="toggleDark()" class="mx-2" color="text-primary ">
+      <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
+      <i v-if="isDark" class="fa-regular fa-sun text-white"></i>
+      <i v-else class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+
   <div class="container mx-auto py-10 flex gap-6 flex-wrap items-center">
     <Button title="Primary" color="primary" />
     <Button title="Secondary" color="secondary" />
@@ -33,6 +59,83 @@ import Button from "./components/button/Button.vue";
     <Button title="Success" variant="outline" shape="pill" color="success" />
     <Button title="Warning" variant="outline" size="medium" color="warning" />
     <Button title="Error" variant="outline" size="small" color="error" />
+
+    <!-- translucent -->
+    <Button title="Primary" variant="translucent" color="primary" />
+    <Button title="Secondary" variant="translucent" color="secondary" />
+    <Button title="Info" variant="translucent" color="info" />
+    <Button
+      title="Success"
+      variant="translucent"
+      shape="pill"
+      color="success"
+    />
+    <Button
+      title="Warning"
+      variant="translucent"
+      size="medium"
+      color="warning"
+    />
+    <Button title="Error" variant="translucent" size="small" color="error" />
+
+    <!-- Icon Button -->
+    <Button title="Primary" class="" color="primary">
+      <template #prefix>
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 30 30"
+          fill="none"
+          class="me-2"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
+            fill="#FFFFFF"
+          />
+        </svg>
+      </template>
+    </Button>
+
+    <Button title="Primary" variant="outline" color="primary" class="group">
+      <template #prefix>
+        <span class="">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 30 30"
+            fill="none"
+            class="me-2"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
+              class="fill-primary group-hover:fill-white transition-300"
+            />
+          </svg>
+        </span>
+      </template>
+    </Button>
+
+    <Button title="Secondary" variant="outline" color="secondary" class="">
+      <template #prefix>
+        <span class="">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 30 30"
+            fill="none"
+            class="me-2"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
+              class="fill-text-400 group-hover:fill-white transition-300"
+            />
+          </svg>
+        </span>
+      </template>
+    </Button>
   </div>
 </template>
 
