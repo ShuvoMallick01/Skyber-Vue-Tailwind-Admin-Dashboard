@@ -2854,7 +2854,6 @@
 }
 .icon-Dot:before {
   content: "\eb97";
-  color: #738499;
 }
 .icon-dot-lc:before {
   content: "\eb98";
@@ -4718,11 +4717,11 @@
 }
 .icon-info:before {
   content: "\ed4d";
-  color: #738499;
+ 
 }
 .icon-info_outined:before {
   content: "\ed4e";
-  color: #335474;
+
 }
 .icon-info_outined_a:before {
   content: "\ed4f";

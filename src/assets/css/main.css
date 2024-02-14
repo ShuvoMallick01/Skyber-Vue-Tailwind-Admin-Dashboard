@@ -40,6 +40,41 @@
     @apply transition-all duration-300 ease-in-out;
   }
 
+  /* FONT */
+  .font-body-14 {
+    line-height: normal;
+    @apply text-sm font-medium;
+  }
+
+  .font-body-13-sb {
+    line-height: normal;
+    font-size: 13px;
+    @apply font-semibold;
+  }
+
+  .font-body-13-m {
+    line-height: normal;
+    font-size: 13px;
+    @apply font-medium;
+  }
+
+  .font-body-12-sb {
+    line-height: normal;
+    @apply text-xs font-semibold;
+  }
+
+  .font-body-12-m {
+    line-height: normal;
+    font-size: 12px;
+    @apply font-medium;
+  }
+
+  .font-body-10 {
+    line-height: normal;
+    font-size: 10px;
+    @apply font-medium;
+  }
+
   /* Filled Button Color */
   .filled-primary {
     @apply text-white bg-primary hover:bg-primary-darker;
@@ -112,7 +147,7 @@
     @apply text-xs font-semibold;
   }
   .btn-md {
-    padding: 10px 20px;
+    padding: 15px 20px;
     @apply text-xs font-semibold;
   }
   .btn-lg {
@@ -123,15 +158,15 @@
   /* Icon Button Size */
   .icon-btn-sm {
     padding: 8px 8px;
-    @apply text-xs font-semibold;
+    @apply text-base;
   }
   .icon-btn-md {
-    padding: 10px 10px;
-    @apply text-xs font-semibold;
+    padding: 8px 8px;
+    @apply text-base;
   }
   .icon-btn-lg {
     padding: 10px 10px;
-    @apply text-xs font-semibold;
+    @apply text-base;
   }
 
   /* TEST */

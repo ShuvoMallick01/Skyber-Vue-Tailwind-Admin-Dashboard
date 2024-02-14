@@ -24,11 +24,12 @@ const linkAttr = ref(props.href ? "to" : "");
 const button = cva(["leading-normal transition-300 flex items-center group"], {
   variants: {
     variant: {
-      filled: "text-white bg-black text-center focus:outline-none outline-none",
+      filled:
+        "text-white font-semibold bg-black text-center focus:outline-none outline-none",
       outline:
-        "text-black text-center border outline-none focus:outline-none border-black dark:text-white dark:border-white",
+        "text-black font-semibold text-center border outline-none focus:outline-none border-black dark:text-white dark:border-white",
       translucent:
-        "text-gray-400 bg-black/10 text-center focus:outline-none outline-none",
+        "font-semibold text-gray-400  bg-black/10 text-center focus:outline-none outline-none",
     },
     color: {
       primary: "filled-primary",

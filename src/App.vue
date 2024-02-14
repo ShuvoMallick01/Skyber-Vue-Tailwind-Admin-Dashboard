@@ -33,7 +33,7 @@ const toggleDark = useToggle(isDark);
     </button>
   </div>
 
-  <div class="container mx-auto py-10">
+  <div class="container mx-auto py-10 space-y-4">
     <!--  === BUTTON === -->
     <h5 class="font-extrabold text-primary text-2xl block pb-5">BUTTON</h5>
     <div class="flex gap-6 flex-wrap items-center">
@@ -43,29 +43,26 @@ const toggleDark = useToggle(isDark);
       <Button title="Success" color="success" />
       <Button title="Warning" color="warning" />
       <Button title="Error" color="error" />
+    </div>
 
+    <div class="flex gap-6 flex-wrap items-center">
       <Button title="Primary" size="small" color="primary" />
       <Button title="Secondary" size="small" color="secondary" />
       <Button title="Info" size="small" color="info" />
       <Button title="Success" size="small" color="success" />
       <Button title="Warning" size="small" color="warning" />
       <Button title="Error" size="small" color="error" />
+    </div>
 
-      <Button title="Primary" color="primary" shape="pill" />
-      <Button title="Secondary" color="secondary" shape="pill" />
-      <Button title="Info" color="info" shape="pill" />
-      <Button title="Success" color="success" shape="pill" />
-      <Button title="Warning" color="warning" shape="pill" />
-      <Button title="Error" color="error" shape="pill" />
-
+    <div class="flex gap-6 flex-wrap items-center">
       <!-- Outline -->
       <Button title="Primary" variant="outline" color="primary" />
       <Button title="Secondary" variant="outline" color="secondary" />
       <Button title="Info" variant="outline" color="info" />
       <Button title="Success" variant="outline" shape="pill" color="success" />
-      <Button title="Warning" variant="outline" size="medium" color="warning" />
-      <Button title="Error" variant="outline" size="small" color="error" />
+    </div>
 
+    <div class="flex gap-6 flex-wrap items-center">
       <!-- translucent -->
       <Button title="Primary" variant="translucent" color="primary" />
       <Button title="Secondary" variant="translucent" color="secondary" />
@@ -76,70 +73,21 @@ const toggleDark = useToggle(isDark);
         shape="pill"
         color="success"
       />
-      <Button
-        title="Warning"
-        variant="translucent"
-        size="medium"
-        color="warning"
-      />
+      <Button title="Warning" variant="translucent" color="warning" />
       <Button title="Error" variant="translucent" size="small" color="error" />
+    </div>
 
+    <div class="flex gap-6 flex-wrap items-center">
       <!-- Icon Button -->
-      <Button title="Primary" class="" color="primary">
+      <Button title="Primary" color="primary">
         <template #prefix>
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 30 30"
-            fill="none"
-            class="me-2"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              fill="#FFFFFF"
-            />
-          </svg>
+          <i class="icon-Dot me-2"></i>
         </template>
       </Button>
 
       <Button title="Primary" variant="outline" color="primary" class="group">
         <template #prefix>
-          <span class="">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 30 30"
-              fill="none"
-              class="me-2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-                class="fill-primary group-hover:fill-white transition-300"
-              />
-            </svg>
-          </span>
-        </template>
-      </Button>
-
-      <Button title="Secondary" variant="outline" color="secondary" class="">
-        <template #prefix>
-          <span class="">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 30 30"
-              fill="none"
-              class="me-2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-                class="fill-text-400 group-hover:fill-white transition-300"
-              />
-            </svg>
-          </span>
+          <i class="icon-Dot me-2"></i>
         </template>
       </Button>
     </div>
@@ -150,225 +98,45 @@ const toggleDark = useToggle(isDark);
       <!-- Primary -->
       <IconButton color="primary">
         <template #icon>
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-white group-hover:fill-white transition-300"
-            />
-          </svg>
-        </template>
-      </IconButton>
-
-      <IconButton color="primary">
-        <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-white group-hover:fill-white transition-300"
-            />
-          </svg>
-        </template>
-      </IconButton>
-
-      <IconButton color="primary">
-        <template #icon>
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-white group-hover:fill-white transition-300"
-            />
-          </svg>
+          <i class="icon-Dot"></i>
         </template>
       </IconButton>
 
       <IconButton color="secondary">
         <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-text-muted group-hover:fill-text-400 transition-300"
-            />
-          </svg>
+          <i class="icon-Dot"></i>
         </template>
       </IconButton>
 
       <IconButton color="info">
         <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-white group-hover:fill-white transition-300"
-            />
-          </svg>
+          <i class="icon-Dot"></i>
         </template>
       </IconButton>
 
       <!-- Outline -->
       <IconButton variant="outline" color="primary">
         <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-primary group-hover:fill-white transition-300"
-            />
-          </svg>
-        </template>
-      </IconButton>
-
-      <IconButton variant="outline" color="secondary">
-        <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-text-muted group-hover:fill-white transition-300"
-            />
-          </svg>
+          <i class="icon-Dot"></i>
         </template>
       </IconButton>
 
       <IconButton variant="outline" color="info">
         <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-info group-hover:fill-white transition-300"
-            />
-          </svg>
+          <i class="icon-Dot"></i>
         </template>
       </IconButton>
 
       <!-- Transparent -->
       <IconButton variant="translucent" color="primary">
         <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-primary group-hover:fill-primary-darker transition-300"
-            />
-          </svg>
-        </template>
-      </IconButton>
-
-      <IconButton variant="translucent" color="secondary">
-        <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-text-muted group-hover:fill-text-400 transition-300"
-            />
-          </svg>
+          <i class="icon-Dot"></i>
         </template>
       </IconButton>
 
       <IconButton variant="translucent" color="info">
         <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-info group-hover:fill-info-darker transition-300"
-            />
-          </svg>
-        </template>
-      </IconButton>
-
-      <!-- Circle -->
-      <IconButton color="primary" shape="circle">
-        <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-white group-hover:fill-white transition-300"
-            />
-          </svg>
-        </template>
-      </IconButton>
-
-      <IconButton color="primary" variant="outline" shape="circle">
-        <template #icon>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M28 15C28 17.3585 27.4188 19.5336 26.2565 21.5254C25.0942 23.5171 23.5171 25.0942 21.5254 26.2565C19.5336 27.4188 17.3585 28 15 28C12.6415 28 10.4664 27.4188 8.47461 26.2565C6.48286 25.0942 4.90582 23.5171 3.74349 21.5254C2.58116 19.5336 2 17.3585 2 15C2 12.6415 2.58116 10.4664 3.74349 8.47461C4.90582 6.48286 6.48286 4.90582 8.47461 3.74349C10.4664 2.58116 12.6415 2 15 2C17.3585 2 19.5336 2.58116 21.5254 3.74349C23.5171 4.90582 25.0942 6.48286 26.2565 8.47461C27.4188 10.4664 28 12.6415 28 15Z"
-              class="fill-primary group-hover:fill-white transition-300"
-            />
-          </svg>
+          <i class="icon-Dot"></i>
         </template>
       </IconButton>
     </div>
@@ -379,11 +147,11 @@ const toggleDark = useToggle(isDark);
       <!-- Primary -->
       <Alert color="primary" title="Regular Primary">
         <template #icon>
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="icon-info text-xl leading-none"></i>
         </template>
 
         <template #description>
-          <p class="font-medium text-xs mt-2">
+          <p class="font-medium text-xs mt-1 ms-7">
             This is an primary alert — check it out!
           </p>
         </template>
@@ -396,11 +164,11 @@ const toggleDark = useToggle(isDark);
       <!-- Info -->
       <Alert color="info" title="Regular Primary">
         <template #icon>
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="icon-info text-xl leading-none"></i>
         </template>
 
         <template #description>
-          <p class="font-medium text-xs mt-2">
+          <p class="font-medium text-xs mt-1 ms-7">
             This is an primary alert — check it out!
           </p>
         </template>
@@ -413,7 +181,7 @@ const toggleDark = useToggle(isDark);
       <!-- Action -->
       <Alert color="info" title="Regular Primary">
         <template #icon>
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="icon-info text-xl leading-none"></i>
         </template>
 
         <template #action>
@@ -433,7 +201,7 @@ const toggleDark = useToggle(isDark);
       <!-- Action -->
       <Alert color="warning" title="Regular Primary">
         <template #icon>
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="icon-info text-xl leading-none"></i>
         </template>
 
         <template #action>
@@ -453,11 +221,11 @@ const toggleDark = useToggle(isDark);
       <!-- Fill -->
       <Alert color="primary" variant="filled" title="Regular Primary">
         <template #icon>
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="icon-info text-xl leading-none"></i>
         </template>
 
         <template #description>
-          <p class="font-medium text-xs mt-2">
+          <p class="font-medium text-xs mt-1 ms-7">
             This is an primary alert — check it out!
           </p>
         </template>
@@ -469,44 +237,11 @@ const toggleDark = useToggle(isDark);
 
       <Alert color="warning" variant="filled" title="Regular Primary">
         <template #icon>
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="icon-info text-xl leading-none"></i>
         </template>
 
         <template #description>
-          <p class="font-medium text-xs mt-2">
-            This is an primary alert — check it out!
-          </p>
-        </template>
-
-        <template #action>
-          <i class="fa-solid fa-x cursor-pointer"></i>
-        </template>
-      </Alert>
-
-      <!-- Outline -->
-      <Alert color="primary" variant="outline" title="Outline Primary">
-        <template #icon>
-          <i class="fa-solid fa-circle-exclamation"></i>
-        </template>
-
-        <template #description>
-          <p class="font-medium text-xs mt-2">
-            This is an primary alert — check it out!
-          </p>
-        </template>
-
-        <template #action>
-          <i class="fa-solid fa-x cursor-pointer"></i>
-        </template>
-      </Alert>
-
-      <Alert color="warning" variant="outline" title="Outline Primary">
-        <template #icon>
-          <i class="fa-solid fa-circle-exclamation"></i>
-        </template>
-
-        <template #description>
-          <p class="font-medium text-xs mt-2">
+          <p class="font-medium text-xs mt-1 ms-7">
             This is an primary alert — check it out!
           </p>
         </template>

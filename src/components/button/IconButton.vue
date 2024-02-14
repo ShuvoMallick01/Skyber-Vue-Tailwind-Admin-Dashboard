@@ -118,7 +118,7 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
     variant: "filled",
     color: "primary",
     shape: "rounded",
-    size: "large",
+    size: "medium",
   },
 });
 </script>
