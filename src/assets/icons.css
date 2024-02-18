@@ -2850,7 +2850,6 @@
 }
 .icon-door_open:before {
   content: "\eb96";
-  color: #738499;
 }
 .icon-Dot:before {
   content: "\eb97";
@@ -2863,19 +2862,15 @@
 }
 .icon-double_caret_horizontal:before {
   content: "\eb9a";
-  color: #738499;
 }
 .icon-double_caret_vertical:before {
   content: "\eb9b";
-  color: #738499;
 }
 .icon-down_ui:before {
   content: "\eb9c";
-  color: #738499;
 }
 .icon-download .path1:before {
   content: "\eb9d";
-  color: rgb(198, 231, 255);
 }
 .icon-download .path2:before {
   content: "\eb9e";
@@ -4457,40 +4452,31 @@
 }
 .icon-home:before {
   content: "\ed11";
-  color: #738499;
 }
 .icon-home_11:before {
   content: "\ed12";
-  color: #738499;
 }
 .icon-home_outlined:before {
   content: "\ed13";
-  color: #738499;
 }
 .icon-home_vs:before {
   content: "\ed14";
-  color: #738499;
 }
 .icon-home_vs_1_outlined:before {
   content: "\ed15";
-  color: #738499;
 }
 .icon-home_vs_1_outlined-lc:before {
   content: "\ed16";
-  color: #335474;
 }
 .icon-home_vs_2_outlined:before {
   content: "\ed17";
-  color: #738499;
 }
 .icon-home-1 .path1:before {
   content: "\ed18";
-  color: rgb(198, 231, 255);
 }
 .icon-home-1 .path2:before {
   content: "\ed19";
   margin-left: -1em;
-  color: rgb(36, 153, 239);
 }
 .icon-home-2 .path1:before {
   content: "\ed1a";
@@ -4717,11 +4703,9 @@
 }
 .icon-info:before {
   content: "\ed4d";
- 
 }
 .icon-info_outined:before {
   content: "\ed4e";
-
 }
 .icon-info_outined_a:before {
   content: "\ed4f";
@@ -5946,15 +5930,12 @@
 }
 .icon-new_email:before {
   content: "\ee6f";
-  color: #738499;
 }
 .icon-new_email_fill:before {
   content: "\ee70";
-  color: #738499;
 }
 .icon-new_message:before {
   content: "\ee71";
-  color: #335474;
 }
 .icon-new_message_11:before {
   content: "\ee72";
@@ -7658,61 +7639,47 @@
 }
 .icon-shopping_cart_add_a:before {
   content: "\f000";
-  color: #738499;
 }
 .icon-shopping_cart_off:before {
   content: "\f001";
-  color: #738499;
 }
 .icon-shopping_cart_outlined:before {
   content: "\f002";
-  color: #335474;
 }
 .icon-shopping_cart_outlined_a:before {
   content: "\f003";
-  color: #738499;
 }
 .icon-shopping_cart_remove:before {
   content: "\f004";
-  color: #738499;
 }
 .icon-shopping_icon:before {
   content: "\f005";
-  color: #738499;
 }
 .icon-shopping-bag-1 .path1:before {
   content: "\f006";
-  color: rgb(198, 231, 255);
 }
 .icon-shopping-bag-1 .path2:before {
   content: "\f007";
   margin-left: -1em;
-  color: rgb(36, 153, 239);
 }
 .icon-shopping-bag-1 .path3:before {
   content: "\f008";
   margin-left: -1em;
-  color: rgb(36, 153, 239);
 }
 .icon-shower:before {
   content: "\f009";
-  color: #738499;
 }
 .icon-shuffle:before {
   content: "\f00a";
-  color: #738499;
 }
 .icon-shutter:before {
   content: "\f00b";
-  color: #738499;
 }
 .icon-shutter_outlined:before {
   content: "\f00c";
-  color: #738499;
 }
 .icon-sidelight_indicator:before {
   content: "\f00d";
-  color: #738499;
 }
 .icon-sidelight_information:before {
   content: "\f00e";
@@ -8288,27 +8255,21 @@
 }
 .icon-tab:before {
   content: "\f096";
-  color: #738499;
 }
 .icon-tab_key:before {
   content: "\f097";
-  color: #738499;
 }
 .icon-table:before {
   content: "\f098";
-  color: #738499;
 }
 .icon-table_tennis:before {
   content: "\f099";
-  color: #738499;
 }
 .icon-tablet:before {
   content: "\f09a";
-  color: #738499;
 }
 .icon-tablet_fill:before {
   content: "\f09b";
-  color: #738499;
 }
 .icon-tablet_phone:before {
   content: "\f09c";
@@ -8320,23 +8281,18 @@
 }
 .icon-tag:before {
   content: "\f09e";
-  color: #738499;
 }
 .icon-taxi:before {
   content: "\f09f";
-  color: #738499;
 }
 .icon-telegram:before {
   content: "\f0a0";
-  color: #738499;
 }
 .icon-temperature:before {
   content: "\f0a1";
-  color: #738499;
 }
 .icon-temperature_warning:before {
   content: "\f0a2";
-  color: #738499;
 }
 .icon-tennis:before {
   content: "\f0a3";

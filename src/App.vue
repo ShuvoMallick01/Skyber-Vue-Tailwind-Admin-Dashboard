@@ -13,11 +13,90 @@ import IconButton from "./components/button/IconButton.vue";
 import Alert from "./components/Alert.vue";
 import Badge from "./components/Badge/Badge.vue";
 import BadgeIcon from "./components/Badge/BadgeIcon.vue";
+import Card from "./components/Card.vue";
+import Breadcrumb from "./components/Breadcrumb.vue";
+import Dropdown from "./components/Dropdown.vue";
 
 // State
 const isDark = useDark();
 // const target = ref(null);
 const toggleDark = useToggle(isDark);
+const breadcrumbList = ref([
+  {
+    id: 1,
+    title: "Home",
+    router: true,
+    url: "/",
+    icon: "",
+    divider: "/",
+  },
+  {
+    id: 2,
+    title: "Product Page",
+    router: true,
+    url: "/",
+    icon: "",
+    divider: "/",
+  },
+  {
+    id: 3,
+    title: "Active",
+    router: true,
+    url: "/",
+    icon: "",
+    divider: "/",
+  },
+]);
+
+const breadcrumbList2 = ref([
+  {
+    id: 1,
+    title: "Home",
+    router: true,
+    url: "/",
+    icon: "icon-home_outlined me-1",
+    divider: "/",
+  },
+  {
+    id: 2,
+    title: "Product Page",
+    router: true,
+    url: "/",
+    icon: "icon-shopping_cart_outlined_a me-1",
+    divider: "/",
+  },
+  {
+    id: 3,
+    title: "Active",
+    router: true,
+    url: "/",
+    icon: "icon-tab_key me-1",
+    divider: "/",
+  },
+]);
+
+const dropdownList = ref([
+  {
+    id: 1,
+    title: "New",
+    icon: "",
+  },
+  {
+    id: 2,
+    title: "Popular",
+    icon: "",
+  },
+  {
+    id: 3,
+    title: "Price (Low to High)",
+    icon: "",
+  },
+  {
+    id: 4,
+    title: "Price (High to Low)",
+    icon: "",
+  },
+]);
 
 // Methods
 // onClickOutside(target, (event) => {
@@ -36,7 +115,7 @@ const toggleDark = useToggle(isDark);
   </div>
 
   <!-- Components -->
-  <div class="container mx-auto py-10 space-y-4">
+  <div class="container mx-auto py-10 space-y-4 px-5">
     <!--  === BUTTON === -->
     <div class="space-y-4">
       <h5 class="font-extrabold text-primary text-2xl block pb-5">BUTTON</h5>
@@ -306,7 +385,7 @@ const toggleDark = useToggle(isDark);
           </div>
         </div>
 
-        <BadgeIcon variant="without-icon-content">
+        <BadgeIcon variant="icon-without-content">
           <template #button>
             <Button title="Button Badge"></Button>
           </template>
@@ -315,7 +394,251 @@ const toggleDark = useToggle(isDark);
             <Badge size="small" shape="pill" color="error"></Badge>
           </template>
         </BadgeIcon>
+
+        <BadgeIcon variant="icon">
+          <template #button>
+            <i class="icon-email text-4xl leading-none"></i>
+          </template>
+
+          <template #icon>
+            <Badge size="small" shape="pill" color="error"></Badge>
+          </template>
+        </BadgeIcon>
+
+        <BadgeIcon>
+          <template #button>
+            <i class="icon-email text-4xl leading-none"></i>
+          </template>
+
+          <template #icon>
+            <Badge size="small" title="0" shape="pill" color="error"></Badge>
+          </template>
+        </BadgeIcon>
       </div>
+    </div>
+
+    <!-- === CARD === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">CARD</h5>
+
+      <div class="flex gap-6 flex-wrap items-center">
+        <Card class="shadow-md rounded-lg border max-w-96">
+          <template #body>
+            <div class="card-padding flex justify-between items-center">
+              <h5 class="card-title">Card title</h5>
+              <Button
+                color="secondary"
+                title="Action"
+                size="small"
+                class="text-text-200 bg-red-400"
+              ></Button>
+            </div>
+            <hr />
+            <p class="card-description py-4 px-5">
+              The vows and named is he seven his origin myself any is
+              decision-making. The interface of Jeni’s is simple and clean, with
+              the section includes questions that are very specific to their
+              customer group.
+            </p>
+            <hr />
+          </template>
+
+          <template #footer>
+            <div class="card-padding">
+              <h5 class="card-title">Footer</h5>
+            </div>
+          </template>
+        </Card>
+
+        <Card class="shadow-md rounded-lg border max-w-96">
+          <template #top-image>
+            <img
+              src="../src/assets/images/base_1.png"
+              class="w-full card-image"
+            />
+          </template>
+
+          <template #body>
+            <div class="mt-4 card-padding flex justify-between items-center">
+              <h5 class="card-title">Card title</h5>
+            </div>
+
+            <p class="card-description card-padding">
+              The vows and named is he seven his origin myself any is
+              decision-making. The interface of Jeni’s is simple and clean, with
+              the section includes questions that are very specific to their
+              customer group.
+            </p>
+            <hr />
+          </template>
+
+          <template #footer>
+            <div class="card-padding !py-4">
+              <h5 class="card-title">Footer</h5>
+            </div>
+          </template>
+        </Card>
+
+        <Card class="shadow-md rounded-lg border max-w-96 relative">
+          <template #top-image>
+            <img
+              src="../src/assets/images/base_2.png"
+              class="w-full card-image"
+            />
+          </template>
+
+          <template #body>
+            <div class="mt-4 card-padding absolute top-0 left-0">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-description !text-text-main py-3">
+                The vows and named is he seven his origin myself any is
+                decision-making.
+              </p>
+            </div>
+          </template>
+        </Card>
+
+        <Card class="shadow-md rounded-lg border max-w-96">
+          <template #body>
+            <div class="mt-4 card-padding flex justify-between items-center">
+              <h5 class="card-title">Card title</h5>
+            </div>
+
+            <p class="card-description card-padding !text-text-main">
+              The vows and named is he seven his origin myself any is
+              decision-making.
+            </p>
+          </template>
+
+          <template #bottom-image>
+            <img
+              src="../src/assets/images/base_3.png"
+              class="w-full card-image mt-6"
+            />
+          </template>
+        </Card>
+
+        <Card class="shadow-md rounded-lg border max-w-96">
+          <template #top-image>
+            <img
+              src="../src/assets/images/avatar/avatar-1.png"
+              class="w-[46px] h-[46px] mx-auto mt-[77px]"
+            />
+          </template>
+
+          <template #body>
+            <div class="card-padding text-center">
+              <h5 class="text-text-main font-body-14sm font-semibold">
+                Gabriel Palmer
+              </h5>
+              <p class="card-description">UI/UX Designer</p>
+              <p class="card-description py-4">
+                The vows and named is he seven his origin myself any is
+                decision-making.
+              </p>
+            </div>
+          </template>
+
+          <template #footer>
+            <div class="flex justify-center items-center gap-3 pb-6">
+              <i class="icon-facebook_square-1"></i>
+              <i class="icon-twitter-1"></i>
+              <i class="icon-linkedin_square"></i>
+              <i class="icon-Instagram leading-none"></i>
+            </div>
+          </template>
+        </Card>
+      </div>
+    </div>
+
+    <!-- === BREADCRUMB === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">CARD</h5>
+      <!-- Basic Breadcrumb -->
+      <p class="mb-4">Basic Breadcrumb</p>
+      <div class="flex gap-6 flex-wrap items-center">
+        <Breadcrumb :breadcrumbList="breadcrumbList"></Breadcrumb>
+      </div>
+
+      <p class="py-4">text with Icon</p>
+      <div class="flex gap-6 flex-wrap items-center">
+        <Breadcrumb :breadcrumbList="breadcrumbList2"></Breadcrumb>
+      </div>
+    </div>
+
+    <div class="container mx-auto pt-10 flex gap-6 flex-wrap items-center">
+      <button @click="toggleDark()" class="mx-2" color="text-primary ">
+        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
+        <i v-if="isDark" class="fa-regular fa-sun text-white"></i>
+        <i v-else class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+
+    <!-- === DROPDOWN === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">DROPDOWN</h5>
+      <div class="flex gap-6 flex-wrap items-center">
+        <Dropdown
+          :dropdownList="dropdownList"
+          title="Sorted By"
+          variant="primary"
+          color="primary"
+        ></Dropdown>
+
+        <Dropdown
+          :dropdownList="dropdownList"
+          title="Sorted By"
+          variant="filled"
+          color="info"
+        ></Dropdown>
+
+        <Dropdown
+          :dropdownList="dropdownList"
+          title="Sorted By"
+          variant="filled"
+          color="success"
+        ></Dropdown>
+
+        <Dropdown
+          :dropdownList="dropdownList"
+          title="Sorted By"
+          variant="outline"
+          color="primary"
+        ></Dropdown>
+
+        <Dropdown
+          :dropdownList="dropdownList"
+          title="Sorted By"
+          variant="outline"
+          color="info"
+        ></Dropdown>
+
+        <Dropdown
+          :dropdownList="dropdownList"
+          title="Sorted By"
+          variant="outline"
+          color="success"
+        ></Dropdown>
+      </div>
+    </div>
+
+    <!-- === title === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">CARD</h5>
+
+      <div class="flex gap-6 flex-wrap items-center"></div>
+    </div>
+
+    <!-- === title === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">CARD</h5>
+      <div class="flex gap-6 flex-wrap items-center"></div>
+    </div>
+
+    <!-- === title === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">CARD</h5>
+      <div class="flex gap-6 flex-wrap items-center"></div>
     </div>
   </div>
 </template>

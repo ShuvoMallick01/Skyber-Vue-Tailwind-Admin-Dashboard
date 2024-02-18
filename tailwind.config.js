@@ -22,14 +22,21 @@ export default {
         "error-darker": "#D62B64",
 
         "text-main": "#011E3D",
+        main: "#011E3D",
         "text-muted": "#738499",
+        muted: "#738499",
         "text-400": "#335474",
         "text-200": "#A7BEDA",
+        "muted-300": "#88A6C9",
         "text-100": "#CCDDF0",
       },
 
       borderWidth: {
         ".6": "0.6px",
+      },
+
+      lineHeight: {
+        0: "0",
       },
     },
   },
