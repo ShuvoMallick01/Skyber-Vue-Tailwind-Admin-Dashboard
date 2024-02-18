@@ -6,8 +6,9 @@ import { ref } from "vue";
 
 const props = defineProps({
   title: String,
-  tabList: { type: Array, default: [] },
-
+  paginationList: { type: Array, default: [] },
+  before: { type: String },
+  after: { type: String },
   variant: { type: String },
   color: { type: String },
   shape: { type: String },
@@ -20,15 +21,13 @@ const props = defineProps({
 const classNames = cva(["leading-normal transition-300 inline-block"], {
   variants: {
     variant: {
-      normal:
-        "text-muted-300  border-b-2 border-b-transparent hover:border-b hover:border-b-2 hover:border-b-gray-500 dark:text-white dark:border-b-transparent dark:hover:border-b-white",
-      button:
-        "text-muted-300 border-transparent hover:bg-dark/15 hover:text-black dark:text-white dark:hover:text-primary dark:hover:bg-dark/15",
+      basic:
+        " flex justify-center text-gray-500 bg-white border border-gray-300 hover:bg-black hover:text-white hover:border-black dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-primary dark:hover:text-white",
     },
 
     color: {
       primary:
-        "text-muted-300  hover:text-primary border-b-2  border-b-transparent hover:border-b-2  hover:border-b-primary dark:text-white dark:hover:text-primary dark:border-b-transparent dark:hover:border-b-primary",
+        "   text-muted-300 bg-white border border-gray-300 hover:bg-primary hover:text-white hover:border-primary dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-primary dark:hover:text-white",
       info: "text-muted-300  hover:text-info border-b-2  border-b-transparent hover:border-b-2  hover:border-b-info dark:text-white dark:hover:text-info dark:border-b-transparent dark:hover:border-b-info",
       success:
         "text-muted-300  hover:text-primary border-b-2  border-b-transparent hover:border-b-2  hover:border-b-primary dark:text-white dark:hover:text-primary dark:border-b-transparent dark:hover:border-b-primary",
@@ -39,13 +38,12 @@ const classNames = cva(["leading-normal transition-300 inline-block"], {
     },
 
     shape: {
-      rounded: "rounded-t-lg",
-      pill: "rounded-t-full",
+      rounded: "rounded-lg",
+      circle: "rounded-full",
     },
 
     size: {
-      "medium-normal": "py-3 text-sm font-medium text-muted-300 ",
-      "medium-button": "py-3 px-3 text-sm font-medium text-muted-300 ",
+      medium: "leading-tight  font-semibold items-center  w-10 h-10",
     },
   },
 
@@ -59,25 +57,36 @@ const classNames = cva(["leading-normal transition-300 inline-block"], {
   ],
 
   defaultVariants: {
-    variant: "normal",
+    variant: "basic",
     color: "primary",
-    shape: "rounded",
-    size: "medium-normal",
+    shape: "circle",
+    size: "medium",
   },
 });
 </script>
 
 <!-- === TEMPLATE ===  -->
 <template>
-  <ul
-    class="inline-flex flex-wrap text-center border-b border-b-gray-200 dark:border-gray-700"
-    :class="props.variant === 'button' ? 'gap-5' : 'gap-12'"
-  >
-    <li v-for="item in tabList">
-      <a href="#" :class="cn(classNames({ variant, color, shape, size }))"
-        ><i :class="item.prefixIcon"></i>{{ item.title
-        }}<i :class="item.suffixIcon"></i
-      ></a>
-    </li>
-  </ul>
+  <!-- <a href="#" :class="cn(classNames({ variant, color, shape, size }))" -->
+
+  <nav>
+    <ul class="flex gap-[11px] items-center">
+      <li>
+        <a href="#" :class="cn(classNames({ variant, color, shape, size }))">
+          <i :class="before" class="text-2xl"></i>
+        </a>
+      </li>
+      <li v-for="num in paginationList">
+        <a href="#" :class="cn(classNames({ variant, color, shape, size }))">{{
+          num
+        }}</a>
+      </li>
+
+      <li>
+        <a href="#" :class="cn(classNames({ variant, color, shape, size }))">
+          <i :class="after" class="text-2xl"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </template>

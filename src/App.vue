@@ -16,6 +16,8 @@ import BadgeIcon from "./components/Badge/BadgeIcon.vue";
 import Card from "./components/Card.vue";
 import Breadcrumb from "./components/Breadcrumb.vue";
 import Dropdown from "./components/Dropdown.vue";
+import Tab from "./components/Tab.vue";
+import Pagination from "./components/Pagination.vue";
 
 // State
 const isDark = useDark();
@@ -97,6 +99,62 @@ const dropdownList = ref([
     icon: "",
   },
 ]);
+
+const tabList1 = ref([
+  {
+    id: 1,
+    title: "Overview",
+    prefixIcon: "icon-home_outlined me-1",
+    suffixIcon: "",
+  },
+  {
+    id: 2,
+    title: "Projects",
+    prefixIcon: "icon-home_outlined me-1",
+    suffixIcon: "",
+  },
+  {
+    id: 3,
+    title: "Documents",
+    prefixIcon: "icon-home_outlined me-1",
+    suffixIcon: "",
+  },
+  {
+    id: 4,
+    title: "Connections",
+    prefixIcon: "icon-home_outlined me-1",
+    suffixIcon: "",
+  },
+]);
+
+const tabList2 = ref([
+  {
+    id: 1,
+    title: "Overview",
+    prefixIcon: "icon-home_outlined me-1",
+    suffixIcon: "icon-down_ui ms-1",
+  },
+  {
+    id: 2,
+    title: "Projects",
+    prefixIcon: "icon-home_outlined me-1",
+    suffixIcon: "icon-down_ui ms-1",
+  },
+  {
+    id: 3,
+    title: "Documents",
+    prefixIcon: "icon-home_outlined me-1",
+    suffixIcon: "icon-down_ui ms-1",
+  },
+  {
+    id: 4,
+    title: "Connections",
+    prefixIcon: "icon-home_outlined me-1",
+    suffixIcon: "icon-down_ui ms-1",
+  },
+]);
+
+const paginationList1 = ref([1, 2, 3, 4, 5]);
 
 // Methods
 // onClickOutside(target, (event) => {
@@ -566,14 +624,6 @@ const dropdownList = ref([
       </div>
     </div>
 
-    <div class="container mx-auto pt-10 flex gap-6 flex-wrap items-center">
-      <button @click="toggleDark()" class="mx-2" color="text-primary ">
-        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
-        <i v-if="isDark" class="fa-regular fa-sun text-white"></i>
-        <i v-else class="fa-solid fa-moon"></i>
-      </button>
-    </div>
-
     <!-- === DROPDOWN === -->
     <div class="pt-10">
       <h5 class="font-extrabold text-primary text-2xl block pb-5">DROPDOWN</h5>
@@ -622,17 +672,49 @@ const dropdownList = ref([
       </div>
     </div>
 
-    <!-- === title === -->
+    <!-- === TABS === -->
     <div class="pt-10">
-      <h5 class="font-extrabold text-primary text-2xl block pb-5">CARD</h5>
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">TABS</h5>
+      <div class="space-y-8">
+        <Tab :tabList="tabList1" variant="normal"></Tab>
+        <Tab :tabList="tabList2" color="info"></Tab>
 
-      <div class="flex gap-6 flex-wrap items-center"></div>
+        <Tab
+          :tabList="tabList1"
+          variant="button"
+          color="primary"
+          size="medium-button"
+        ></Tab>
+        <Tab
+          :tabList="tabList2"
+          color="primary"
+          variant="button"
+          size="medium-button"
+        ></Tab>
+      </div>
     </div>
 
-    <!-- === title === -->
+    <!-- ==== THEME ==== -->
+    <div class="container mx-auto pt-10 flex gap-6 flex-wrap items-center">
+      <button @click="toggleDark()" class="mx-2" color="text-primary ">
+        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
+        <i v-if="isDark" class="fa-regular fa-sun text-white"></i>
+        <i v-else class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+
+    <!-- === PAGINATION === -->
     <div class="pt-10">
-      <h5 class="font-extrabold text-primary text-2xl block pb-5">CARD</h5>
-      <div class="flex gap-6 flex-wrap items-center"></div>
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">
+        PAGINATION
+      </h5>
+      <div class="flex gap-6 flex-wrap items-center">
+        <Pagination
+          :paginationList="paginationList1"
+          before="icon-chevron_left"
+          after="icon-chevron_right"
+        ></Pagination>
+      </div>
     </div>
 
     <!-- === title === -->
