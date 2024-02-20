@@ -26,7 +26,7 @@ const classNames = cva(["leading-normal transition-300 "], {
   compoundVariants: [],
 
   defaultVariants: {
-    variant: primary,
+    variant: "primary",
   },
 });
 </script>

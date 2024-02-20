@@ -18,6 +18,9 @@ import Breadcrumb from "./components/Breadcrumb.vue";
 import Dropdown from "./components/Dropdown.vue";
 import Tab from "./components/Tab.vue";
 import Pagination from "./components/Pagination.vue";
+import FormInput from "./components/Form/FormInput.vue";
+import FormSelect from "./components/Form/FormSelect.vue";
+import Checkbox from "./components/Form/Checkbox.vue";
 
 // State
 const isDark = useDark();
@@ -155,6 +158,25 @@ const tabList2 = ref([
 ]);
 
 const paginationList1 = ref([1, 2, 3, 4, 5]);
+
+const optionList = ref([
+  {
+    id: 1,
+    title: "Bangladesh",
+  },
+  {
+    id: 2,
+    title: "India",
+  },
+  {
+    id: 3,
+    title: "USA",
+  },
+  {
+    id: 4,
+    title: "UK",
+  },
+]);
 
 // Methods
 // onClickOutside(target, (event) => {
@@ -694,15 +716,6 @@ const paginationList1 = ref([1, 2, 3, 4, 5]);
       </div>
     </div>
 
-    <!-- ==== THEME ==== -->
-    <div class="container mx-auto pt-10 flex gap-6 flex-wrap items-center">
-      <button @click="toggleDark()" class="mx-2" color="text-primary ">
-        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
-        <i v-if="isDark" class="fa-regular fa-sun text-white"></i>
-        <i v-else class="fa-solid fa-moon"></i>
-      </button>
-    </div>
-
     <!-- === PAGINATION === -->
     <div class="pt-10">
       <h5 class="font-extrabold text-primary text-2xl block pb-5">
@@ -714,13 +727,149 @@ const paginationList1 = ref([1, 2, 3, 4, 5]);
           before="icon-chevron_left"
           after="icon-chevron_right"
         ></Pagination>
+
+        <Pagination
+          :paginationList="paginationList1"
+          before="icon-chevron_left"
+          after="icon-chevron_right"
+          shape="rounded"
+        ></Pagination>
+
+        <Pagination
+          :paginationList="paginationList1"
+          before="icon-chevron_left"
+          after="icon-chevron_right"
+          color="secondary"
+        ></Pagination>
       </div>
     </div>
 
-    <!-- === title === -->
+    <!-- ==== THEME ==== -->
+    <div class="container mx-auto pt-10 flex gap-6 flex-wrap items-center">
+      <button @click="toggleDark()" class="mx-2" color="text-primary ">
+        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
+        <i v-if="isDark" class="fa-regular fa-sun text-white"></i>
+        <i v-else class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+
+    <!-- === FORMS === -->
     <div class="pt-10">
-      <h5 class="font-extrabold text-primary text-2xl block pb-5">CARD</h5>
-      <div class="flex gap-6 flex-wrap items-center"></div>
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">FORMS</h5>
+
+      <!-- Input Field -->
+      <div class="space-y-5">
+        <h5>Input Field</h5>
+        <FormInput
+          labelName="Basic Input"
+          required
+          id="basicName"
+          placeholder="Text Input"
+        />
+
+        <FormInput
+          labelName="Label Name"
+          required
+          id="labelName"
+          placeholder="Text Input"
+          size="search-medium-prefix"
+        >
+          <template #prefix>
+            <i class="icon-Dot text-muted-300 top-0 input-icon-position"></i>
+          </template>
+        </FormInput>
+
+        <FormInput
+          labelName="Label Name"
+          required
+          id="labelName"
+          placeholder="Text Input"
+          size="search-medium-suffix"
+        >
+          <template #suffix>
+            <i
+              class="icon-Dot text-muted-300 absolute top-0 end-0 input-icon-position"
+            ></i>
+          </template>
+        </FormInput>
+
+        <!-- 2ND VERSION -->
+        <FormInput
+          variant="filled"
+          labelName="Basic Input"
+          required
+          id="basicName"
+          placeholder="Text Input"
+        />
+
+        <FormInput
+          variant="filled"
+          labelName="Label Name"
+          required
+          id="labelName"
+          placeholder="Text Input"
+          size="search-medium-prefix"
+        >
+          <template #prefix>
+            <i class="icon-Dot text-muted-300 top-0 input-icon-position"></i>
+          </template>
+        </FormInput>
+      </div>
+
+      <!-- Input Field -->
+      <div class="space-y-5 pt-10">
+        <h5>Select Field</h5>
+        <FormSelect
+          :optionList="optionList"
+          labelName="Basic Input"
+          required
+          id="basicName"
+          placeholder="Text Input"
+        />
+      </div>
+    </div>
+
+    <!-- === ADVANCED ELEMENT === -->
+    <!-- ==== THEME ==== -->
+    <div class="container mx-auto pt-10 flex gap-6 flex-wrap items-center">
+      <button @click="toggleDark()" class="mx-2" color="text-primary ">
+        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
+        <i v-if="isDark" class="fa-regular fa-sun text-white"></i>
+        <i v-else class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">
+        ADVANCED ELEMENT
+      </h5>
+
+      <div class="items-center space-y-6">
+        <FormSelect
+          :optionList="optionList"
+          labelName="Basic Input"
+          required
+          id="basicName"
+          placeholder="Text Input"
+          customInputClass="!px-20 "
+        >
+          <template #prefix>
+            <span class="input-icon-position bg-gray200">
+              <div class="flex gap-1 items-center text-slate-400 font-13m">
+                <i class="icon-flag"></i>
+                <span>+44</span>
+              </div>
+            </span>
+          </template>
+        </FormSelect>
+
+        <div class="text-start flex gap-8">
+          <Checkbox labelName="Checkbox"></Checkbox>
+          <Checkbox labelName="Checkbox" shape="circle"></Checkbox>
+
+          <Checkbox labelName="Checkbox" variant="outline"></Checkbox>
+        </div>
+      </div>
     </div>
   </div>
 </template>

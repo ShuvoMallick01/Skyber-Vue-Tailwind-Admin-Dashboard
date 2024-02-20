@@ -23,12 +23,16 @@ export default {
 
         "text-main": "#011E3D",
         main: "#011E3D",
+        "text-400": "#335474",
+        "text-300": "#335474",
+        "text-200": "#A7BEDA",
+        "text-100": "#CCDDF0",
         "text-muted": "#738499",
         muted: "#738499",
-        "text-400": "#335474",
-        "text-200": "#A7BEDA",
         "muted-300": "#88A6C9",
-        "text-100": "#CCDDF0",
+
+        gray200: "#F1F6F9",
+        gray300: "#E9EFF6",
       },
 
       borderWidth: {
@@ -40,7 +44,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
 
 // 335474;

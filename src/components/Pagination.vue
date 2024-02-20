@@ -28,13 +28,8 @@ const classNames = cva(["leading-normal transition-300 inline-block"], {
     color: {
       primary:
         "   text-muted-300 bg-white border border-gray-300 hover:bg-primary hover:text-white hover:border-primary dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-primary dark:hover:text-white",
-      info: "text-muted-300  hover:text-info border-b-2  border-b-transparent hover:border-b-2  hover:border-b-info dark:text-white dark:hover:text-info dark:border-b-transparent dark:hover:border-b-info",
-      success:
-        "text-muted-300  hover:text-primary border-b-2  border-b-transparent hover:border-b-2  hover:border-b-primary dark:text-white dark:hover:text-primary dark:border-b-transparent dark:hover:border-b-primary",
-      warning:
-        "text-muted-300  hover:text-primary border-b-2  border-b-transparent hover:border-b-2  hover:border-b-primary dark:text-white dark:hover:text-primary dark:border-b-transparent dark:hover:border-b-primary",
-      error:
-        "text-muted-300  hover:text-primary border-b-2  border-b-transparent hover:border-b-2  hover:border-b-primary dark:text-white dark:hover:text-primary dark:border-b-transparent dark:hover:border-b-primary",
+      secondary:
+        "   text-muted-300 bg-white border border-gray-300 hover:bg-white hover:text-primary hover:border-primary dark:bg-gray-800 dark:border-gray-700 dark:hover:border-primary dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-primary",
     },
 
     shape: {
