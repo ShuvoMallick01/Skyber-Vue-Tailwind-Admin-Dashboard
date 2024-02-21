@@ -22,6 +22,7 @@ import FormInput from "./components/Form/FormInput.vue";
 import FormSelect from "./components/Form/FormSelect.vue";
 import Checkbox from "./components/Form/Checkbox.vue";
 import InputSpin from "./components/Advance/InputSpin.vue";
+import Accordion from "./components/Accordion.vue";
 
 // State
 const isDark = useDark();
@@ -975,7 +976,9 @@ const optionList = ref([
       <h5 class="font-extrabold text-primary text-2xl block pb-5">ACCORDION</h5>
 
       <!-- Input Field -->
-      <div class="space-y-5"></div>
+      <div class="space-y-5">
+        <Accordion />
+      </div>
     </div>
   </div>
 </template>
