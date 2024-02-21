@@ -238,6 +238,39 @@
     @apply absolute inline-flex flex-col h-full justify-center px-3;
   }
 
+  /* Input Field */
+  .form-input-outline-gray {
+    @apply bg-white border border-gray-300 text-gray-900 outline-none ring-0  focus:ring-0 focus:outline-none focus:border-gray-300 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500;
+  }
+
+  .form-input-filled-gray {
+    @apply bg-gray-200 border border-gray-300 text-gray-900 outline-none ring-0 focus:ring-0 focus:outline-none focus:border-gray-300 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500;
+  }
+
+  /* Checkbox */
+
+  /* Style the custom checkbox */
+  /* .custom-checkbox input[type="checkbox"] + span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    background-color: #fff;
+  }
+*/
+  /* Show the checkmark when checked */
+  /* .custom-checkbox input[type="checkbox"]:checked + span::after {
+    background-color: #fff !important;
+    content: "\2713"; 
+    text-align: center;
+    line-height: 16px;
+    color: #fff;
+  } */
+
   /* TEST */
   .test {
     @apply text-sm font-semibold leading-2 py-3 w-10;

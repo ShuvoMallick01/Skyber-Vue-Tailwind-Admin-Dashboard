@@ -29,7 +29,7 @@ const selectClasses = cva(["leading-normal transition-300"], {
         "bg-text-200 border border-gray300 text-gray-900  block dark:bg-gray-700 dark:text-white ",
     },
     color: {
-      gray: "bg-white border border-gray300 text-gray-900 outline-none ring-0  block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500",
+      gray: "form-input-outline-gray",
     },
     shape: {
       rounded: "rounded-lg",
@@ -47,8 +47,8 @@ const selectClasses = cva(["leading-normal transition-300"], {
   compoundVariants: [
     {
       variant: "filled",
-      class:
-        "bg-gray-200 border border-gray-300 text-gray-900 outline-none ring-0 focus:border-gray-400 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500",
+      color: "gray",
+      class: "form-input-filled-gray",
     },
   ],
 

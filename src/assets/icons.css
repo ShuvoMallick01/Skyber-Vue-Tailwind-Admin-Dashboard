@@ -5686,34 +5686,27 @@
 .icon-Microsoft .path2:before {
   content: "\ee39";
   margin-left: -1em;
-  color: rgb(241, 246, 249);
 }
 .icon-Microsoft .path3:before {
   content: "\ee3a";
   margin-left: -1em;
-  color: rgb(241, 246, 249);
 }
 .icon-Microsoft .path4:before {
   content: "\ee3b";
   margin-left: -1em;
-  color: rgb(241, 246, 249);
 }
 .icon-Microsoft .path5:before {
   content: "\ee3c";
   margin-left: -1em;
-  color: rgb(241, 246, 249);
 }
 .icon-Mike:before {
   content: "\ee3d";
-  color: #335474;
 }
 .icon-minus:before {
   content: "\ee3e";
-  color: #335474;
 }
 .icon-missed_call:before {
   content: "\ee3f";
-  color: #738499;
 }
 .icon-missed_call_outgoing:before {
   content: "\ee40";
@@ -6555,23 +6548,18 @@
 }
 .icon-plug:before {
   content: "\ef06";
-  color: #738499;
 }
 .icon-plug_outlined:before {
   content: "\ef07";
-  color: #738499;
 }
 .icon-plugin:before {
   content: "\ef08";
-  color: #738499;
 }
 .icon-plugin_outlined:before {
   content: "\ef09";
-  color: #738499;
 }
 .icon-plus:before {
   content: "\ef0a";
-  color: #335474;
 }
 .icon-Png .path1:before {
   content: "\ef0b";

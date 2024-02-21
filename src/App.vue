@@ -21,6 +21,7 @@ import Pagination from "./components/Pagination.vue";
 import FormInput from "./components/Form/FormInput.vue";
 import FormSelect from "./components/Form/FormSelect.vue";
 import Checkbox from "./components/Form/Checkbox.vue";
+import InputSpin from "./components/Advance/InputSpin.vue";
 
 // State
 const isDark = useDark();
@@ -852,6 +853,8 @@ const optionList = ref([
           id="basicName"
           placeholder="Text Input"
           customInputClass="!px-20 "
+          class="!border-gray200 w-full"
+          size="custom"
         >
           <template #prefix>
             <span class="input-icon-position bg-gray200">
@@ -866,10 +869,113 @@ const optionList = ref([
         <div class="text-start flex gap-8">
           <Checkbox labelName="Checkbox"></Checkbox>
           <Checkbox labelName="Checkbox" shape="circle"></Checkbox>
+        </div>
 
-          <Checkbox labelName="Checkbox" variant="outline"></Checkbox>
+        <div class="text-start flex gap-8">
+          <Checkbox
+            labelName="Checkbox"
+            variant="outline"
+            color="primary"
+          ></Checkbox>
+        </div>
+
+        <!-- Input Spin -->
+        <div class="text-start flex gap-8">
+          <InputSpin>
+            <Button
+              color="secondary"
+              class="!text-base !text-muted-300 h-[36px] w-[36px] inline-flex justify-center"
+              size="small"
+            >
+              <template #prefix>
+                <i class="icon-minus"></i>
+              </template>
+            </Button>
+
+            <FormInput
+              size="custom"
+              class="!border-0 px-1 h-[36px] w-[25px] z-10 inline-flex justify-center text-center !font-12m"
+              value="0"
+            >
+            </FormInput>
+
+            <Button
+              color="secondary"
+              class="!text-base !text-muted-300 h-[36px] w-[36px] z-10 inline-flex justify-center"
+            >
+              <template #suffix>
+                <i class="icon-plus"></i>
+              </template>
+            </Button>
+          </InputSpin>
+
+          <InputSpin variant="filled">
+            <Button
+              color="secondary"
+              class="!text-base !bg-white !text-muted-300 h-[36px] w-[36px] inline-flex justify-center"
+              size="small"
+            >
+              <template #prefix>
+                <i class="icon-minus"></i>
+              </template>
+            </Button>
+
+            <FormInput
+              size="custom"
+              class="!border-0 px-1 !bg-transparent h-[36px] w-[25px] z-10 inline-flex justify-center text-center !font-12m"
+              value="0"
+            >
+            </FormInput>
+
+            <Button
+              color="secondary"
+              class="!text-base !bg-white !text-muted-300 h-[36px] w-[36px] z-10 inline-flex justify-center"
+            >
+              <template #suffix>
+                <i class="icon-plus"></i>
+              </template>
+            </Button>
+          </InputSpin>
+
+          <InputSpin shape="pill">
+            <Button
+              color="secondary"
+              shape="pill"
+              class="!text-base !text-muted-300 h-[36px] w-[36px] inline-flex justify-center"
+              size="small"
+            >
+              <template #prefix>
+                <i class="icon-minus"></i>
+              </template>
+            </Button>
+
+            <FormInput
+              size="custom"
+              class="!border-0 px-1 h-[36px] w-[25px] z-10 inline-flex justify-center text-center !font-12m"
+              value="0"
+            >
+            </FormInput>
+
+            <Button
+              shape="pill"
+              color="secondary"
+              class="!text-base !text-muted-300 h-[36px] w-[36px] z-10 inline-flex justify-center"
+            >
+              <template #suffix>
+                <i class="icon-plus"></i>
+              </template>
+            </Button>
+          </InputSpin>
         </div>
       </div>
+    </div>
+
+    <!-- === ACCORDION === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">ACCORDION</h5>
+
+      <!-- Input Field -->
+      <div class="space-y-5"></div>
     </div>
   </div>
 </template>

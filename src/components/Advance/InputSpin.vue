@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
 <script setup>
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 import { cva } from "class-variance-authority";
 import { ref } from "vue";
 
@@ -18,36 +18,36 @@ const props = defineProps({
 const classNames = cva(["leading-normal transition-300 "], {
   variants: {
     variant: {
+      outline: "border",
       filled: "",
-      outline: "",
     },
 
     color: {
-      primary: "",
+      gray: "border-gray300",
     },
 
     shape: {
-      rounded: "",
-      pill: "",
+      rounded: "rounded-lg",
+      pill: "rounded-full",
     },
 
     size: {
-      medium: "",
+      medium: "p-[6px]",
       small: "",
     },
   },
 
   compoundVariants: [
     {
-      variant: "",
-      color: "",
-      class: "",
+      variant: "filled",
+      color: "gray",
+      class: "bg-gray200",
     },
   ],
 
   defaultVariants: {
-    variant: "filled",
-    color: "primary",
+    variant: "outline",
+    color: "gray",
     shape: "rounded",
     size: "medium",
   },
@@ -56,8 +56,12 @@ const classNames = cva(["leading-normal transition-300 "], {
 
 <!-- === TEMPLATE ===  -->
 <template>
-  <div
+  <!-- <div
     v-bind="$attrs"
     :class="cn(classNames({ variant, color, size, shape }))"
-  ></div>
+  ></div> -->
+
+  <div class="flex" :class="cn(classNames({ variant, color, size, shape }))">
+    <slot></slot>
+  </div>
 </template>

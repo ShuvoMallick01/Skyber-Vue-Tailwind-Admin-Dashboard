@@ -13,7 +13,7 @@ const props = defineProps({
   label: { type: String },
 
   modelValue: true,
-  inputCustomClass: { type: String },
+  customInputClass: { type: String },
   required: { type: Boolean, default: false },
   shadow: String,
 });
@@ -23,18 +23,19 @@ const inputClasses = cva(["leading-normal transition-300 "], {
   variants: {
     variant: {
       outline:
-        "bg-white border border-gray-300 text-gray-900 block dark:bg-gray-700 dark:text-white ",
+        "text-sm  bg-white border border-gray-300 text-gray-900 block  dark:bg-gray-700 dark:text-white ",
       filled:
-        "bg-text-200 border border-gray-300 text-gray-900  block dark:bg-gray-700 dark:text-white ",
+        "text-sm  bg-text-200 border border-gray-300 text-gray-900  block dark:bg-gray-700 dark:text-white ",
     },
     color: {
-      gray: "bg-white border border-gray-300 text-gray-900 outline-none ring-0  block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500",
+      gray: "form-input-outline-gray",
     },
     shape: {
       rounded: "rounded-lg",
     },
     size: {
       medium: "text-sm w-full p-[15px]",
+      custom: "",
       "search-medium-prefix": "text-sm w-full py-[15px] ps-[36px] pe-[15px] ",
       "search-medium-suffix": "text-sm w-full py-[15px] ps-[15px] pe-[36px] ",
     },
@@ -46,8 +47,7 @@ const inputClasses = cva(["leading-normal transition-300 "], {
   compoundVariants: [
     {
       variant: "filled",
-      class:
-        "bg-gray-200 border border-gray-300 text-gray-900 outline-none ring-0 focus:border-gray-400 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500",
+      class: "form-input-filled-gray",
     },
   ],
 
@@ -71,7 +71,7 @@ const inputClasses = cva(["leading-normal transition-300 "], {
       :class="required ? 'required-mark' : ''"
       >{{ labelName }}</label
     >
-    <span :class="inputCustomClass" class="relative">
+    <span class="relative">
       <slot name="prefix"></slot>
       <input
         :required="required"
