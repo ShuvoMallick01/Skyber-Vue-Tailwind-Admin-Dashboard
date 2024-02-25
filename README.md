@@ -2,7 +2,9 @@
 
 Live Explore: https://admin-dashboard-vue-tailwindcss.netlify.app/
 
-This template should help get you started developing with Vue 3 in Vite.
+## Description
+
+Create components with Class Variance Authority, combining Clsx and TailwindCSS merge packages.
 
 ## Recommended IDE Setup
 
