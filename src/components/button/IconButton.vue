@@ -30,14 +30,7 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
       translucent:
         "text-gray-400 bg-black/10 text-center focus:outline-none outline-none",
     },
-    color: {
-      primary: "filled-primary",
-      secondary: "filled-secondary",
-      info: "filled-info",
-      success: "filled-success",
-      warning: "filled-warning",
-      error: "filled-error",
-    },
+
     shape: {
       rounded: "shape-rounded-btn",
       circle: "rounded-full",
@@ -50,6 +43,39 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
   },
 
   compoundVariants: [
+    // Filled Buttons
+    {
+      variant: "filled",
+      color: "primary",
+      class: "filled-primary",
+    },
+    {
+      variant: "filled",
+      color: "secondary",
+      class: "filled-secondary",
+    },
+    {
+      variant: "filled",
+      color: "info",
+      class: "filled-info",
+    },
+    {
+      variant: "filled",
+      color: "success",
+      class: "filled-success",
+    },
+    {
+      variant: "filled",
+      color: "warning",
+      class: "filled-warning",
+    },
+    {
+      variant: "filled",
+      color: "error",
+      class: "filled-error",
+    },
+
+    // Outline Buttons
     {
       variant: "outline",
       color: "primary",
@@ -82,6 +108,7 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
     },
 
     // Translucent Buttons
+
     {
       variant: "translucent",
       color: "primary",
@@ -135,3 +162,65 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
     <slot name="icon"></slot>
   </component>
 </template>
+
+<!-- STYLE -->
+<style scoped>
+.filled-primary {
+  @apply text-white bg-primary hover:bg-primary-darker;
+}
+.filled-secondary {
+  @apply text-text-400 bg-secondary hover:bg-secondary-darker;
+}
+.filled-info {
+  @apply bg-info hover:bg-info-darker;
+}
+.filled-success {
+  @apply bg-success hover:bg-success-darker;
+}
+.filled-warning {
+  @apply bg-warning hover:bg-warning-darker;
+}
+.filled-error {
+  @apply bg-error hover:bg-error-darker;
+}
+
+/* Outline Button Color */
+.outline-primary {
+  @apply text-primary bg-transparent border-primary outline-none hover:text-white hover:bg-primary dark:border-primary dark:text-primary dark:hover:text-white dark:hover:border-primary;
+}
+.outline-secondary {
+  @apply text-text-400 bg-transparent border-text-400 outline-none hover:text-white hover:bg-text-400 dark:hover:bg-white dark:hover:text-black;
+}
+.outline-info {
+  @apply text-info bg-transparent border-info outline-none hover:text-white hover:bg-info dark:border-info dark:text-info dark:hover:text-white dark:hover:border-info;
+}
+.outline-success {
+  @apply text-success bg-transparent border-success outline-none hover:text-white hover:bg-success dark:border-success dark:text-success dark:hover:text-white dark:hover:border-success;
+}
+.outline-warning {
+  @apply text-warning bg-transparent border-warning outline-none hover:text-white hover:bg-warning dark:border-warning dark:text-warning dark:hover:text-white dark:hover:border-warning;
+}
+.outline-error {
+  @apply text-error bg-transparent border-error outline-none hover:text-white hover:bg-error dark:border-error dark:text-error dark:hover:text-white dark:hover:border-error;
+}
+
+/* Translucent Button Color */
+.translucent-primary {
+  @apply text-primary bg-primary/15 border-primary hover:text-primary-darker hover:bg-primary/40 dark:text-primary;
+}
+.translucent-secondary {
+  @apply text-slate-400 bg-secondary border-text-400 hover:text-black hover:bg-text-400/20  dark:text-gray-500 dark:hover:bg-white dark:hover:text-gray-500;
+}
+.translucent-info {
+  @apply text-info bg-info/15 border-info hover:text-info-darker hover:bg-info/40 dark:hover:text-info;
+}
+.translucent-success {
+  @apply text-success bg-success/15 border-success hover:text-success-darker hover:bg-success/40 dark:hover:text-success;
+}
+.translucent-warning {
+  @apply text-warning bg-warning/15 border-warning hover:text-warning-darker hover:bg-warning/40 dark:hover:text-warning;
+}
+.translucent-error {
+  @apply text-error bg-error/15 border-error hover:text-error-darker hover:bg-error/40 dark:hover:text-error;
+}
+</style>

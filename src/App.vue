@@ -202,7 +202,7 @@ const optionList = ref([
     <div class="space-y-4">
       <h5 class="font-extrabold text-primary text-2xl block pb-5">BUTTON</h5>
       <div class="flex gap-6 flex-wrap items-center">
-        <Button title="Primary" color="primary" />
+        <Button title="Primary" variant="filled" color="primary" />
         <Button title="Secondary" color="secondary" />
         <Button title="Info" color="info" />
         <Button title="Success" color="success" />
@@ -872,13 +872,13 @@ const optionList = ref([
           <Checkbox labelName="Checkbox" shape="circle"></Checkbox>
         </div>
 
-        <div class="text-start flex gap-8">
+        <!-- <div class="text-start flex gap-8">
           <Checkbox
             labelName="Checkbox"
             variant="outline"
             color="primary"
           ></Checkbox>
-        </div>
+        </div> -->
 
         <!-- Input Spin -->
         <div class="text-start flex gap-8">

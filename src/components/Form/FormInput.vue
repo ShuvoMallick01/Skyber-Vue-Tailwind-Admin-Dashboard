@@ -4,6 +4,10 @@ import { cn } from "../../utils/cn";
 import { cva } from "class-variance-authority";
 import { ref } from "vue";
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = defineProps({
   labelName: String,
   variant: { type: String },
@@ -27,9 +31,6 @@ const inputClasses = cva(["leading-normal transition-300 "], {
       filled:
         "text-sm  bg-text-200 border border-gray-300 text-gray-900  block dark:bg-gray-700 dark:text-white ",
     },
-    color: {
-      gray: "form-input-outline-gray",
-    },
     shape: {
       rounded: "rounded-lg",
     },
@@ -45,6 +46,10 @@ const inputClasses = cva(["leading-normal transition-300 "], {
   },
 
   compoundVariants: [
+    {
+      variant: "outline",
+      class: "form-input-outline-gray",
+    },
     {
       variant: "filled",
       class: "form-input-filled-gray",

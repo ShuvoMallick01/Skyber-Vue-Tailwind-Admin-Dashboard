@@ -28,9 +28,7 @@ const selectClasses = cva(["leading-normal transition-300"], {
       filled:
         "bg-text-200 border border-gray300 text-gray-900  block dark:bg-gray-700 dark:text-white ",
     },
-    color: {
-      gray: "form-input-outline-gray",
-    },
+
     shape: {
       rounded: "rounded-lg",
     },
@@ -45,6 +43,11 @@ const selectClasses = cva(["leading-normal transition-300"], {
   },
 
   compoundVariants: [
+    {
+      variant: "outline",
+      color: "gray",
+      class: "form-input-outline-gray",
+    },
     {
       variant: "filled",
       color: "gray",

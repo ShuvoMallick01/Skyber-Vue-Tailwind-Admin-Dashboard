@@ -26,15 +26,6 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
         "font-semibold text-gray-400  bg-black/10 text-center focus:outline-none outline-none",
     },
 
-    color: {
-      primary: "text-white bg-primary ",
-      secondary: "text-text-400 bg-secondary ",
-      info: "bg-info ",
-      success: "bg-success ",
-      warning: "bg-warning ",
-      error: "bg-error ",
-    },
-
     shape: {
       rounded: "shape-rounded-btn",
       pill: "rounded-full",
@@ -47,6 +38,39 @@ const button = cva(["leading-normal transition-300 flex items-center group"], {
   },
 
   compoundVariants: [
+    // Filled Variant
+    {
+      variant: "filled",
+      color: "primary",
+      class: "text-white bg-primary ",
+    },
+    {
+      variant: "filled",
+      color: "secondary",
+      class: "text-text-400 bg-secondary ",
+    },
+    {
+      variant: "filled",
+      color: "info",
+      class: "bg-info ",
+    },
+    {
+      variant: "filled",
+      color: "success",
+      class: "bg-success",
+    },
+    {
+      variant: "filled",
+      color: "warning",
+      class: "bg-warning ",
+    },
+    {
+      variant: "filled",
+      color: "error",
+      class: "bg-error ",
+    },
+
+    // Outline Variant
     {
       variant: "outline",
       color: "primary",

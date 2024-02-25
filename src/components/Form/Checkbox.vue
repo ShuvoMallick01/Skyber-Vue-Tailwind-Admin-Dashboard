@@ -25,10 +25,6 @@ const checkboxClass = cva(["leading-normal transition-300 cursor-pointer"], {
       filled: "text-black bg-white border-2 border-black ",
       outline: "custom-checkbox",
     },
-    color: {
-      primary:
-        "bg-white border-2 border-gray-300 text-primary outline-none ring-0 focus:outline-none focus:ring-0 focus:border-gray-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:outline-none dark:ring-0 dark:outline-none dark:focus:ring-0 dark:text-primary dark:focus:border-gray-500 dark:active:ring-0",
-    },
 
     shape: {
       rounded: "rounded-md",
@@ -41,6 +37,12 @@ const checkboxClass = cva(["leading-normal transition-300 cursor-pointer"], {
   },
 
   compoundVariants: [
+    {
+      variant: "filled",
+      color: "primary",
+      class:
+        "bg-white border-2 border-gray-300 text-primary outline-none ring-0 focus:outline-none focus:ring-0 focus:border-gray-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:outline-none dark:ring-0 dark:outline-none dark:focus:ring-0 dark:text-primary dark:focus:border-gray-500 dark:active:ring-0",
+    },
     {
       variant: "outline",
       color: "primary",

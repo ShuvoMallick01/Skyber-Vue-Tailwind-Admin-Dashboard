@@ -93,7 +93,7 @@
   }
 
   /* Filled Button Color */
-  .filled-primary {
+  /* .filled-primary {
     @apply text-white bg-primary hover:bg-primary-darker;
   }
   .filled-secondary {
@@ -110,10 +110,10 @@
   }
   .filled-error {
     @apply bg-error hover:bg-error-darker;
-  }
+  } */
 
   /* Outline Button Color */
-  .outline-primary {
+  /* .outline-primary {
     @apply text-primary bg-transparent border-primary outline-none hover:text-white hover:bg-primary dark:border-primary dark:text-primary dark:hover:text-white dark:hover:border-primary;
   }
   .outline-secondary {
@@ -130,10 +130,10 @@
   }
   .outline-error {
     @apply text-error bg-transparent border-error outline-none hover:text-white hover:bg-error dark:border-error dark:text-error dark:hover:text-white dark:hover:border-error;
-  }
+  } */
 
   /* Translucent Button Color */
-  .translucent-primary {
+  /* .translucent-primary {
     @apply text-primary bg-primary/15 border-primary hover:text-primary-darker hover:bg-primary/40 dark:text-primary;
   }
   .translucent-secondary {
@@ -150,7 +150,7 @@
   }
   .translucent-error {
     @apply text-error bg-error/15 border-error hover:text-error-darker hover:bg-error/40 dark:hover:text-error;
-  }
+  } */
 
   /* Shape */
   .shape-rounded-btn {

@@ -4,6 +4,10 @@ import { cn } from "../../utils/cn";
 import { cva } from "class-variance-authority";
 import { ref } from "vue";
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = defineProps({
   variant: { type: String },
   color: { type: String },
@@ -19,13 +23,8 @@ const classNames = cva(["leading-normal transition-300 "], {
   variants: {
     variant: {
       outline: "border",
-      filled: "",
+      filled: "bg-black",
     },
-
-    color: {
-      gray: "border-gray300",
-    },
-
     shape: {
       rounded: "rounded-lg",
       pill: "rounded-full",
@@ -33,11 +32,15 @@ const classNames = cva(["leading-normal transition-300 "], {
 
     size: {
       medium: "p-[6px]",
-      small: "",
     },
   },
 
   compoundVariants: [
+    {
+      variant: "outline",
+      color: "gray",
+      class: "border-gray300",
+    },
     {
       variant: "filled",
       color: "gray",

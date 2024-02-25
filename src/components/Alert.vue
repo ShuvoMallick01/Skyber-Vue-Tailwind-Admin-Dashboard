@@ -44,6 +44,7 @@ const button = cva(["leading-normal transition-300 group px-6 py-4 w-1/2 "], {
   },
 
   compoundVariants: [
+    // Filled Variant
     {
       variant: "filled",
       color: "primary",

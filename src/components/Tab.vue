@@ -7,12 +7,10 @@ import { ref } from "vue";
 const props = defineProps({
   title: String,
   tabList: { type: Array, default: [] },
-
   variant: { type: String },
   color: { type: String },
   shape: { type: String },
   size: { type: String },
-
   shadow: String,
 });
 
