@@ -11,7 +11,6 @@ const buttonVariants = cva(
         outline:
           "text-black border border-black dark:text-white dark:border-white",
         translucent: "text-gray-400 bg-black/10 text-center ",
-        link: "text-primary underline-offset-4 hover:underline",
       },
       color: {
         primary: "text-white bg-primary hover:bg-primary-darker",
@@ -24,7 +23,6 @@ const buttonVariants = cva(
       size: {
         medium: "py-[15px] px-[20px]",
         small: "py-[5px] px-[20px]",
-        icon: "h-10 w-10",
       },
     },
 

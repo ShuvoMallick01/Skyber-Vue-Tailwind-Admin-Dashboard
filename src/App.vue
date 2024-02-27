@@ -1,14 +1,16 @@
 <!-- SCRIPT -->
 <script setup lang="ts">
 import { ref, onMounted, computed, reactive } from "vue";
-// import Button from "./components/ui/button/Button.vue";
-import Button from "./components/button/Button.vue";
+import { Loader2 } from "lucide-vue-next";
 import {
   useDark,
   useToggle,
   useElementHover,
   onClickOutside,
 } from "@vueuse/core";
+import Button from "./components/button/Button.vue";
+import IconButton from "@/components/button/IconButton.vue";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 // State
 const isDark = useDark();
@@ -189,7 +191,7 @@ const optionList = ref([
       <h4 class="font-semibold text-primary uppercase tracking-wide mb-4">
         Button
       </h4>
-      <div class="flex gap-3 items-center">
+      <div class="flex gap-3 items-center flex-wrap">
         <Button>Click me</Button>
         <Button variant="outline">Click me</Button>
         <Button variant="translucent">Click me</Button>
@@ -199,6 +201,44 @@ const optionList = ref([
         <Button variant="translucent"
           ><i class="icon-Dot me-2"></i>Click me</Button
         >
+
+        <Button disabled>
+          <Loader2 class="w-4 h-4 mr-2 animate-spin" />Click me</Button
+        >
+
+        <Button>
+          <a href="/login"> Login </a>
+        </Button>
+      </div>
+    </div>
+
+    <!--  === ICON BUTTON === -->
+    <div>
+      <h4 class="font-semibold text-primary uppercase tracking-wide my-4 mt-10">
+        icon Button
+      </h4>
+      <div class="flex gap-3 items-center flex-wrap">
+        <IconButton><i class="icon-Dot"></i></IconButton>
+        <IconButton variant="outline"><i class="icon-Dot"></i></IconButton>
+        <IconButton variant="translucent"><i class="icon-Dot"></i></IconButton>
+      </div>
+    </div>
+
+    <!--  === ICON BUTTON === -->
+    <div>
+      <h4 class="font-semibold text-primary uppercase tracking-wide my-4 mt-10">
+        ALERT
+      </h4>
+      <div class="flex gap-3 items-center flex-wrap">
+        <Alert class="inline-flex">
+          <i class="icon-checkmark_circle me-2"></i>
+          <div>
+            <AlertTitle>Heads up!</AlertTitle>
+            <AlertDescription>
+              You can add components to your app using the cli.
+            </AlertDescription>
+          </div>
+        </Alert>
       </div>
     </div>
   </div>
