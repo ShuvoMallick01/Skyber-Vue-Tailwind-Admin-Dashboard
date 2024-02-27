@@ -1,3 +1,5 @@
+@import url("../icons.css");
+
 @tailwind base;
 
 /* CUSTOM CSS */
@@ -54,42 +56,32 @@
   }
 
   /* FONT */
-  .font-body-14m,
-  .font-14m {
-    @apply text-sm font-medium;
-  }
-  .font-body-14sm,
-  .font-14sm {
-    @apply text-sm font-semibold;
-  }
 
-  .font-body-13sb,
+  .font-10m {
+    font-size: 10px;
+    @apply font-medium;
+  }
+  .font-12sb {
+    @apply text-xs font-semibold;
+  }
+  .font-12m {
+    font-size: 12px;
+    @apply font-medium;
+  }
   .font-13sb {
     font-size: 13px;
     @apply font-semibold;
   }
 
-  .font-body-13m,
   .font-13m {
     font-size: 13px;
     @apply font-medium;
   }
-
-  .font-body-12sb,
-  .font-12sb {
-    @apply text-xs font-semibold;
+  .font-14m {
+    @apply text-sm font-medium;
   }
-
-  .font-body-12m,
-  .font-12m {
-    font-size: 12px;
-    @apply font-medium;
-  }
-
-  .font-body-10m,
-  .font-10m {
-    font-size: 10px;
-    @apply font-medium;
+  .font-14sm {
+    @apply text-sm font-semibold;
   }
 
   /* Filled Button Color */
@@ -161,21 +153,15 @@
   /* Button Size */
   .btn-sm {
     padding: 5px 20px;
-    @apply text-xs font-semibold;
   }
   .btn-md {
     padding: 15px 20px;
-    @apply text-xs font-semibold;
-  }
-  .btn-lg {
-    padding: 15px 20px;
-    @apply text-xs font-semibold;
   }
 
   /* Icon Button Size */
   .icon-btn-sm {
     padding: 8px 8px;
-    @apply text-base;
+    @apply text-base disabled:pointer-events-none;
   }
   .icon-btn-md {
     padding: 8px 8px;
