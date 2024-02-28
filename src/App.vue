@@ -11,11 +11,38 @@ import {
 import Button from "./components/button/Button.vue";
 import IconButton from "@/components/button/IconButton.vue";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 // State
 const isDark = useDark();
-// const target = ref(null);
 const toggleDark = useToggle(isDark);
+const defaultValue = "item-1";
+
+const accordionItems = [
+  {
+    value: "item-1",
+    title: "Is it accessible?",
+    content:
+      "The vows and named is he seven his origin myself any is decision-making. The interface of Jeni’s is simple and clean, with the section includes questions that are very specific to their customer group. First thing first, you need to sort out what explicit. The advice is to see mails and phone call data, then make a rundown of the top questions that show up continually..",
+  },
+  {
+    value: "item-2",
+    title: "Is it unstyled?",
+    content:
+      "Yes. It's unstyled by default, giving you freedom over the look and feel.",
+  },
+  {
+    value: "item-3",
+    title: "Can it be animated?",
+    content: "Yes! You can use the transition prop to configure the animation.",
+  },
+];
+
 const breadcrumbList = ref([
   {
     id: 1,
@@ -224,7 +251,7 @@ const optionList = ref([
       </div>
     </div>
 
-    <!--  === ICON BUTTON === -->
+    <!--  === Alert === -->
     <div>
       <h4 class="font-semibold text-primary uppercase tracking-wide my-4 mt-10">
         ALERT
@@ -239,6 +266,124 @@ const optionList = ref([
             </AlertDescription>
           </div>
         </Alert>
+
+        <Alert class="flex justify-between" variant="outline">
+          <div class="inline-flex">
+            <i class="icon-checkmark_circle me-2"></i>
+            <div>
+              <AlertTitle>Heads up!</AlertTitle>
+              <AlertDescription>
+                You can add components to your app using the cli.
+              </AlertDescription>
+            </div>
+          </div>
+          <div>
+            <i class="icon-close"></i>
+          </div>
+        </Alert>
+
+        <Alert class="inline-flex" variant="filled">
+          <i class="icon-checkmark_circle me-2"></i>
+          <div>
+            <AlertTitle>Heads up!</AlertTitle>
+            <AlertDescription>
+              You can add components to your app using the cli.
+            </AlertDescription>
+          </div>
+        </Alert>
+
+        <Alert class="inline-flex">
+          <i class="icon-checkmark_circle me-2"></i>
+          <div>
+            <AlertTitle>Heads up!</AlertTitle>
+          </div>
+        </Alert>
+      </div>
+    </div>
+
+    <!--  === Accordion === -->
+    <div>
+      <h4 class="font-semibold text-primary uppercase tracking-wide my-4 mt-10">
+        Accordion
+      </h4>
+
+      <div class="mb-10">
+        <h6
+          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10"
+        >
+          Basic
+        </h6>
+        <Accordion
+          type="single"
+          class="w-full border rounded-lg border-gray200"
+          collapsible
+          :default-value="defaultValue"
+        >
+          <AccordionItem
+            v-for="item in accordionItems"
+            :key="item.value"
+            :value="item.value"
+          >
+            <AccordionTrigger>{{ item.title }}</AccordionTrigger>
+            <AccordionContent>
+              {{ item.content }}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+      <div class="mb-10">
+        <h6
+          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10"
+        >
+          Outline
+        </h6>
+
+        <Accordion
+          type="single"
+          class="w-full space-y-2"
+          collapsible
+          :default-value="defaultValue"
+        >
+          <AccordionItem
+            v-for="item in accordionItems"
+            :key="item.value"
+            :value="item.value"
+            class="border rounded-lg"
+          >
+            <AccordionTrigger>{{ item.title }}</AccordionTrigger>
+            <AccordionContent>
+              {{ item.content }}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+      <div class="mb-10">
+        <h6
+          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10"
+        >
+          Colored Outline
+        </h6>
+
+        <Accordion
+          type="single"
+          class="w-full space-y-2"
+          collapsible
+          :default-value="defaultValue"
+        >
+          <AccordionItem
+            v-for="item in accordionItems"
+            :key="item.value"
+            :value="item.value"
+            class="border border-primary border-s-[3px] rounded-lg overflow-hidden"
+          >
+            <AccordionTrigger>{{ item.title }}</AccordionTrigger>
+            <AccordionContent>
+              {{ item.content }}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </div>
   </div>
