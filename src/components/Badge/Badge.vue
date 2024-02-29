@@ -1,159 +1,141 @@
-<!-- SCRIPT -->
-<script setup>
-import { cn } from "../../utils/cn";
-import { cva } from "class-variance-authority";
+<script setup lang="ts">
+import { type VariantProps, cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-const props = defineProps({
-  title: String,
+defineProps<Props>();
 
-  variant: { type: String },
-  color: { type: String },
-  shape: { type: String },
-  size: { type: String },
+const badgeVariants = cva(
+  "inline-flex font-semibold items-center justify-center border text-xs  transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        filled: "text-white bg-black leading-none  ",
+        outline:
+          "text-black border border-black dark:text-white dark:border-white",
+        translucent: "text-gray-400 bg-black/10 text-center ",
+      },
 
-  shadow: String,
-});
+      color: {
+        primary: "text-white border-transparent bg-primary",
+        secondary: "text-text-400 border-transparent border-secondary ",
+        info: "bg-info border-transparent",
+        success: "bg-success border-transparent",
+        warning: "bg-warning border-transparent",
+        error: "bg-error border-transparent",
+      },
 
-// Button Classes
-const button = cva(["leading-normal transition-300 flex items-center group"], {
-  variants: {
-    variant: {
-      filled:
-        "text-white font-semibold bg-black text-center focus:outline-none outline-none",
-      outline:
-        "text-black font-semibold text-center border outline-none focus:outline-none border-black dark:text-white dark:border-white",
-      translucent:
-        "font-semibold text-gray-400  bg-black/10 text-center focus:outline-none outline-none",
+      shape: {
+        rounded: "rounded",
+        circle: "rounded-full",
+      },
+
+      size: {
+        medium: "py-[6px] px-[8px]",
+        small: "py-[4px] px-[8px]",
+        xsmall: "h-[16px] w-[16px] text-[10px]",
+        nxsmall: "h-[8px] w-[8px]",
+      },
     },
 
-    shape: {
-      rounded: "shape-rounded-btn",
-      pill: "rounded-full",
-    },
+    compoundVariants: [
+      // Outline Buttons
+      {
+        variant: "outline",
+        color: "primary",
+        class:
+          "text-primary bg-transparent border-primary outline-none dark:border-primary dark:text-primary",
+      },
+      {
+        variant: "outline",
+        color: "secondary",
+        class:
+          "text-text-400 bg-transparent border-text-400 outline-none  hover:bg-text-400 ",
+      },
+      {
+        variant: "outline",
+        color: "info",
+        class:
+          "text-info bg-transparent border-info outline-none  dark:border-info dark:text-info",
+      },
+      {
+        variant: "outline",
+        color: "success",
+        class:
+          "text-success bg-transparent border-success outline-none  dark:border-success dark:text-success ",
+      },
+      {
+        variant: "outline",
+        color: "warning",
+        class:
+          "text-warning bg-transparent border-warning outline-none dark:border-warning dark:text-warning ",
+      },
+      {
+        variant: "outline",
+        color: "error",
+        class:
+          "text-error bg-transparent border-error outline-none hover:text-white hover:bg-error dark:border-error dark:text-error dark:hover:text-white dark:hover:border-error",
+      },
 
-    size: {
-      medium: "badge-md",
-      small: `${props.title ? "badge-sm" : "badge-sm-withouttext"}`,
-    },
-  },
+      // Translucent Buttons
+      {
+        variant: "translucent",
+        color: "primary",
+        class:
+          "text-primary bg-primary/15 border-transparent dark:text-primary",
+      },
+      {
+        variant: "translucent",
+        color: "secondary",
+        class:
+          "text-slate-400 bg-secondary border-transparent   dark:text-gray-500",
+      },
+      {
+        variant: "translucent",
+        color: "info",
+        class: "text-info bg-info/15 border-transparent ",
+      },
+      {
+        variant: "translucent",
+        color: "success",
+        class: "text-success bg-success/15 border-transparent ",
+      },
+      {
+        variant: "translucent",
+        color: "warning",
+        class: "text-warning bg-warning/15 border-transparent ",
+      },
+      {
+        variant: "translucent",
+        color: "error",
+        class: "text-error bg-error/15 border-transparent ",
+      },
+    ],
 
-  compoundVariants: [
-    // Filled Variant
-    {
+    defaultVariants: {
       variant: "filled",
       color: "primary",
-      class: "text-white bg-primary ",
+      shape: "rounded",
+      size: "medium",
     },
-    {
-      variant: "filled",
-      color: "secondary",
-      class: "text-text-400 bg-secondary ",
-    },
-    {
-      variant: "filled",
-      color: "info",
-      class: "bg-info ",
-    },
-    {
-      variant: "filled",
-      color: "success",
-      class: "bg-success",
-    },
-    {
-      variant: "filled",
-      color: "warning",
-      class: "bg-warning ",
-    },
-    {
-      variant: "filled",
-      color: "error",
-      class: "bg-error ",
-    },
+  }
+);
 
-    // Outline Variant
-    {
-      variant: "outline",
-      color: "primary",
-      class:
-        "text-primary bg-transparent border-primary outline-none dark:border-primary dark:text-primary ",
-    },
-    {
-      variant: "outline",
-      color: "secondary",
-      class: "text-text-400 bg-transparent border-text-400 outline-none ",
-    },
-    {
-      variant: "outline",
-      color: "info",
-      class:
-        "text-info bg-transparent border-info outline-none  dark:border-info dark:text-info ",
-    },
-    {
-      variant: "outline",
-      color: "success",
-      class:
-        "text-success bg-transparent border-success outline-none dark:border-success dark:text-success",
-    },
-    {
-      variant: "outline",
-      color: "warning",
-      class:
-        "text-warning bg-transparent border-warning outline-none dark:border-warning dark:text-warning ",
-    },
-    {
-      variant: "outline",
-      color: "error",
-      class:
-        "text-error bg-transparent border-error outline-none dark:border-error dark:text-error ",
-    },
+interface BadgeVariantProps extends VariantProps<typeof badgeVariants> {}
 
-    // Translucent Buttons
-    {
-      variant: "translucent",
-      color: "primary",
-      class: "text-primary bg-primary/15 border-primary dark:text-primary",
-    },
-    {
-      variant: "translucent",
-      color: "secondary",
-      class: "text-slate-400 bg-secondary border-text-400  dark:text-gray-500",
-    },
-    {
-      variant: "translucent",
-      color: "info",
-      class: "text-info bg-info/15 border-info ",
-    },
-    {
-      variant: "translucent",
-      color: "success",
-      class: "text-success bg-success/15 border-success ",
-    },
-    {
-      variant: "translucent",
-      color: "warning",
-      class: "text-warning bg-warning/15 border-warning  ",
-    },
-    {
-      variant: "translucent",
-      color: "error",
-      class: "text-error bg-error/15 border-error ",
-    },
-  ],
-
-  defaultVariants: {
-    variant: "filled",
-    color: "primary",
-    shape: "rounded",
-    size: "medium",
-  },
-});
+interface Props {
+  variant?: BadgeVariantProps["variant"];
+  color?: BadgeVariantProps["color"];
+  size?: BadgeVariantProps["size"];
+  shape?: BadgeVariantProps["shape"];
+}
 </script>
 
-<!-- TEMPLATE -->
 <template>
-  <span v-bind="$attrs" :class="cn(button({ variant, color, shape, size }))">
-    <slot name="prefix"></slot>
-    {{ title }}
-    <slot name="suffix"></slot>
-  </span>
+  <div
+    :class="
+      cn(badgeVariants({ variant, color, shape, size }), $attrs.class ?? '')
+    "
+  >
+    <slot />
+  </div>
 </template>

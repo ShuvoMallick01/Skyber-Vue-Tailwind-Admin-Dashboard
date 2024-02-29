@@ -17,6 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Badge from "./components/Badge/Badge.vue";
 
 // State
 const isDark = useDark();
@@ -384,6 +385,23 @@ const optionList = ref([
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+      </div>
+    </div>
+
+    <!--  === BADGE === -->
+    <div>
+      <h4 class="font-semibold text-primary uppercase tracking-wide mb-4">
+        BADGE
+      </h4>
+      <div class="flex gap-3 items-center flex-wrap">
+        <Badge>BADGE</Badge>
+        <Badge variant="outline">BADGE</Badge>
+        <Badge variant="translucent">BADGE</Badge>
+        <Badge size="small">8</Badge>
+        <Badge size="xsmall" shape="circle">8</Badge>
+        <Badge size="xsmall">5</Badge>
+        <Badge size="nxsmall" shape="circle"></Badge>
+        <Badge>BADGE</Badge>
       </div>
     </div>
   </div>
