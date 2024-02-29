@@ -18,6 +18,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Badge from "./components/Badge/Badge.vue";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 // State
 const isDark = useDark();
@@ -402,6 +410,85 @@ const optionList = ref([
         <Badge size="xsmall">5</Badge>
         <Badge size="nxsmall" shape="circle"></Badge>
         <Badge>BADGE</Badge>
+      </div>
+    </div>
+
+    <!--  === CARD === -->
+    <div>
+      <h4 class="font-semibold text-primary uppercase tracking-wide mb-4">
+        CARD
+      </h4>
+
+      <div class="space-y-10">
+        <Card>
+          <CardHeader>
+            <div
+              class="flex justify-between px-[16px] py-[10px] items-center border-b border-gray200"
+            >
+              <CardTitle class=""><p class="">Title</p></CardTitle>
+              <Button
+                color="secondary"
+                size="xsmall"
+                class="font-10m text-muted300"
+                >Action</Button
+              >
+            </div>
+
+            <CardDescription class="py-6 border-b border-gray200"
+              ><p class="px-[16px]">
+                The vows and named is he seven his origin myself any is
+                decision-making. The interface of Jeni’s is simple and clean,
+                with the section includes questions that are very specific to
+                their customer group.
+              </p>
+            </CardDescription>
+          </CardHeader>
+
+          <CardFooter> <h6 class="px-[16px] py-[10px]">Footer</h6> </CardFooter>
+        </Card>
+
+        <Card>
+          <img src="../src/assets/images/base_1.png" class="w-full" alt="" />
+
+          <CardHeader>
+            <CardTitle class="px-[16px] pt-[28px]"
+              ><p class="">Title</p></CardTitle
+            >
+
+            <CardDescription
+              class="px-[16px] pt-[16px] pb-6 border-b border-gray200"
+              ><p>
+                The vows and named is he seven his origin myself any is
+                decision-making. The interface of Jeni’s is simple and clean,
+                with the section includes questions that are very specific to
+                their customer group.
+              </p>
+            </CardDescription>
+          </CardHeader>
+
+          <CardFooter>
+            <h6 class="font-14s px-[16px] py-[10px]">Footer</h6>
+          </CardFooter>
+        </Card>
+
+        <Card class="relative">
+          <img
+            src="../src/assets/images/base_2.png"
+            class="w-full h-full"
+            alt=""
+          />
+
+          <CardHeader class="absolute top-0 px-[24px]">
+            <CardTitle class="pt-[28px]"><p class="">Title</p></CardTitle>
+
+            <CardDescription class="pt-[16px] text-gray400"
+              ><p>
+                The vows and named is he seven his origin myself any is
+                decision-making.
+              </p>
+            </CardDescription>
+          </CardHeader>
+        </Card>
       </div>
     </div>
   </div>
