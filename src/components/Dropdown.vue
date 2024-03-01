@@ -237,7 +237,7 @@ const optionVariants = cva(
     <button
       id="dropdownHoverButton"
       @click="toggleDropdown"
-      :class="cn(buttonVariants({ variant, color, shape, size }))"
+      :class="cn(buttonVariants({ variant, color, shape }))"
       type="button"
     >
       <slot> </slot>

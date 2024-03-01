@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
-<script setup>
-import { cn } from "../../utils/cn";
+<script setup lang="ts">
+import { cn } from "../../lib/utils";
 import { cva } from "class-variance-authority";
 import { ref } from "vue";
 

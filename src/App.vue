@@ -44,6 +44,8 @@ import {
 } from "@/components/ui/pagination";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import InputSpin from "./components/Advance/InputSpin.vue";
 
 // import {
 //   Dropdown,
@@ -731,7 +733,118 @@ const optionList = ref([
             </span>
           </div>
         </div>
+
+        <!-- Checkbox -->
+        <div class="flex items-center space-x-2">
+          <Checkbox id="terms" />
+          <label
+            for="terms"
+            class="font-13sb text-muted300 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Checked
+          </label>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="flex items-center space-x-2">
+          <Checkbox id="terms" class="rounded-full" />
+          <label
+            for="terms"
+            class="font-13sb text-muted300 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Checked
+          </label>
+        </div>
       </div>
+    </div>
+
+    <!-- Input Spin -->
+    <div class="text-start flex gap-8">
+      <InputSpin>
+        <Button
+          color="secondary"
+          class="!text-base !text-muted-300 h-[36px] w-[36px] inline-flex justify-center"
+          size="small"
+        >
+          <template #prefix>
+            <i class="icon-minus"></i>
+          </template>
+        </Button>
+
+        <FormInput
+          size="custom"
+          class="!border-0 px-1 h-[36px] w-[25px] z-10 inline-flex justify-center text-center !font-12m"
+          value="0"
+        >
+        </FormInput>
+
+        <Button
+          color="secondary"
+          class="!text-base !text-muted-300 h-[36px] w-[36px] z-10 inline-flex justify-center"
+        >
+          <template #suffix>
+            <i class="icon-plus"></i>
+          </template>
+        </Button>
+      </InputSpin>
+
+      <InputSpin variant="filled">
+        <Button
+          color="secondary"
+          class="!text-base !bg-white !text-muted-300 h-[36px] w-[36px] inline-flex justify-center"
+          size="small"
+        >
+          <template #prefix>
+            <i class="icon-minus"></i>
+          </template>
+        </Button>
+
+        <FormInput
+          size="custom"
+          class="!border-0 px-1 !bg-transparent h-[36px] w-[25px] z-10 inline-flex justify-center text-center !font-12m"
+          value="0"
+        >
+        </FormInput>
+
+        <Button
+          color="secondary"
+          class="!text-base !bg-white !text-muted-300 h-[36px] w-[36px] z-10 inline-flex justify-center"
+        >
+          <template #suffix>
+            <i class="icon-plus"></i>
+          </template>
+        </Button>
+      </InputSpin>
+
+      <InputSpin shape="pill">
+        <Button
+          color="secondary"
+          shape="pill"
+          class="!text-base !text-muted-300 h-[36px] w-[36px] inline-flex justify-center"
+          size="small"
+        >
+          <template #prefix>
+            <i class="icon-minus"></i>
+          </template>
+        </Button>
+
+        <FormInput
+          size="custom"
+          class="!border-0 px-1 h-[36px] w-[25px] z-10 inline-flex justify-center text-center !font-12m"
+          value="0"
+        >
+        </FormInput>
+
+        <Button
+          shape="pill"
+          color="secondary"
+          class="!text-base !text-muted-300 h-[36px] w-[36px] z-10 inline-flex justify-center"
+        >
+          <template #suffix>
+            <i class="icon-plus"></i>
+          </template>
+        </Button>
+      </InputSpin>
     </div>
   </div>
 </template>
