@@ -1,26 +1,12 @@
-<!-- SCRIPT -->
-<script setup lang="ts">
-import { cn } from "../lib/utils";
-import { cva } from "class-variance-authority";
-import { ref } from "vue";
+import { type VariantProps, cva } from "class-variance-authority";
 
-const props = defineProps({
-  dropdownList: { type: Array, default: [] },
-  variant: { type: String },
-  color: { type: String },
-  shape: { type: String },
-});
+export { default as Dropdown } from "./Dropdown.vue";
+export { default as DropdownButton } from "./DropdownButton.vue";
+export { default as DropdownList } from "./DropdownList.vue";
 
-const showDropdown = ref(false);
-const toggleDropdown = () => {
-  showDropdown.value = !showDropdown.value;
-};
-
-// Button Class
-const buttonVariants = cva(
-  [
-    " py-[10px] px-[24px] leading-normal rounded text-sm font-semibold transition-300 ",
-  ],
+// Button Varaiants
+export const buttonVariants = cva(
+  "leading-normal py-[10px] px-[24px] rounded text-sm font-semibold transition-300 ",
   {
     variants: {
       variant: {
@@ -39,10 +25,6 @@ const buttonVariants = cva(
         success: "bg-success hover:bg-success-darker",
         warning: "bg-warning hover:bg-warning-darker",
         error: "bg-error hover:bg-error-darker",
-      },
-      shape: {
-        rounded: "rounded",
-        pill: "rounded-full",
       },
     },
 
@@ -120,13 +102,12 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: "outline",
       color: "primary",
-      shape: "rounded",
     },
   }
 );
 
-// Option Class
-const optionVariants = cva(
+// Option Variants
+export const optionVariants = cva(
   ["text-xs px-3 py-2 leading-normal transition-300 block"],
   {
     variants: {
@@ -152,7 +133,6 @@ const optionVariants = cva(
     },
 
     compoundVariants: [
-      // Primary Button
       {
         variant: "outline",
         color: "primary",
@@ -229,35 +209,6 @@ const optionVariants = cva(
     },
   }
 );
-</script>
 
-<!-- TEMPLATE -->
-<template>
-  <div class="relative">
-    <button
-      id="dropdownHoverButton"
-      @click="toggleDropdown"
-      :class="cn(buttonVariants({ variant, color, shape, size }))"
-      type="button"
-    >
-      <slot> </slot>
-    </button>
-
-    <div
-      id="dropdownHover"
-      v-if="showDropdown"
-      class="z-10 bg-white divide-y divide-gray-100 rounded-lg overflow-hidden shadow w-44 dark:bg-gray-700 absolute top-0 left-0 mt-[46px]"
-    >
-      <ul aria-labelledby="dropdownHoverButton">
-        <li v-for="item in dropdownList" :key="item.id">
-          <a
-            href="#"
-            class="block"
-            :class="cn(optionVariants({ variant, color }))"
-            >{{ item.title }}</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</template>
+export type ButtonVariants = VariantProps<typeof buttonVariants>;
+export type OptionVariants = VariantProps<typeof optionVariants>;

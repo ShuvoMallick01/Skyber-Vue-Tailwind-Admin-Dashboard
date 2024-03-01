@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 const props = defineProps<{
   class?: HTMLAttributes["class"];
   variant?: AlertVariants["variant"];
+  color?: AlertVariants["color"];
 }>();
 </script>
 

@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
 <script setup>
-import { cn } from "../utils/cn";
+import { cn } from "../lib/utils";
 import { cva } from "class-variance-authority";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
@@ -25,7 +25,7 @@ const classNames = cva(["leading-normal transition-300 "], {
       normal: "border text-black border-black",
     },
     size: {
-      medium: "font-body-12m px-4 py-5 w-full",
+      medium: "font-12m px-4 py-5 w-full",
     },
     color: {
       primary: "text-text-main border-gray-300",
@@ -55,13 +55,13 @@ const classNames = cva(["leading-normal transition-300 "], {
           :is="item.router ? 'router-link' : 'a'"
           :[linkAttr]="item.url"
         >
-          <i :class="item.icon" class="text-text-200 text-sm"></i
+          <i :class="item.icon" class="text-text200 text-sm"></i
           ><span
             class="cursor-pointer"
-            :class="breadcrumbList.length === item.id ? 'text-text-200' : ''"
+            :class="breadcrumbList.length === item.id ? 'text-text200' : ''"
             >{{ item.title }}</span
           ><span
-            class="text-text-200"
+            class="text-text200"
             v-html="
               item.id === breadcrumbList.length
                 ? ''

@@ -158,11 +158,6 @@
     @apply text-sm font-semibold;
   }
 
-  /* Shape */
-  .shape-rounded-btn {
-    border-radius: 4px;
-  }
-
   /* Badge Size */
   .badge-md {
     padding: 6px 8px;
@@ -180,14 +175,6 @@
   }
 
   /* Dropdown Button */
-  .dropdown-md {
-    padding: 10px 24px;
-    @apply text-sm font-semibold;
-  }
-  .dropdown-lg {
-    padding: 12px 26px;
-    @apply text-sm font-semibold;
-  }
 
   /* CARD */
   .card-padding {

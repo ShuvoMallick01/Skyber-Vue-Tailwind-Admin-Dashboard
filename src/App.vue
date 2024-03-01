@@ -26,6 +26,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Breadcrumb from "./components/Breadcrumb.vue";
+import Dropdown from "./components/Dropdown.vue";
+// import Dropdown from "./components/Dropdown/Dropdown.vue";
+// import DropdownButton from "./components/Dropdown/DropdownButton.vue";
+// import DropdownList from "./components/Dropdown/DropdownList.vue";
+import Tab from "./components/Tab.vue";
+
+// import {
+//   Dropdown,
+//   DropdownButton,
+//   DropdownList,
+// } from "@/components/ui/dropdown";
 
 // State
 const isDark = useDark();
@@ -145,12 +157,6 @@ const tabList1 = ref([
   {
     id: 3,
     title: "Documents",
-    prefixIcon: "icon-home_outlined me-1",
-    suffixIcon: "",
-  },
-  {
-    id: 4,
-    title: "Connections",
     prefixIcon: "icon-home_outlined me-1",
     suffixIcon: "",
   },
@@ -414,13 +420,13 @@ const optionList = ref([
     </div>
 
     <!--  === CARD === -->
-    <div>
-      <h4 class="font-semibold text-primary uppercase tracking-wide mb-4">
+    <div class="">
+      <h4 class="font-semibold text-primary uppercase tracking-wide mb-4 pt-5">
         CARD
       </h4>
 
-      <div class="space-y-10">
-        <Card>
+      <div class="flex gap-8 flex-wrap items-start">
+        <Card class="max-w-80">
           <CardHeader>
             <div
               class="flex justify-between px-[16px] py-[10px] items-center border-b border-gray200"
@@ -447,7 +453,7 @@ const optionList = ref([
           <CardFooter> <h6 class="px-[16px] py-[10px]">Footer</h6> </CardFooter>
         </Card>
 
-        <Card>
+        <Card class="max-w-80">
           <img src="../src/assets/images/base_1.png" class="w-full" alt="" />
 
           <CardHeader>
@@ -471,7 +477,7 @@ const optionList = ref([
           </CardFooter>
         </Card>
 
-        <Card class="relative">
+        <Card class="relative max-w-80">
           <img
             src="../src/assets/images/base_2.png"
             class="w-full h-full"
@@ -489,6 +495,78 @@ const optionList = ref([
             </CardDescription>
           </CardHeader>
         </Card>
+      </div>
+    </div>
+
+    <!-- === BREADCRUMB === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">
+        BREADCRUMB
+      </h5>
+
+      <!-- Basic Breadcrumb -->
+      <p class="mb-4">Basic Breadcrumb</p>
+
+      <div class="flex gap-6 flex-wrap items-center">
+        <Breadcrumb :breadcrumbList="breadcrumbList"></Breadcrumb>
+      </div>
+
+      <p class="py-4">text with Icon</p>
+
+      <div class="flex gap-6 flex-wrap items-center">
+        <Breadcrumb :breadcrumbList="breadcrumbList2"></Breadcrumb>
+      </div>
+    </div>
+
+    <!-- === DROPDOWN === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">DROPDOWN</h5>
+
+      <div class="flex gap-4">
+        <!-- Basic Breadcrumb -->
+        <Dropdown :dropdownList="dropdownList">
+          <span class="whitespace-nowrap inline-flex items-center">
+            <p>Sorted By</p>
+            <i class="icon-down_ui ps-3"></i>
+          </span>
+        </Dropdown>
+
+        <Dropdown :dropdownList="dropdownList" variant="filled">
+          <span class="whitespace-nowrap inline-flex items-center">
+            <p>Sorted By</p>
+            <i class="icon-down_ui ps-3"></i>
+          </span>
+        </Dropdown>
+
+        <Dropdown :dropdownList="dropdownList" variant="filled" color="warning">
+          <span class="whitespace-nowrap inline-flex items-center">
+            <p>Sorted By</p>
+            <i class="icon-down_ui ps-3"></i>
+          </span>
+        </Dropdown>
+
+        <!-- Basic Breadcrumb -->
+        <!-- <Dropdown>
+        <DropdownButton>
+          <span class="whitespace-nowrap inline-flex items-center">
+            <p>Sorted By</p>
+            <i class="icon-down_ui ps-3"></i>
+          </span>
+        </DropdownButton>
+        <DropdownList :dropdownList="dropdownList"> </DropdownList>
+      </Dropdown> -->
+      </div>
+    </div>
+
+    <!-- === TAB === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">TAB</h5>
+
+      <div class="space-y-10">
+        <Tab :tabList="tabList1"></Tab>
+        <Tab :tabList="tabList1" variant="button"></Tab>
+        <Tab :tabList="tabList1" color="success"></Tab>
+        <Tab :tabList="tabList1" variant="button" color="success"></Tab>
       </div>
     </div>
   </div>
