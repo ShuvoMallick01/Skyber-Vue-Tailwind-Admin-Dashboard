@@ -32,6 +32,18 @@ import Dropdown from "./components/Dropdown.vue";
 // import DropdownButton from "./components/Dropdown/DropdownButton.vue";
 // import DropdownList from "./components/Dropdown/DropdownList.vue";
 import Tab from "./components/Tab.vue";
+import {
+  Pagination,
+  PaginationEllipsis,
+  PaginationFirst,
+  PaginationLast,
+  PaginationList,
+  PaginationListItem,
+  PaginationNext,
+  PaginationPrev,
+} from "@/components/ui/pagination";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 // import {
 //   Dropdown,
@@ -227,7 +239,7 @@ const optionList = ref([
   </div>
 
   <!-- Components -->
-  <div class="container mx-auto py-10 space-y-4 px-5">
+  <div class="container mx-auto py-10 space-y-4 px-5 mb-32">
     <!--  === BUTTON === -->
     <div>
       <h4 class="font-semibold text-primary uppercase tracking-wide mb-4">
@@ -562,11 +574,163 @@ const optionList = ref([
     <div class="pt-10">
       <h5 class="font-extrabold text-primary text-2xl block pb-5">TAB</h5>
 
-      <div class="space-y-10">
+      <div class="space-y-10 flex flex-col">
         <Tab :tabList="tabList1"></Tab>
         <Tab :tabList="tabList1" variant="button"></Tab>
         <Tab :tabList="tabList1" color="success"></Tab>
         <Tab :tabList="tabList1" variant="button" color="success"></Tab>
+      </div>
+    </div>
+
+    <!-- === PAGINATION === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">
+        PAGINATION
+      </h5>
+
+      <div class="space-y-10 flex flex-col">
+        <Pagination
+          v-slot="{ page }"
+          :total="100"
+          :sibling-count="1"
+          show-edges
+          :default-page="2"
+        >
+          <PaginationList
+            v-slot="{ items }"
+            class="flex items-center gap-[10px]"
+          >
+            <PaginationPrev class="rounded-full text-muted300" />
+
+            <template v-for="(item, index) in items">
+              <PaginationListItem
+                v-if="item.type === 'page'"
+                :key="index"
+                :value="item.value"
+                as-child
+              >
+                <Button
+                  class="w-10 h-10 p-0 rounded-full text-muted300 border-gray300"
+                  variant="outline"
+                >
+                  {{ item.value }}
+                </Button>
+              </PaginationListItem>
+            </template>
+
+            <PaginationNext class="rounded-full text-muted300" />
+          </PaginationList>
+        </Pagination>
+
+        <Pagination
+          v-slot="{ page }"
+          :total="100"
+          :sibling-count="1"
+          show-edges
+          :default-page="2"
+        >
+          <PaginationList
+            v-slot="{ items }"
+            class="flex items-center gap-[10px]"
+          >
+            <PaginationPrev class="text-muted300" />
+
+            <template v-for="(item, index) in items">
+              <PaginationListItem
+                v-if="item.type === 'page'"
+                :key="index"
+                :value="item.value"
+                as-child
+              >
+                <Button
+                  class="w-10 h-10 p-0 text-muted300 border-gray300"
+                  variant="outline"
+                >
+                  {{ item.value }}
+                </Button>
+              </PaginationListItem>
+            </template>
+
+            <PaginationNext class="text-muted300" />
+          </PaginationList>
+        </Pagination>
+
+        <Pagination
+          v-slot="{ page }"
+          :total="100"
+          :sibling-count="1"
+          show-edges
+          :default-page="2"
+        >
+          <PaginationList
+            v-slot="{ items }"
+            class="flex items-center gap-[10px]"
+          >
+            <PaginationPrev
+              class="text-muted300 bg-gray200 border-transparent"
+            />
+
+            <template v-for="(item, index) in items">
+              <PaginationListItem
+                v-if="item.type === 'page'"
+                :key="index"
+                :value="item.value"
+                as-child
+              >
+                <Button
+                  class="w-10 h-10 p-0 text-muted300 border-gray300"
+                  variant="outline"
+                >
+                  {{ item.value }}
+                </Button>
+              </PaginationListItem>
+              <PaginationEllipsis
+                v-else
+                :key="item.type"
+                :index="index"
+                class="border text-muted300 w-10 h-10 rounded"
+              />
+            </template>
+
+            <PaginationNext
+              class="text-muted300 bg-gray200 border-transparent"
+            />
+          </PaginationList>
+        </Pagination>
+      </div>
+    </div>
+
+    <!-- === FORM === -->
+    <div class="pt-10">
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">TAB</h5>
+
+      <div class="space-y-10 flex flex-col">
+        <div class="grid w-full max-w-sm items-center gap-[10px]">
+          <Label for="email">Email</Label>
+          <Input id="email" type="email" placeholder="Email" />
+        </div>
+
+        <div class="grid w-full max-w-sm items-center gap-[10px]">
+          <Label for="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="Email"
+            class="bg-gray200"
+          />
+        </div>
+
+        <div class="grid w-full max-w-sm items-center gap-[10px]">
+          <Label for="email">Email</Label>
+          <div class="relative">
+            <Input id="email" type="email" placeholder="Email" class="pl-8" />
+            <span
+              class="absolute start-0 inset-y-0 flex items-center justify-center px-2"
+            >
+              <i class="icon-Dot text-muted300"></i>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

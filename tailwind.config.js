@@ -42,6 +42,7 @@ module.exports = {
         muted300: "#88A6C9",
         gray200: "#F1F6F9",
         gray300: "#E9EFF6",
+        gray400: "#335474",
 
         card: {
           DEFAULT: "hsl(var(--card))",
