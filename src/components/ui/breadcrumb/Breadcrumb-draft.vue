@@ -22,7 +22,7 @@ const linkAttr = ref(props.breadcrumbList.router ? "to" : "href");
 const classNames = cva(["leading-normal transition-300 "], {
   variants: {
     variant: {
-      normal: "border text-black border-black",
+      normal: "border text-main border-black",
     },
     size: {
       medium: "font-12m px-4 py-5 w-full",

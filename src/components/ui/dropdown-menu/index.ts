@@ -1,12 +1,40 @@
+export { DropdownMenuPortal } from "radix-vue";
+
+export { default as DropdownMenu } from "./DropdownMenu.vue";
+export { default as DropdownMenuTrigger } from "./DropdownMenuTrigger.vue";
+export { default as DropdownMenuContent } from "./DropdownMenuContent.vue";
+export { default as DropdownMenuGroup } from "./DropdownMenuGroup.vue";
+export { default as DropdownMenuRadioGroup } from "./DropdownMenuRadioGroup.vue";
+export { default as DropdownMenuItem } from "./DropdownMenuItem.vue";
+export { default as DropdownMenuCheckboxItem } from "./DropdownMenuCheckboxItem.vue";
+export { default as DropdownMenuRadioItem } from "./DropdownMenuRadioItem.vue";
+export { default as DropdownMenuShortcut } from "./DropdownMenuShortcut.vue";
+export { default as DropdownMenuSeparator } from "./DropdownMenuSeparator.vue";
+export { default as DropdownMenuLabel } from "./DropdownMenuLabel.vue";
+export { default as DropdownMenuSub } from "./DropdownMenuSub.vue";
+export { default as DropdownMenuSubTrigger } from "./DropdownMenuSubTrigger.vue";
+export { default as DropdownMenuSubContent } from "./DropdownMenuSubContent.vue";
+
+// Custom Code
 import { type VariantProps, cva } from "class-variance-authority";
 
-export { default as Dropdown } from "./Dropdown.vue";
-export { default as DropdownButton } from "./DropdownButton.vue";
-export { default as DropdownList } from "./DropdownList.vue";
+// const props = defineProps({
+//   dropdownList: { type: Array, default: [] },
+//   variant: { type: String },
+//   color: { type: String },
+//   shape: { type: String },
+// });
 
-// Button Varaiants
+// const showDropdown = ref(false);
+// const toggleDropdown = () => {
+//   showDropdown.value = !showDropdown.value;
+// };
+
+// Button Class
 export const buttonVariants = cva(
-  "leading-normal py-[10px] px-[24px] rounded text-sm font-semibold transition-300 ",
+  [
+    " py-[10px] px-[24px] leading-normal rounded text-sm font-semibold transition-300 ",
+  ],
   {
     variants: {
       variant: {
@@ -25,6 +53,10 @@ export const buttonVariants = cva(
         success: "bg-success hover:bg-success-darker",
         warning: "bg-warning hover:bg-warning-darker",
         error: "bg-error hover:bg-error-darker",
+      },
+      shape: {
+        rounded: "rounded",
+        pill: "rounded-full",
       },
     },
 
@@ -100,13 +132,14 @@ export const buttonVariants = cva(
     ],
 
     defaultVariants: {
-      variant: "outline",
+      variant: "filled",
       color: "primary",
+      shape: "rounded",
     },
   }
 );
 
-// Option Variants
+// Option Class
 export const optionVariants = cva(
   ["text-xs px-3 py-2 leading-normal transition-300 block"],
   {
@@ -133,6 +166,7 @@ export const optionVariants = cva(
     },
 
     compoundVariants: [
+      // Primary Button
       {
         variant: "outline",
         color: "primary",

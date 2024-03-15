@@ -27,8 +27,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Breadcrumb from "./components/Breadcrumb.vue";
-import Dropdown from "./components/Dropdown.vue";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+// import Breadcrumb from "./components/Breadcrumb.vue";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 // import Dropdown from "./components/Dropdown/Dropdown.vue";
 // import DropdownButton from "./components/Dropdown/DropdownButton.vue";
 // import DropdownList from "./components/Dropdown/DropdownList.vue";
@@ -445,15 +458,18 @@ const optionList = ref([
         <Card class="max-w-80">
           <CardHeader>
             <div
-              class="flex justify-between px-[16px] py-[10px] items-center border-b border-gray200"
+              class="flex justify-between px-[16px] py-[10px] items-center border-b border-gray200 dark:border-b-gray-700"
             >
-              <CardTitle class=""><p class="">Title</p></CardTitle>
+              <CardTitle class="dark:text-gray-200"
+                ><p class="">Title</p></CardTitle
+              >
               <Button color="secondary" size="xsmall" class="font-10m"
                 >Action</Button
               >
             </div>
 
-            <CardDescription class="py-6 border-b border-gray200"
+            <CardDescription
+              class="py-6 border-b border-gray200 dark:border-b-gray-700"
               ><p class="px-[16px]">
                 The vows and named is he seven his origin myself any is
                 decision-making. The interface of Jeni’s is simple and clean,
@@ -463,19 +479,21 @@ const optionList = ref([
             </CardDescription>
           </CardHeader>
 
-          <CardFooter> <h6 class="px-[16px] py-[10px]">Footer</h6> </CardFooter>
+          <CardFooter>
+            <h6 class="px-[16px] py-[10px] dark:text-gray-200">Footer</h6>
+          </CardFooter>
         </Card>
 
         <Card class="max-w-80">
           <img src="../src/assets/images/base_1.png" class="w-full" alt="" />
 
           <CardHeader>
-            <CardTitle class="px-[16px] pt-[28px]"
+            <CardTitle class="px-[16px] pt-[28px] dark:text-gray-200"
               ><p class="">Title</p></CardTitle
             >
 
             <CardDescription
-              class="px-[16px] pt-[16px] pb-6 border-b border-gray200"
+              class="px-[16px] pt-[16px] pb-6 border-b border-gray200 dark:border-b-gray-700"
               ><p>
                 The vows and named is he seven his origin myself any is
                 decision-making. The interface of Jeni’s is simple and clean,
@@ -486,7 +504,9 @@ const optionList = ref([
           </CardHeader>
 
           <CardFooter>
-            <h6 class="font-14s px-[16px] py-[10px]">Footer</h6>
+            <h6 class="font-14s px-[16px] py-[10px] dark:text-gray-200">
+              Footer
+            </h6>
           </CardFooter>
         </Card>
 
@@ -511,24 +531,57 @@ const optionList = ref([
       </div>
     </div>
 
-    <!-- === BREADCRUMB === -->
+    <!-- THEME -->
+    <div class="container mx-auto pt-10 flex gap-6 flex-wrap items-center">
+      <button @click="toggleDark()" class="mx-2" color="text-primary ">
+        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
+        <i v-if="isDark" class="fa-regular fa-sun text-white"></i>
+        <i v-else class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+
+    <!-- === Breadcum === -->
     <div class="pt-10">
       <h5 class="font-extrabold text-primary text-2xl block pb-5">
         BREADCRUMB
       </h5>
 
       <!-- Basic Breadcrumb -->
-      <p class="mb-4">Basic Breadcrumb</p>
+      <p class="mb-4 dark:text-gray-300">Basic Breadcrumb</p>
+      <Breadcrumb class="border border-gray-300 px-5 py-6 rounded-lg">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/"> Home </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/product-page"> Product Page </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
-      <div class="flex gap-6 flex-wrap items-center">
-        <Breadcrumb :breadcrumbList="breadcrumbList"></Breadcrumb>
-      </div>
-
-      <p class="py-4">text with Icon</p>
-
-      <div class="flex gap-6 flex-wrap items-center">
-        <Breadcrumb :breadcrumbList="breadcrumbList2"></Breadcrumb>
-      </div>
+      <p class="py-4 dark:text-gray-300">text with Icon</p>
+      <Breadcrumb class="border border-gray-300 px-5 py-6 rounded-lg">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">
+              <i class="icon-Dot me-2"></i>Home
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/product-page"> Product Page </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
     </div>
 
     <!-- === DROPDOWN === -->
@@ -536,38 +589,33 @@ const optionList = ref([
       <h5 class="font-extrabold text-primary text-2xl block pb-5">DROPDOWN</h5>
 
       <div class="flex gap-4">
-        <!-- Basic Breadcrumb -->
-        <Dropdown :dropdownList="dropdownList">
-          <span class="whitespace-nowrap inline-flex items-center">
-            <p>Sorted By</p>
+        <DropdownMenu>
+          <DropdownMenuTrigger class="flex items-center gap-1">
+            Sorted By
             <i class="icon-down_ui ps-3"></i>
-          </span>
-        </Dropdown>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" class="rounded-lg border-0">
+            <DropdownMenuItem>New</DropdownMenuItem>
+            <DropdownMenuItem>Popular</DropdownMenuItem>
+            <DropdownMenuItem>Price</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
-        <Dropdown :dropdownList="dropdownList" variant="filled">
-          <span class="whitespace-nowrap inline-flex items-center">
-            <p>Sorted By</p>
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            class="flex items-center gap-1"
+            variant="outline"
+            color="primary"
+          >
+            Sorted By
             <i class="icon-down_ui ps-3"></i>
-          </span>
-        </Dropdown>
-
-        <Dropdown :dropdownList="dropdownList" variant="filled" color="warning">
-          <span class="whitespace-nowrap inline-flex items-center">
-            <p>Sorted By</p>
-            <i class="icon-down_ui ps-3"></i>
-          </span>
-        </Dropdown>
-
-        <!-- Basic Breadcrumb -->
-        <!-- <Dropdown>
-        <DropdownButton>
-          <span class="whitespace-nowrap inline-flex items-center">
-            <p>Sorted By</p>
-            <i class="icon-down_ui ps-3"></i>
-          </span>
-        </DropdownButton>
-        <DropdownList :dropdownList="dropdownList"> </DropdownList>
-      </Dropdown> -->
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" class="rounded-lg border-0">
+            <DropdownMenuItem variant="outline">New</DropdownMenuItem>
+            <DropdownMenuItem variant="outline">Popular</DropdownMenuItem>
+            <DropdownMenuItem variant="outline">Price</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </div>
 
@@ -703,7 +751,7 @@ const optionList = ref([
 
     <!-- === FORM === -->
     <div class="pt-10">
-      <h5 class="font-extrabold text-primary text-2xl block pb-5">TAB</h5>
+      <h5 class="font-extrabold text-primary text-2xl block pb-5">FORMS</h5>
 
       <div class="space-y-10 flex flex-col">
         <div class="grid w-full max-w-sm items-center gap-[10px]">
@@ -847,4 +895,4 @@ const optionList = ref([
     </div>
   </div>
 </template>
-./components/ui/button/IconButton.vue
+./components/ui/button/IconButton.vue./components/Dropdown-draft.vue

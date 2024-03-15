@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { HTMLAttributes } from "vue";
 import { cn } from "@/lib/utils";
 
@@ -8,11 +8,12 @@ const props = defineProps<{
 </script>
 
 <template>
-  <h3
-    :class="
-      cn('font-13m  text-main  leading-none tracking-tight ', props.class)
-    "
+  <span
+    role="link"
+    aria-disabled="true"
+    aria-current="page"
+    :class="cn('font-normal text-foreground text-muted300', props.class)"
   >
     <slot />
-  </h3>
+  </span>
 </template>

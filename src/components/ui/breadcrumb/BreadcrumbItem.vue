@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { HTMLAttributes } from "vue";
 import { cn } from "@/lib/utils";
 
@@ -8,11 +8,14 @@ const props = defineProps<{
 </script>
 
 <template>
-  <h3
+  <li
     :class="
-      cn('font-13m  text-main  leading-none tracking-tight ', props.class)
+      cn(
+        'inline-flex items-center gap-1.5 font-12m text-main dark:text-gray-300',
+        props.class
+      )
     "
   >
     <slot />
-  </h3>
+  </li>
 </template>
