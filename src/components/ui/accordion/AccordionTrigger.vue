@@ -27,7 +27,7 @@ const delegatedProps = computed(() => {
       v-bind="delegatedProps"
       :class="
         cn(
-          'flex flex-1 items-center justify-between p-[24px] font-13m text-main  transition-all hover:bg-[#F1F8FE] hover:text-primary focus-within:bg-[#F1F8FE] focus-within:text-primary focus-visible:[#F1F8FE] [&[data-state=open]>svg]:rotate-180'
+          'flex flex-1 items-center justify-between p-[24px] font-13m text-main  transition-all hover:bg-[#F1F8FE] hover:text-primary focus-within:bg-[#F1F8FE] focus-within:text-primary focus-visible:[#F1F8FE] [&[data-state=open]>svg]:rotate-180 dark:text-gray-200 dark:hover:bg-gray-700 dark:focus-within:bg-gray-700'
         )
       "
     >

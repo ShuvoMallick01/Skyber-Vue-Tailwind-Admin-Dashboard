@@ -2,8 +2,6 @@
 import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-defineProps<Props>();
-
 const badgeVariants = cva(
   "inline-flex font-semibold items-center justify-center border text-xs  transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
@@ -128,6 +126,8 @@ interface Props {
   size?: BadgeVariantProps["size"];
   shape?: BadgeVariantProps["shape"];
 }
+
+defineProps<Props>();
 </script>
 
 <template>

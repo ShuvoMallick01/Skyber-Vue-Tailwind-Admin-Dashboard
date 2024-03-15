@@ -8,8 +8,9 @@ import {
   useElementHover,
   onClickOutside,
 } from "@vueuse/core";
-import Button from "./components/button/Button.vue";
-import IconButton from "@/components/button/IconButton.vue";
+// import Button from "./components/button/Button.vue";
+import Button from "./components/ui/button/Button.vue";
+import IconButton from "./components/ui/button/IconButton.vue";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
   Accordion,
@@ -17,7 +18,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Badge from "./components/Badge/Badge.vue";
+import Badge from "./components/ui/Badge/Badge.vue";
 import {
   Card,
   CardContent,
@@ -240,9 +241,9 @@ const optionList = ref([
     </button>
   </div>
 
-  <!-- Components -->
+  <!-- COMPONENTS -->
   <div class="container mx-auto py-10 space-y-4 px-5 mb-32">
-    <!--  === BUTTON === -->
+    <!--  === Button === -->
     <div>
       <h4 class="font-semibold text-primary uppercase tracking-wide mb-4">
         Button
@@ -268,7 +269,7 @@ const optionList = ref([
       </div>
     </div>
 
-    <!--  === ICON BUTTON === -->
+    <!--  === Icon Button === -->
     <div>
       <h4 class="font-semibold text-primary uppercase tracking-wide my-4 mt-10">
         icon Button
@@ -338,13 +339,14 @@ const optionList = ref([
 
       <div class="mb-10">
         <h6
-          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10"
+          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10 dark:text-gray-300"
         >
           Basic
         </h6>
+
         <Accordion
           type="single"
-          class="w-full border rounded-lg border-gray200"
+          class="w-full border"
           collapsible
           :default-value="defaultValue"
         >
@@ -353,7 +355,7 @@ const optionList = ref([
             :key="item.value"
             :value="item.value"
           >
-            <AccordionTrigger>{{ item.title }}</AccordionTrigger>
+            <AccordionTrigger class="">{{ item.title }}</AccordionTrigger>
             <AccordionContent>
               {{ item.content }}
             </AccordionContent>
@@ -363,14 +365,14 @@ const optionList = ref([
 
       <div class="mb-10">
         <h6
-          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10"
+          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10 dark:text-gray-300"
         >
           Outline
         </h6>
 
         <Accordion
           type="single"
-          class="w-full space-y-2"
+          class="w-full space-y-2 border-0"
           collapsible
           :default-value="defaultValue"
         >
@@ -390,7 +392,7 @@ const optionList = ref([
 
       <div class="mb-10">
         <h6
-          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10"
+          class="font-semibold text-gray-600 uppercase tracking-wide my-4 mt-10 dark:text-gray-300"
         >
           Colored Outline
         </h6>
@@ -416,7 +418,7 @@ const optionList = ref([
       </div>
     </div>
 
-    <!--  === BADGE === -->
+    <!--  === Badge === -->
     <div>
       <h4 class="font-semibold text-primary uppercase tracking-wide mb-4">
         BADGE
@@ -433,7 +435,7 @@ const optionList = ref([
       </div>
     </div>
 
-    <!--  === CARD === -->
+    <!--  === Card === -->
     <div class="">
       <h4 class="font-semibold text-primary uppercase tracking-wide mb-4 pt-5">
         CARD
@@ -446,10 +448,7 @@ const optionList = ref([
               class="flex justify-between px-[16px] py-[10px] items-center border-b border-gray200"
             >
               <CardTitle class=""><p class="">Title</p></CardTitle>
-              <Button
-                color="secondary"
-                size="xsmall"
-                class="font-10m text-muted300"
+              <Button color="secondary" size="xsmall" class="font-10m"
                 >Action</Button
               >
             </div>
@@ -848,3 +847,4 @@ const optionList = ref([
     </div>
   </div>
 </template>
+./components/ui/button/IconButton.vue
