@@ -20,6 +20,8 @@ module.exports = {
     // },
     extend: {
       colors: {
+        bgPrimary: "#F5F8FA",
+
         primary: "#2499EF",
         "primary-darker": "#0E73BE",
         secondary: "#F1F6F9",

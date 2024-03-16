@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup lang="ts"></script>
 
 <!-- TEMPLATE -->
-<template></template>
+<template>
+  <h1>Home Page</h1>
+</template>

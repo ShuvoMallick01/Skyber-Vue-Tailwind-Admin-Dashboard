@@ -122,6 +122,11 @@
     @apply px-4 sm:px-6 lg:px-8;
   }
 
+  /* Custom */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
   /* Animation */
   .transition-300 {
     @apply transition-all duration-300 ease-in-out;
