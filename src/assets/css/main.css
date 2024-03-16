@@ -132,6 +132,22 @@
     @apply transition-all duration-300 ease-in-out;
   }
 
+  /* Background */
+  .gradient-bg-1 {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 172, 255, 0.46) 0%,
+      rgba(189, 0, 255, 0.35) 100%
+    );
+  }
+
+  .gradient-bg-2 {
+    background: var(
+      --Gradients-Blue-Havelock,
+      linear-gradient(250deg, #fff 2.51%, rgba(212, 241, 255, 0.54) 96.8%)
+    );
+  }
+
   /* FONT */
   .font-10m {
     font-size: 10px;
@@ -161,6 +177,11 @@
   }
   .font-14sb {
     @apply text-sm font-semibold;
+  }
+
+  /* Title */
+  .title-3 {
+    @apply font-semibold text-lg;
   }
 
   /* Badge Size */

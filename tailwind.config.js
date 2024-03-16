@@ -35,6 +35,7 @@ module.exports = {
         error: "#FF316F",
         "error-darker": "#D62B64",
 
+        primary100: "#E5F3FD",
         main: "#011E3D",
         text400: "#335474",
         text300: "#335474",
