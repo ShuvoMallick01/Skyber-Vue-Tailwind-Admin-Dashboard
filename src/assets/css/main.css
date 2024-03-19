@@ -200,9 +200,6 @@
       items-center;
   }
 
-  .dummy {
-    @apply text-main;
-  }
   /* Dropdown Button */
 
   /* CARD */
@@ -263,9 +260,4 @@
     line-height: 16px;
     color: #fff;
   } */
-
-  /* TEST */
-  .test {
-    @apply text-sm font-semibold leading-2 py-3 w-10;
-  }
 }

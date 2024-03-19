@@ -5,20 +5,18 @@ import SidebarArea from "@/components/Sidebar/SidebarArea.vue";
 
 <template>
   <!-- Page Wrapper -->
-  <div class="flex h-screen overflow-hidden">
+  <div class="flex">
     <!-- Sidebar -->
     <SidebarArea />
 
-    <!-- Contents -->
-    <div class="w-full px-7">
+    <!-- Header & Content Area -->
+    <div class="relative">
       <!-- Header -->
       <HeaderArea />
 
       <!-- Main -->
-      <main>
-        <div>
-          <slot></slot>
-        </div>
+      <main class="h-screen overflow-hidden overflow-y-auto">
+        <slot></slot>
       </main>
     </div>
   </div>

@@ -86,6 +86,9 @@ module.exports = {
         //   foreground: "hsl(var(--card-foreground))",
         // },
       },
+      boxShadow: {
+        small: "0px 2px 20px 3px rgba(28, 85, 128, 0.10)",
+      },
 
       borderWidth: {
         ".6": "0.6px",

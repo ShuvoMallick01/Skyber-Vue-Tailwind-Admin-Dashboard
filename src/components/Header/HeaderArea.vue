@@ -1,9 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useSidebar } from "@/stores/sidebar";
 
+const sidebarStore = useSidebar();
+</script>
+
+<!-- TEMPLATE -->
 <template>
-  <header class="flex items-center justify-between my-5 mx-auto">
+  <header
+    class="sticky top-0 z-999 px-7 bg-bgPrimary shadow-sm w-full flex items-center justify-between py-5 mx-auto"
+  >
     <!-- Toggle  -->
-    <button>
+    <button @click="sidebarStore.handleSidebarToggle">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

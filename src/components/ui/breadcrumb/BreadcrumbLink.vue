@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from "vue";
-import type { PrimitiveProps } from "radix-vue";
+import type { PrimitiveProps, Primitive } from "radix-vue";
 import { cn } from "@/lib/utils";
 
 interface Props extends PrimitiveProps {

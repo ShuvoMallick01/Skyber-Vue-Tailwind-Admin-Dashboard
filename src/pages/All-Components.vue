@@ -544,7 +544,7 @@ const optionList = ref([
 
       <!-- Basic Breadcrumb -->
       <p class="mb-4 dark:text-gray-300">Basic Breadcrumb</p>
-      <Breadcrumb class="border border-gray-300 px-5 py-6 rounded-lg">
+      <!-- <Breadcrumb class="border border-gray-300 px-5 py-6 rounded-lg">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink href="/"> Home </BreadcrumbLink>
@@ -577,7 +577,7 @@ const optionList = ref([
             <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
-      </Breadcrumb>
+      </Breadcrumb> -->
     </div>
 
     <!-- === DROPDOWN === -->
@@ -803,7 +803,7 @@ const optionList = ref([
 
     <!-- Input Spin -->
     <div class="text-start flex gap-8">
-      <InputSpin>
+      <!-- <InputSpin>
         <Button
           color="secondary"
           class="!text-base !text-muted-300 h-[36px] w-[36px] inline-flex justify-center"
@@ -829,9 +829,9 @@ const optionList = ref([
             <i class="icon-plus"></i>
           </template>
         </Button>
-      </InputSpin>
+      </InputSpin> -->
 
-      <InputSpin variant="filled">
+      <!-- <InputSpin variant="filled">
         <Button
           color="secondary"
           class="!text-base !bg-white !text-muted-300 h-[36px] w-[36px] inline-flex justify-center"
@@ -857,9 +857,9 @@ const optionList = ref([
             <i class="icon-plus"></i>
           </template>
         </Button>
-      </InputSpin>
+      </InputSpin> -->
 
-      <InputSpin shape="pill">
+      <!-- <InputSpin shape="pill">
         <Button
           color="secondary"
           shape="pill"
@@ -887,7 +887,7 @@ const optionList = ref([
             <i class="icon-plus"></i>
           </template>
         </Button>
-      </InputSpin>
+      </InputSpin> -->
     </div>
   </div>
 </template>

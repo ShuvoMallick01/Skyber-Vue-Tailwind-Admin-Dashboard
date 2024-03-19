@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
 <script setup lang="ts">
-import { cn } from "../lib/utils.ts";
+import { cn } from "@/lib/utils.ts";
 import { cva } from "class-variance-authority";
 import { ref } from "vue";
 
