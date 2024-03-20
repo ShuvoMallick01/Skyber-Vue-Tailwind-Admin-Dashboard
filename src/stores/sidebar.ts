@@ -1,26 +1,40 @@
+import { useMounted } from "@vueuse/core";
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import { useWindowSize } from "@vueuse/core";
 // import { onClickOutside } from "@vueuse/core";
 
 export const useSidebar = defineStore("sidebar", () => {
   const toggle = ref(false);
-  //   const target = ref(null);
   const isSidebarOpen = ref(false);
+  const sidebarWidth = ref({
+    width: 300,
+  });
+  const { width, height } = useWindowSize();
+  const windowWidth = ref(768);
 
   //   METHODS
-  //   onClickOutside(target, (event) => {
-  //     isSidebarOpen.value = false;
-  //     console.log(isSidebarOpen.value);
-  //   });
-
   const handleDropdownMenu = () => {
     toggle.value = !toggle.value;
   };
 
   const handleSidebarToggle = () => {
-    isSidebarOpen.value = !isSidebarOpen.value;
-    console.log(isSidebarOpen.value);
+    windowWidth.value = width.value;
+
+    if (windowWidth.value < 768) {
+      isSidebarOpen.value = !isSidebarOpen.value;
+    }
+
+    // console.log(isSidebarOpen.value, windowWidth.value);
   };
+
   //   RETURN
-  return { toggle, handleDropdownMenu, isSidebarOpen, handleSidebarToggle };
+  return {
+    toggle,
+    handleDropdownMenu,
+    isSidebarOpen,
+    handleSidebarToggle,
+    sidebarWidth,
+    windowWidth,
+  };
 });

@@ -1,13 +1,33 @@
 <script setup lang="ts">
 import { useSidebar } from "@/stores/sidebar";
+import { useWindowScroll } from "@vueuse/core";
+import Input from "../ui/input/Input.vue";
+import Button from "../ui/button/Button.vue";
+import { ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
 
+// State
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 const sidebarStore = useSidebar();
+const { x, y } = useWindowScroll({ behavior: "smooth" });
+const onSearchbox = ref(false);
+console.log(onSearchbox.value);
+const target = ref(null);
+
+// Methods
+import { useDark, useToggle, useElementHover } from "@vueuse/core";
+
+onClickOutside(target, (event) => {
+  onSearchbox.value = !onSearchbox.value;
+});
 </script>
 
 <!-- TEMPLATE -->
 <template>
   <header
-    class="sticky top-0 z-999 px-7 bg-bgPrimary shadow-sm w-full flex items-center justify-between py-5 mx-auto"
+    class="sticky top-0 z-999 px-7 w-full flex items-center justify-between py-5 mx-auto transition-all"
+    :class="{ 'bg-white shadow-sm py-4': y > 0 }"
   >
     <!-- Toggle  -->
     <button @click="sidebarStore.handleSidebarToggle">
@@ -28,8 +48,9 @@ const sidebarStore = useSidebar();
     </button>
 
     <!-- Right  -->
-    <div class="flex items-center gap-[14px]">
-      <button>
+    <div class="flex items-center gap-[16px]">
+      <!-- Search Button -->
+      <button @click="() => (onSearchbox = true)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -45,8 +66,50 @@ const sidebarStore = useSidebar();
           />
         </svg>
       </button>
-      <button>
+
+      <!-- Search Box -->
+      <form
+        v-if="onSearchbox"
+        ref="target"
+        class="w-full absolute top-0 left-0 px-8 transition-all shadow-sm"
+      >
+        <div class="relative flex items-center">
+          <Input
+            class="pl-9 my-2 h-14"
+            id="search"
+            type="search"
+            placeholder="Search..."
+          >
+          </Input>
+
+          <span class="absolute top-1/2 -translate-y-1/2 px-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.8751 15.4554L20.8751 19.4602C21.0538 19.6589 21.045 19.9631 20.8551 20.1511L20.1551 20.8519C20.0612 20.9467 19.9334 21 19.8001 21C19.6668 21 19.539 20.9467 19.4451 20.8519L15.4451 16.8471C15.3345 16.7362 15.2341 16.6156 15.1451 16.4867L14.3951 15.4855C13.1542 16.4776 11.6132 17.0178 10.0251 17.0173C6.75273 17.0287 3.90914 14.7686 3.17785 11.5751C2.44656 8.38161 4.02273 5.10699 6.97322 3.68991C9.92371 2.27284 13.4611 3.09151 15.4911 5.66125C17.5211 8.23099 17.502 11.866 15.4451 14.4142L16.4451 15.105C16.6013 15.2051 16.7455 15.3226 16.8751 15.4554ZM5.0251 10.0089C5.0251 12.7736 7.26368 15.0149 10.0251 15.0149C11.3512 15.0149 12.623 14.4875 13.5606 13.5487C14.4983 12.6099 15.0251 11.3366 15.0251 10.0089C15.0251 7.24412 12.7865 5.00284 10.0251 5.00284C7.26368 5.00284 5.0251 7.24412 5.0251 10.0089Z"
+                fill="#96ABC4"
+              />
+            </svg>
+          </span>
+
+          <Button class="absolute end-0 top-1/2 -translate-y-1/2 h-2 mx-2"
+            >Search</Button
+          >
+        </div>
+      </form>
+
+      <!-- Dark Mode -->
+      <button @click="toggleDark()" color="text-primary ">
+        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
         <svg
+          v-if="isDark"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -60,7 +123,10 @@ const sidebarStore = useSidebar();
             fill="#FFC675"
           />
         </svg>
+        <i v-else class="fa-solid fa-moon"></i>
       </button>
+
+      <!-- Language -->
       <button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -99,6 +165,8 @@ const sidebarStore = useSidebar();
           />
         </svg>
       </button>
+
+      <!-- Notification -->
       <button>
         <svg
           xmlns="http://www.w3.org/2000/svg"

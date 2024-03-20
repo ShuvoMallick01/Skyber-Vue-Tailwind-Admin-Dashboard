@@ -123,9 +123,6 @@
   }
 
   /* Custom */
-  .no-scrollbar {
-    scrollbar-width: none;
-  }
 
   /* Animation */
   .transition-300 {
@@ -238,6 +235,36 @@
   }
 
   /* Checkbox */
+  .ps {
+    height: 200px !important;
+  }
+
+  /* Custom Scrollbar */
+  /* .no-scrollbar {
+    scrollbar-width: none;
+  }
+ */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar:hover {
+    @apply transition-all;
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-white;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-transparent;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 transition-all;
+    border-radius: 10px;
+  }
 
   /* Style the custom checkbox */
   /* .custom-checkbox input[type="checkbox"] + span::after {
