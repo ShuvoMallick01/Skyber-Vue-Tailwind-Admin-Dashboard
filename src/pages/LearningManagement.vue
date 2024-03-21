@@ -16,7 +16,7 @@ import AllComponents from "@/pages/All-Components.vue";
 <template>
   <div class="grid grid-cols-3 gap-7">
     <!-- Welcome Card -->
-    <div class="col-span-3 lg:col-span-2">
+    <div class="col-span-3 lg:col-span-2 dark:bg-gray400">
       <div
         class="flex items-center justify-between bg-white px-6 py-9 gap-4 rounded"
       >

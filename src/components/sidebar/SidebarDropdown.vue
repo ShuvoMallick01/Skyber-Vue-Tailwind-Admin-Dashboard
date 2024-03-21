@@ -23,11 +23,14 @@ const props = defineProps<MyComponentProps>();
         :to="childItem.route"
         class="group relative flex font-12m text-muted300 items-center gap-3 border-l-[2px] border-l-transparent px-3 rounded-s-[2px] duration-300 ease-in-out py-3.5 rounded-e hover:font-medium hover:border-l-primary hover:text-primary hover:bg-primary100"
         :class="
-          route.path === childItem.route ? 'bg-primary100 text-primary  ' : ''
+          route.path === childItem.route
+            ? 'bg-primary100 text-primary  dark:bg-gray-800 dark:border-l-gray-600'
+            : ''
         "
       >
         <span
           class="h-[10px] w-[10px] border-2 rounded-full border-muted300 group-hover:border-primary group-hover:bg-primary transition-all"
+          :class="route.path === childItem.route ? 'bg-muted300' : ''"
         ></span>
         {{ childItem.label }}
       </router-link>

@@ -24,7 +24,7 @@ const target = ref(null);
 
   <aside
     v-if="sidebarStore.windowWidth < 768"
-    class="h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] z-999"
+    class="h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] z-999 dark:bg-dark-bgPrimary"
     :class="
       sidebarStore.isSidebarOpen
         ? '-translate-x-0'
@@ -86,7 +86,7 @@ const target = ref(null);
   <!-- 2ND SIDEBAR -->
   <aside
     v-else
-    class="h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] md:-translate-x-0 -translate-x-full z-999!"
+    class="h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] md:-translate-x-0 -translate-x-full z-999! dark:bg-dark-bgPrimary"
     :class="` w-[${sidebarStore.sidebarWidth.width}px]`"
     ref="target"
   >

@@ -5,6 +5,59 @@ import Input from "../ui/input/Input.vue";
 import Button from "../ui/button/Button.vue";
 import { ref } from "vue";
 import { onClickOutside } from "@vueuse/core";
+import {
+  Cloud,
+  CreditCard,
+  Github,
+  Keyboard,
+  LifeBuoy,
+  LogOut,
+  Mail,
+  MessageSquare,
+  Plus,
+  PlusCircle,
+  Settings,
+  User,
+  UserPlus,
+  Users,
+} from "lucide-vue-next";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Menubar,
+  MenubarCheckboxItem,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 // State
 const isDark = useDark();
@@ -14,6 +67,23 @@ const { x, y } = useWindowScroll({ behavior: "smooth" });
 const onSearchbox = ref(false);
 console.log(onSearchbox.value);
 const target = ref(null);
+const languageDropdown = ref([
+  {
+    id: 1,
+    title: "English",
+    icon: "",
+  },
+  {
+    id: 2,
+    title: "Spanish",
+    icon: "",
+  },
+  {
+    id: 3,
+    title: "Bengali",
+    icon: "",
+  },
+]);
 
 // Methods
 import { useDark, useToggle, useElementHover } from "@vueuse/core";
@@ -26,8 +96,11 @@ onClickOutside(target, (event) => {
 <!-- TEMPLATE -->
 <template>
   <header
-    class="sticky top-0 z-999 px-7 w-full flex items-center justify-between py-5 mx-auto transition-all"
-    :class="{ 'bg-white shadow-sm py-4': y > 0 }"
+    class="sticky top-0 z-999 px-7 2xl:px-20 w-full flex items-center justify-between py-5 mx-auto transition-all"
+    :class="{
+      'bg-white shadow-sm py-4 dark:bg-dark-bgPrimary dark:border-l-gray-700':
+        y > 0,
+    }"
   >
     <!-- Toggle  -->
     <button @click="sidebarStore.handleSidebarToggle">
@@ -71,7 +144,7 @@ onClickOutside(target, (event) => {
       <form
         v-if="onSearchbox"
         ref="target"
-        class="w-full absolute top-0 left-0 px-8 transition-all shadow-sm"
+        class="w-full absolute top-0 left-0 px-20 transition-all shadow-sm"
       >
         <div class="relative flex items-center">
           <Input
@@ -127,70 +200,189 @@ onClickOutside(target, (event) => {
       </button>
 
       <!-- Language -->
-      <button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          class="border-0 p-0 hover:bg-transparent"
+          variant="outline"
+          color="primary"
         >
-          <path
-            d="M8.00007 15.7778C12.2956 15.7778 15.7778 12.2956 15.7778 8.00001C15.7778 3.70446 12.2956 0.222229 8.00007 0.222229C3.70452 0.222229 0.22229 3.70446 0.22229 8.00001C0.22229 12.2956 3.70452 15.7778 8.00007 15.7778Z"
-            fill="#0E73BE"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M3.43875 1.69946L8.00011 6.26082L12.5615 1.69946C13.229 2.18355 13.8165 2.77112 14.3006 3.43863L9.73927 7.99998L14.3006 12.5613C13.8165 13.2288 13.229 13.8164 12.5615 14.3005L8.00011 9.73915L3.43875 14.3005C2.77124 13.8164 2.18367 13.2288 1.69958 12.5613L6.26094 7.99998L1.69958 3.43863C2.18367 2.77112 2.77124 2.18355 3.43875 1.69946Z"
-            fill="white"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M14.1477 12.7651L10.1538 8.69131H8.80399L13.5181 13.4814C13.7421 13.2559 13.9525 13.0166 14.1477 12.7651ZM3.22377 14.1388L8.51867 8.77773H7.13595L2.4863 13.4855C2.71797 13.7184 2.96429 13.9366 3.22377 14.1388ZM13.509 2.50939L9.08039 6.97372H7.82731L12.8453 1.91528C13.0777 2.10064 13.2994 2.29905 13.509 2.50939ZM1.85986 3.2254L5.32478 6.70366H6.68421L2.49697 2.50369C2.27017 2.73077 2.05733 2.97181 1.85986 3.2254Z"
-            fill="#E94B35"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M6.27167 0.414959V6.27161H0.41502C0.288886 6.82748 0.22229 7.40597 0.22229 8.00001C0.22229 8.59405 0.288886 9.17253 0.41502 9.7284H6.27167V15.5851C6.82754 15.7112 7.40603 15.7778 8.00007 15.7778C8.59411 15.7778 9.17259 15.7112 9.72846 15.5851V9.7284H15.5851C15.7112 9.17253 15.7778 8.59405 15.7778 8.00001C15.7778 7.40597 15.7112 6.82748 15.5851 6.27161H9.72846V0.414959C9.17259 0.288825 8.59411 0.222229 8.00007 0.222229C7.40603 0.222229 6.82754 0.288825 6.27167 0.414959Z"
-            fill="white"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M6.70377 0.329768V6.70371H0.329829C0.259103 7.12528 0.22229 7.55834 0.22229 8.00001C0.22229 8.44167 0.259103 8.87474 0.329829 9.2963H6.70377V15.6702C7.12534 15.741 7.5584 15.7778 8.00007 15.7778C8.44173 15.7778 8.8748 15.741 9.29636 15.6702V9.2963H15.6703C15.741 8.87474 15.7778 8.44167 15.7778 8.00001C15.7778 7.55834 15.741 7.12528 15.6703 6.70371H9.29636V0.329768C8.8748 0.259042 8.44173 0.222229 8.00007 0.222229C7.5584 0.222229 7.12534 0.259042 6.70377 0.329768Z"
-            fill="#E94B35"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M8.00007 15.7778C12.2956 15.7778 15.7778 12.2956 15.7778 8.00001C15.7778 3.70446 12.2956 0.222229 8.00007 0.222229C3.70452 0.222229 0.22229 3.70446 0.22229 8.00001C0.22229 12.2956 3.70452 15.7778 8.00007 15.7778Z"
+              fill="#0E73BE"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3.43875 1.69946L8.00011 6.26082L12.5615 1.69946C13.229 2.18355 13.8165 2.77112 14.3006 3.43863L9.73927 7.99998L14.3006 12.5613C13.8165 13.2288 13.229 13.8164 12.5615 14.3005L8.00011 9.73915L3.43875 14.3005C2.77124 13.8164 2.18367 13.2288 1.69958 12.5613L6.26094 7.99998L1.69958 3.43863C2.18367 2.77112 2.77124 2.18355 3.43875 1.69946Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M14.1477 12.7651L10.1538 8.69131H8.80399L13.5181 13.4814C13.7421 13.2559 13.9525 13.0166 14.1477 12.7651ZM3.22377 14.1388L8.51867 8.77773H7.13595L2.4863 13.4855C2.71797 13.7184 2.96429 13.9366 3.22377 14.1388ZM13.509 2.50939L9.08039 6.97372H7.82731L12.8453 1.91528C13.0777 2.10064 13.2994 2.29905 13.509 2.50939ZM1.85986 3.2254L5.32478 6.70366H6.68421L2.49697 2.50369C2.27017 2.73077 2.05733 2.97181 1.85986 3.2254Z"
+              fill="#E94B35"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M6.27167 0.414959V6.27161H0.41502C0.288886 6.82748 0.22229 7.40597 0.22229 8.00001C0.22229 8.59405 0.288886 9.17253 0.41502 9.7284H6.27167V15.5851C6.82754 15.7112 7.40603 15.7778 8.00007 15.7778C8.59411 15.7778 9.17259 15.7112 9.72846 15.5851V9.7284H15.5851C15.7112 9.17253 15.7778 8.59405 15.7778 8.00001C15.7778 7.40597 15.7112 6.82748 15.5851 6.27161H9.72846V0.414959C9.17259 0.288825 8.59411 0.222229 8.00007 0.222229C7.40603 0.222229 6.82754 0.288825 6.27167 0.414959Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M6.70377 0.329768V6.70371H0.329829C0.259103 7.12528 0.22229 7.55834 0.22229 8.00001C0.22229 8.44167 0.259103 8.87474 0.329829 9.2963H6.70377V15.6702C7.12534 15.741 7.5584 15.7778 8.00007 15.7778C8.44173 15.7778 8.8748 15.741 9.29636 15.6702V9.2963H15.6703C15.741 8.87474 15.7778 8.44167 15.7778 8.00001C15.7778 7.55834 15.741 7.12528 15.6703 6.70371H9.29636V0.329768C8.8748 0.259042 8.44173 0.222229 8.00007 0.222229C7.5584 0.222229 7.12534 0.259042 6.70377 0.329768Z"
+              fill="#E94B35"
+            />
+          </svg>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" class="rounded-lg border-0 w-24">
+          <DropdownMenuItem variant="outline">English</DropdownMenuItem>
+          <DropdownMenuItem variant="outline">Spanish</DropdownMenuItem>
+          <DropdownMenuItem variant="outline">Bengali</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
       <!-- Notification -->
-      <button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          class="border-0 p-0 m-0 hover:bg-transparent"
+          variant="outline"
         >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M18.853 14.88L19.6818 15.71C19.8663 15.8963 19.9703 16.1477 19.9714 16.41V17C19.9714 17.5523 19.5243 18 18.9728 18H4.99295C4.44146 18 3.99438 17.5523 3.99438 17V16.41C3.99549 16.1477 4.09949 15.8963 4.28397 15.71L5.11278 14.88C5.67474 14.3179 5.99081 13.5554 5.99151 12.76V10C5.99151 8.70178 6.41197 7.43858 7.18979 6.4L8.08849 5.2C8.65424 4.44458 9.54213 4 10.485 4H10.9843V2.5C10.9843 2.22386 11.2079 2 11.4836 2H12.4822C12.7579 2 12.9815 2.22386 12.9815 2.5V4H13.4807C14.4236 4 15.3115 4.44458 15.8773 5.2L16.776 6.4C17.5538 7.43858 17.9743 8.70178 17.9743 10V12.76C17.975 13.5554 18.291 14.3179 18.853 14.88ZM11.9829 22C13.0859 22 13.98 21.1046 13.98 20H9.98576C9.98576 21.1046 10.8799 22 11.9829 22Z"
-            fill="#2499EF"
-          />
-        </svg>
-      </button>
+          <button>
+            <svg
+              class="mt-1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M18.853 14.88L19.6818 15.71C19.8663 15.8963 19.9703 16.1477 19.9714 16.41V17C19.9714 17.5523 19.5243 18 18.9728 18H4.99295C4.44146 18 3.99438 17.5523 3.99438 17V16.41C3.99549 16.1477 4.09949 15.8963 4.28397 15.71L5.11278 14.88C5.67474 14.3179 5.99081 13.5554 5.99151 12.76V10C5.99151 8.70178 6.41197 7.43858 7.18979 6.4L8.08849 5.2C8.65424 4.44458 9.54213 4 10.485 4H10.9843V2.5C10.9843 2.22386 11.2079 2 11.4836 2H12.4822C12.7579 2 12.9815 2.22386 12.9815 2.5V4H13.4807C14.4236 4 15.3115 4.44458 15.8773 5.2L16.776 6.4C17.5538 7.43858 17.9743 8.70178 17.9743 10V12.76C17.975 13.5554 18.291 14.3179 18.853 14.88ZM11.9829 22C13.0859 22 13.98 21.1046 13.98 20H9.98576C9.98576 21.1046 10.8799 22 11.9829 22Z"
+                fill="#2499EF"
+              />
+            </svg>
+          </button>
+        </DropdownMenuTrigger>
+
+        <DropdownMenuContent
+          align="start"
+          class="border-0 dark:bg-dark-bgSecondary w-[376px] mx-4"
+        >
+          <DropdownMenuItem
+            variant="outline"
+            class="hover:!bg-transparent hover:text-current"
+          >
+            <p class="py-2 text-base font-semibold mt-2 mx-2">Notification</p>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator class="my-0" />
+          <DropdownMenuItem variant="outline"
+            ><div class="group flex gap-4 items-center py-2 mx-2">
+              <span
+                class="h-[10px] w-[10px] border-2 rounded-full border-muted300 group-hover:border-primary group-hover:!bg-primary transition-all"
+              ></span>
+              <img
+                src="@/assets/images/avatar/avatar-2.png"
+                class="!h-8 !w-8"
+                lt=""
+              />
+              <div>
+                <p
+                  class="font-13sb text-main text-nowrap !font-semibold dark:text-white"
+                >
+                  Brain Warner
+                </p>
+                <p class="font-10m text-muted dark:text-dark-text100">
+                  Changed an issue from in this project
+                </p>
+              </div>
+            </div></DropdownMenuItem
+          >
+          <DropdownMenuSeparator class="my-0" />
+          <DropdownMenuItem variant="outline">
+            <Card class="bg-transparent border-0 shadow-none">
+              <div class="group flex gap-4 items-center py-2 mx-2">
+                <span
+                  class="h-[10px] w-[10px] border-2 rounded-full border-muted300 group-hover:border-primary group-hover:!bg-primary transition-all"
+                ></span>
+                <img
+                  src="@/assets/images/avatar/avatar-2.png"
+                  class="!h-8 !w-8"
+                  lt=""
+                />
+                <div>
+                  <p
+                    class="font-13sb text-main text-nowrap !font-semibold dark:text-white"
+                  >
+                    Brain Warner
+                  </p>
+                  <p class="font-10m text-muted dark:text-dark-text100">
+                    Changed an issue from in this project
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
       <!-- Profile Info -->
-      <div
-        class="flex items-center gap-2 bg-primary100 px-[10px] py-2 rounded-full"
-      >
-        <p class="font-13m text-main text-nowrap">Hi. Penni Nojel</p>
-        <img src="@/assets/images/avatar/avatar-2.png" alt="" />
-      </div>
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          class="border-0 p-0 hover:bg-transparent"
+          variant="outline"
+        >
+          <div
+            class="flex items-center gap-2 bg-primary100 px-[10px] py-2 rounded-full"
+          >
+            <p class="font-13sb text-main text-nowrap">Hi. Penni Nojel</p>
+            <img src="@/assets/images/avatar/avatar-2.png" alt="" />
+          </div>
+        </DropdownMenuTrigger>
+
+        <DropdownMenuContent
+          align="start"
+          class="border-0 dark:bg-dark-bgSecondary"
+        >
+          <DropdownMenuItem variant="outline">
+            <div class="flex gap-2 items-center py-2">
+              <img
+                src="@/assets/images/avatar/avatar-2.png"
+                class="!h-8 !w-8"
+                lt=""
+              />
+              <div>
+                <p
+                  class="font-13m text-main text-nowrap !font-semibold dark:text-white"
+                >
+                  Hi. Penni Nojel
+                </p>
+                <p class="font-10m text-muted dark:text-dark-text100">
+                  shuvo@example.com
+                </p>
+              </div>
+            </div>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem variant="outline">Get Status</DropdownMenuItem>
+          <DropdownMenuItem variant="outline"
+            >Profile & Account</DropdownMenuItem
+          >
+          <DropdownMenuItem variant="outline">Manage Team</DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem variant="outline">Sign Out</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   </header>
 </template>

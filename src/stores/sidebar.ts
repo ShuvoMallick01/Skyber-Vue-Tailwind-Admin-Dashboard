@@ -5,7 +5,7 @@ import { useWindowSize } from "@vueuse/core";
 // import { onClickOutside } from "@vueuse/core";
 
 export const useSidebar = defineStore("sidebar", () => {
-  const toggle = ref(false);
+  const dropdownToggle = ref(false);
   const isSidebarOpen = ref(false);
   const sidebarWidth = ref({
     width: 300,
@@ -15,7 +15,7 @@ export const useSidebar = defineStore("sidebar", () => {
 
   //   METHODS
   const handleDropdownMenu = () => {
-    toggle.value = !toggle.value;
+    dropdownToggle.value = !dropdownToggle.value;
   };
 
   const handleSidebarToggle = () => {
@@ -30,7 +30,7 @@ export const useSidebar = defineStore("sidebar", () => {
 
   //   RETURN
   return {
-    toggle,
+    dropdownToggle,
     handleDropdownMenu,
     isSidebarOpen,
     handleSidebarToggle,

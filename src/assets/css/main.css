@@ -253,7 +253,8 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-white;
+    all: unset;
+    @apply bg-white dark:!bg-dark-bgPrimary;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -262,8 +263,12 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-400 transition-all;
+    @apply bg-slate-400 transition-all dark:!bg-slate-700;
     border-radius: 10px;
+  }
+
+  .bg-black {
+    background-color: black;
   }
 
   /* Style the custom checkbox */
@@ -288,3 +293,6 @@
     color: #fff;
   } */
 }
+
+/* Note */
+/* dark hover: bg-gray-800 */

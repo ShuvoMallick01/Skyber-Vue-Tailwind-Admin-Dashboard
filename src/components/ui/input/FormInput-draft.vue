@@ -27,7 +27,7 @@ const inputClasses = cva(["leading-normal transition-300 "], {
   variants: {
     variant: {
       outline:
-        "text-sm  bg-white border border-gray-300 text-gray-900 block  dark:bg-gray-700 dark:text-white ",
+        "text-sm  bg-white border border-gray-300 text-gray-900 block dark:bg-gray-700 dark:text-white ",
       filled:
         "text-sm  bg-text-200 border border-gray-300 text-gray-900  block dark:bg-gray-700 dark:text-white ",
     },
@@ -58,7 +58,6 @@ const inputClasses = cva(["leading-normal transition-300 "], {
 
   defaultVariants: {
     variant: "outline",
-    color: "gray",
     shape: "rounded",
     size: "medium",
     custom: "default",

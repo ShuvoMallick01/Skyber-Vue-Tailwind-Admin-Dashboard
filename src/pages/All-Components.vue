@@ -601,6 +601,24 @@ const optionList = ref([
           <DropdownMenuTrigger
             class="flex items-center gap-1"
             variant="outline"
+            color="secondary"
+          >
+            Sorted By
+            <i class="icon-down_ui ps-3"></i>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" class="rounded-lg border-0">
+            <DropdownMenuItem variant="outline" color="secondary"
+              >New</DropdownMenuItem
+            >
+            <DropdownMenuItem variant="outline">Popular</DropdownMenuItem>
+            <DropdownMenuItem variant="outline">Price</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            class="flex items-center gap-1"
+            variant="outline"
             color="primary"
           >
             Sorted By
@@ -891,4 +909,3 @@ const optionList = ref([
     </div>
   </div>
 </template>
-@/@/components/input@/components/paginatio@/components/labeln@/components/dropdown-menu@/components/checkbox@/components/card@/components/breadcrumb@/components/alertcomponents/accordion

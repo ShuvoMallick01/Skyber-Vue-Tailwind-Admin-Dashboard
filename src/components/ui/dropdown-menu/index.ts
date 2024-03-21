@@ -48,7 +48,7 @@ export const buttonVariants = cva(
 
       color: {
         primary: "text-white bg-primary hover:bg-primary-darker ",
-        secondary: "text-text-400 bg-secondary hover:bg-secondary-darker",
+        secondary: "text-text-400 bg-secondary hover:bg-secondary-darker ",
         info: "bg-info hover:bg-info-darker",
         success: "bg-success hover:bg-success-darker",
         warning: "bg-warning hover:bg-warning-darker",
@@ -71,7 +71,7 @@ export const buttonVariants = cva(
         variant: "outline",
         color: "secondary",
         class:
-          "text-text-400 bg-transparent border-text-400 outline-none hover:text-white hover:bg-text-400 dark:hover:bg-white dark:hover:text-black",
+          "text-text-400 bg-transparent border-text-400 outline-none hover:text-white hover:bg-text-400 dark:hover:bg-gray-100 dark:bg-dark-bgSecondary dark:hover:bg-dark-bgHover ",
       },
       {
         variant: "outline",
@@ -139,7 +139,7 @@ export const buttonVariants = cva(
   }
 );
 
-// Option Class
+// === OPTION CLASS ===
 export const optionVariants = cva(
   ["text-xs px-3 py-2 leading-normal transition-300 block"],
   {
@@ -155,7 +155,7 @@ export const optionVariants = cva(
 
       color: {
         primary:
-          "bg-primary text-white hover:bg-primary-darker dark:hover:bg-gray-600 dark:hover:text-white",
+          "bg-primary text-white hover:bg-primary-darker dark:hover:bg-gray-600 dark:hover:text-white ",
         secondary:
           "bg-secondary  text-text-400 bg-secondary hover:bg-secondary-darker",
         info: "bg-info  hover:bg-info-darker",
@@ -171,31 +171,31 @@ export const optionVariants = cva(
         variant: "outline",
         color: "primary",
         class:
-          "text-muted-300 hover:text-primary bg-transparent border-primary outline-none hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-primary dark:text-white dark:hover:text-primary",
+          "text-muted-300 hover:text-primary bg-transparent border-primary outline-none hover:bg-gray-100 dark:bg-dark-bgSecondary dark:hover:bg-dark-bgHover dark:border-primary dark:text-white dark:hover:text-primary",
       },
       {
         variant: "outline",
         color: "secondary",
         class:
-          "text-text-400 bg-transparent border-text-400 outline-none hover:text-white hover:bg-text-400 dark:hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black",
+          "text-text-400 bg-transparent border-text-400 outline-none hover:text-white hover:!bg-dark dark:hover:bg-gray-100 dark:bg-dark-bgSecondary dark:hover:bg-dark-bgHover ",
       },
       {
         variant: "outline",
         color: "info",
         class:
-          "text-muted-300 hover:text-info bg-transparent border-info outline-none hover:bg-gray-100 dark:hover:bg-gray-100 dark:border-info dark:text-white dark:hover:text-info",
+          "text-muted-300 hover:text-info bg-transparent border-info outline-none hover:bg-gray-100 dark:hover:bg-gray-100 dark:border-info dark-bgSecondary dark:text-white dark:hover:text-info",
       },
       {
         variant: "outline",
         color: "success",
         class:
-          "text-muted-300 hover:text-success bg-transparent border-success outline-none hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-success dark:text-white dark:hover:text-success",
+          "text-muted-300 hover:text-success bg-transparent border-success outline-none hover:bg-gray-100 dark:hover:bg-gray-600 dark-bgSecondary dark:border-success dark:text-white dark:hover:text-success",
       },
       {
         variant: "outline",
         color: "warning",
         class:
-          "text-warning bg-transparent border-warning outline-none hover:text-white hover:bg-warning dark:border-warning dark:text-warning dark:hover:text-white dark:hover:border-warning",
+          "text-warning bg-transparent border-warning outline-none hover:text-white hover:bg-warning dark:border-warning dark:text-warning dark-bgSecondary dark:hover:text-white dark:hover:border-warning",
       },
       {
         variant: "outline",

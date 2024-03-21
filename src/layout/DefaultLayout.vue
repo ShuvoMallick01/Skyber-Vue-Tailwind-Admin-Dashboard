@@ -22,7 +22,7 @@ const sidebarStore = useSidebar();
       <HeaderArea />
 
       <!-- Main -->
-      <main class="h-screen overflow-hidden overflow-y-auto px-7 max-xl:px-8">
+      <main class="h-screen overflow-hidden overflow-y-auto px-7 2xl:px-20">
         <slot></slot>
       </main>
     </div>

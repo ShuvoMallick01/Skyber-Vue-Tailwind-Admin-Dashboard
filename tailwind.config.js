@@ -47,6 +47,16 @@ module.exports = {
         gray300: "#E9EFF6",
         gray400: "#335474",
 
+        // Dark Color
+        "dark-bgPrimary": "#111827",
+        "dark-bgSecondary": "rgb(31, 41, 55)",
+        "dark-bgActive": "rgb(55, 65, 81)",
+        "dark-bgHover": "rgba(243, 244, 246, 0.04)",
+
+        "dark-textmute100": "rgba(243, 244, 246, 0.04)",
+        "dark-text100": "rgb(156, 163, 175)",
+        "dark-text200": "rgb(255, 255, 255)",
+
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",

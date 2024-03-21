@@ -22,11 +22,11 @@ const props = defineProps<MyComponentProps>();
   <li>
     <router-link
       :to="item.route"
-      @click="sidebarStore.handleDropdownMenu"
-      class="group relative flex font-12m truncate text-muted300 items-center gap-3 border-l-[2px] border-l-transparent px-3 rounded-s-[2px] duration-300 ease-in-out py-3.5 rounded hover:font-medium hover:border-l-primary hover:text-primary hover:bg-primary100"
+      @click="() => (item.children ? sidebarStore.handleDropdownMenu() : '')"
+      class="group relative flex font-12m truncate text-muted300 items-center gap-3 border-l-[2px] border-l-transparent px-3 rounded-s-[2px] duration-300 ease-in-out py-3.5 rounded hover:font-medium hover:border-l-primary hover:text-primary hover:bg-primary100 dark:hover:bg-gray-800"
       :class="
         route.path === item.route && !item.children
-          ? 'bg-primary100 text-primary  '
+          ? 'bg-primary100 text-primary dark:bg-gray-800  dark:border-l-gray-600'
           : ''
       "
     >
@@ -53,7 +53,7 @@ const props = defineProps<MyComponentProps>();
     </router-link>
 
     <div
-      v-if="item.children && sidebarStore.toggle"
+      v-if="item.children && sidebarStore.dropdownToggle"
       class="shadow-small rounded-b-lg pb-1 mb-3"
     >
       <SidebarDropdown :items="item.children!" />
