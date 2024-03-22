@@ -10,6 +10,7 @@ export const buttonVariants = cva(
         outline:
           "text-black border border-black dark:text-white dark:border-white",
         translucent: "text-gray-400 bg-black/10 text-center ",
+        link: "text-black",
       },
       color: {
         primary:
@@ -25,6 +26,7 @@ export const buttonVariants = cva(
         medium: "py-[15px] px-[20px]",
         small: "py-[5px] px-[20px]",
         xsmall: "py-[4px] px-[10px]",
+        none: "py-[0px] px-[0px]",
       },
     },
 
@@ -68,7 +70,6 @@ export const buttonVariants = cva(
       },
 
       // Translucent Buttons
-
       {
         variant: "translucent",
         color: "primary",
@@ -104,6 +105,20 @@ export const buttonVariants = cva(
         color: "error",
         class:
           "text-error bg-error/15 border-transparent hover:text-error-darker hover:bg-error/40 dark:hover:text-error",
+      },
+
+      // Links
+      {
+        variant: "link",
+        color: "primary",
+        class:
+          "text-primary hover:text-primary-darker bg-transparent hover:bg-transparent",
+      },
+      {
+        variant: "link",
+        color: "secondary",
+        class:
+          "text-slate-400 hover:text-slate-600 bg-transparent hover:bg-transparent ",
       },
     ],
 

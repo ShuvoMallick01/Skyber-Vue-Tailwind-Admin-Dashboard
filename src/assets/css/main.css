@@ -114,22 +114,20 @@
 }
 
 @layer utilities {
-  /* Global */
   container-primary {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
+
   .container-fluid {
     @apply px-4 sm:px-6 lg:px-8;
   }
 
-  /* Custom */
-
-  /* Animation */
+  /* ANIMATION */
   .transition-300 {
     @apply transition-all duration-300 ease-in-out;
   }
 
-  /* Background */
+  /* BACKGROUND */
   .gradient-bg-1 {
     background: linear-gradient(
       180deg,
@@ -154,12 +152,12 @@
     font-size: 10px;
     @apply font-semibold;
   }
-  .font-12sb {
-    @apply text-xs font-semibold;
-  }
   .font-12m {
     font-size: 12px;
     @apply font-medium;
+  }
+  .font-12sb {
+    @apply text-xs font-semibold;
   }
   .font-13m {
     font-size: 13px;
@@ -234,7 +232,7 @@
     @apply bg-gray-200 border border-gray-300 text-gray-900 outline-none ring-0 focus:ring-0 focus:outline-none focus:border-gray-300 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500;
   }
 
-  /* Checkbox */
+  /* Vue Smart Scroll Bar */
   .ps {
     height: 200px !important;
   }
@@ -242,8 +240,8 @@
   /* Custom Scrollbar */
   /* .no-scrollbar {
     scrollbar-width: none;
-  }
- */
+  }*/
+
   ::-webkit-scrollbar {
     width: 6px;
   }

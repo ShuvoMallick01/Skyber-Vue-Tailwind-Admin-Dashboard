@@ -24,7 +24,7 @@ const target = ref(null);
 
   <aside
     v-if="sidebarStore.windowWidth < 768"
-    class="h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] z-999 dark:bg-dark-bgPrimary"
+    class="h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] z-[1111] dark:bg-dark-bgPrimary"
     :class="
       sidebarStore.isSidebarOpen
         ? '-translate-x-0'

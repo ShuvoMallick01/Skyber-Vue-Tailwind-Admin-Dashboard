@@ -21,7 +21,6 @@ module.exports = {
     extend: {
       colors: {
         bgPrimary: "#F5F8FA",
-
         primary: "#2499EF",
         "primary-darker": "#0E73BE",
         secondary: "#F1F6F9",
@@ -41,8 +40,11 @@ module.exports = {
         text300: "#335474",
         text200: "#A7BEDA",
         text100: "#CCDDF0",
+
         muted: "#738499",
         muted300: "#88A6C9",
+
+        // Not Use
         gray200: "#F1F6F9",
         gray300: "#E9EFF6",
         gray400: "#335474",
@@ -53,9 +55,10 @@ module.exports = {
         "dark-bgActive": "rgb(55, 65, 81)",
         "dark-bgHover": "rgba(243, 244, 246, 0.04)",
 
-        "dark-textmute100": "rgba(243, 244, 246, 0.04)",
         "dark-text100": "rgb(156, 163, 175)",
         "dark-text200": "rgb(255, 255, 255)",
+
+        "dark-mute": "rgb(156, 163, 175)",
 
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -97,7 +100,7 @@ module.exports = {
         // },
       },
       boxShadow: {
-        small: "0px 2px 20px 3px rgba(28, 85, 128, 0.10)",
+        small: "0px 4px 10px 2px rgba(19, 80, 124, 0.06)",
       },
 
       borderWidth: {

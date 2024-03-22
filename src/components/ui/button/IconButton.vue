@@ -12,6 +12,7 @@ const buttonVariants = cva(
         outline:
           "text-black border border-black dark:text-white dark:border-white",
         translucent: "text-gray-400 bg-black/10 text-center ",
+        icon: "fill-dark",
       },
       color: {
         primary: "text-white bg-primary border-primary hover:bg-primary-darker",
@@ -26,8 +27,9 @@ const buttonVariants = cva(
           "bg-error border-error hover:bg-error-darker hover:border-error-darker",
       },
       size: {
+        large: "h-[40px] w-[40px]",
         medium: "px-2 py-2",
-        small: "px-2 py-2",
+        small: "h-[24px] w-[24px]",
       },
     },
 
@@ -71,42 +73,54 @@ const buttonVariants = cva(
       },
 
       // Translucent Buttons
-
       {
         variant: "translucent",
         color: "primary",
         class:
-          "text-primary bg-primary/15 border-primary/15 hover:text-primary-darker hover:bg-primary/40 dark:text-primary",
+          "text-primary fill-primary bg-primary/15 border-primary/15 hover:text-primary-darker hover:bg-primary/40 dark:text-primary",
       },
       {
         variant: "translucent",
         color: "secondary",
         class:
-          "text-slate-400 bg-secondary border-text-400 hover:text-black hover:bg-text-400/20  dark:text-gray-500 dark:hover:bg-white dark:hover:text-gray-500",
+          "text-slate-400 fill-slate-400 bg-secondary border-text-400 hover:text-black hover:bg-text-400/20  dark:text-gray-500 dark:hover:bg-white dark:hover:text-gray-500",
       },
       {
         variant: "translucent",
         color: "info",
         class:
-          "text-info bg-info/15 border-info hover:text-info-darker hover:bg-info/40 dark:hover:text-info",
+          "text-info fill-info bg-info/15  border-info hover:text-info-darker hover:bg-info/40 dark:hover:text-info",
       },
       {
         variant: "translucent",
         color: "success",
         class:
-          "text-success bg-success/15 border-success hover:text-success-darker hover:bg-success/40 dark:hover:text-success",
+          "text-success fill-success bg-success/15 border-success hover:text-success-darker hover:bg-success/40 dark:hover:text-success",
       },
       {
         variant: "translucent",
         color: "warning",
         class:
-          "text-warning bg-warning/15 border-warning hover:text-warning-darker hover:bg-warning/40 dark:hover:text-warning",
+          "text-warning fill-warning bg-warning/15 border-warning hover:text-warning-darker hover:bg-warning/40 dark:hover:text-warning",
       },
       {
         variant: "translucent",
         color: "error",
         class:
-          "text-error bg-error/15 border-error hover:text-error-darker hover:bg-error/40 dark:hover:text-error",
+          "text-error fill-error bg-error/15 border-error hover:text-error-darker hover:bg-error/40 dark:hover:text-error",
+      },
+
+      // Icon
+      {
+        variant: "icon",
+        color: "primary",
+        class: "text-primary bg-transparent hover:bg-transparent",
+      },
+      {
+        variant: "icon",
+        color: "secondary",
+        class:
+          "!fill-muted hover:!fill-main bg-transparent hover:bg-transparent",
       },
     ],
 
