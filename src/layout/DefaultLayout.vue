@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useSidebar } from "@/stores/sidebar";
-// import SidebarArea from "@/components/Sidebar/SidebarArea.vue";
-// import HeaderArea from "@/components/Header/HeaderArea.vue";
-import HeaderArea from "../components/Header/HeaderArea.vue";
-import SidebarArea from "../components/Sidebar/SidebarArea.vue";
+import SidebarArea from "@/components/Sidebar/SidebarArea.vue";
+import HeaderArea from "@/components/Header/HeaderArea.vue";
 
 // State
 const sidebarStore = useSidebar();

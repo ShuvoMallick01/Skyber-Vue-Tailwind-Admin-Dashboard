@@ -452,7 +452,7 @@ watchEffect((cleanupFn) => {
 
       <CardContent class="">
         <!-- Uploading Stage -->
-        <div class="flex items-start justify-between py-3">
+        <div class="flex items-start justify-between py-4">
           <div class="flex gap-2 items-start">
             <svg
               width="33"
@@ -497,7 +497,7 @@ watchEffect((cleanupFn) => {
         <div
           v-for="(item, index) in downloads"
           :key="index"
-          class="flex items-center justify-between py-3 last:pb-0"
+          class="flex items-center justify-between py-4 last:pb-0"
         >
           <div class="flex gap-2 items-start">
             <svg
