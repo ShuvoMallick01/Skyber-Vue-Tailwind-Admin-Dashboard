@@ -27,16 +27,15 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { upcomingTaskList } from "@/data/upcomingTask";
-import { courseStatusList } from "@/data/courseStatus";
-import { downloadList } from "@/data/downloadList";
+import { recentJobPostedList } from "@/data/recentJobPosted";
+import { acquisitionsList } from "@/data/acquisitionsList";
+import Badge from "@/components/ui/badge/Badge.vue";
 
 // State
 const progress = ref(13);
+const recentJobsPosted = ref([...recentJobPostedList]);
 const results = ref([...resultsData]);
-const upcomingTasks = ref([...upcomingTaskList]);
-const courseStatus = ref([...courseStatusList]);
-const downloads = ref([...downloadList]);
+const acquisitions = ref([...acquisitionsList]);
 
 // Methods
 watchEffect((cleanupFn) => {
@@ -48,9 +47,235 @@ watchEffect((cleanupFn) => {
 <!-- === TEMPLATE === -->
 <template>
   <div class="grid grid-cols-3 gap-7 mb-6">
-    <!-- Study Time Last Week -->
+    <!-- Total Applications -->
+    <Card class="py-6 px-6 col-span-3 lg:col-span-1 shadow-small">
+      <CardContent class="flex gap-6 items-center justify-between">
+        <div>
+          <p class="font-14sb text-muted">Total Applications</p>
+          <p class="text-2xl font-semibold text-main mb-[14px]">672</p>
+
+          <div class="flex items-center gap-1">
+            <Badge
+              variant="translucent"
+              shape="circle"
+              color="primary"
+              class="w-[19px] h-[19px] fill-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill=""
+                class="absolute"
+              >
+                <path
+                  d="M9.16666 2.29165V4.37498C9.16666 4.49004 9.07338 4.58331 8.95832 4.58331H8.83749C8.781 4.58413 8.72669 4.5615 8.68749 4.52081L8.00416 3.83748L5.77082 6.06665C5.73302 6.10693 5.68023 6.12978 5.62499 6.12978C5.56975 6.12978 5.51696 6.10693 5.47916 6.06665L4.37499 4.96248L1.48332 7.85415C1.4442 7.89359 1.39096 7.91577 1.33541 7.91577C1.27986 7.91577 1.22661 7.89359 1.18749 7.85415L0.895823 7.56248C0.856383 7.52336 0.834198 7.47011 0.834198 7.41456C0.834198 7.35901 0.856383 7.30576 0.895823 7.26665L4.22916 3.93331C4.26696 3.89303 4.31975 3.87018 4.37499 3.87018C4.43023 3.87018 4.48302 3.89303 4.52082 3.93331L5.62499 5.03748L7.41249 3.24581L6.72916 2.56248C6.68847 2.52328 6.66584 2.46897 6.66666 2.41248V2.29165C6.66666 2.17659 6.75993 2.08331 6.87499 2.08331H8.95832C9.07338 2.08331 9.16666 2.17659 9.16666 2.29165Z"
+                  fill=""
+                />
+              </svg>
+            </Badge>
+            <p class="font-12sb text-primary">+14% Inc</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="83"
+            height="83"
+            viewBox="0 0 83 83"
+            fill="none"
+            class=""
+          >
+            <ellipse
+              cx="41.5793"
+              cy="41.5"
+              rx="36.5793"
+              ry="36.5"
+              stroke="#E5F3FD"
+              stroke-width="9"
+              stroke-linecap="round"
+            />
+            <path
+              d="M5 41.5C5 61.6584 21.3771 78 41.5793 78C61.7815 78 78.1586 61.6584 78.1586 41.5C78.1586 21.3416 61.7815 5 41.5793 5"
+              stroke="#2499EF"
+              stroke-width="9"
+              stroke-linecap="round"
+            />
+          </svg>
+          <p class="absolute flex inset-0 items-center justify-center">70%</p>
+        </div>
+      </CardContent>
+    </Card>
+
+    <!-- Shortlisted Canditates -->
+    <Card class="py-6 px-6 col-span-3 lg:col-span-1 shadow-small">
+      <CardContent class="flex gap-6 items-center justify-between">
+        <div>
+          <p class="font-14sb text-muted">Shortlisted Canditates</p>
+          <p class="text-2xl font-semibold text-main mb-[14px]">4582</p>
+
+          <div class="flex items-center gap-1">
+            <Badge
+              variant="translucent"
+              shape="circle"
+              color="primary"
+              class="w-[19px] h-[19px] fill-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill=""
+                class="absolute"
+              >
+                <path
+                  d="M9.16666 2.29165V4.37498C9.16666 4.49004 9.07338 4.58331 8.95832 4.58331H8.83749C8.781 4.58413 8.72669 4.5615 8.68749 4.52081L8.00416 3.83748L5.77082 6.06665C5.73302 6.10693 5.68023 6.12978 5.62499 6.12978C5.56975 6.12978 5.51696 6.10693 5.47916 6.06665L4.37499 4.96248L1.48332 7.85415C1.4442 7.89359 1.39096 7.91577 1.33541 7.91577C1.27986 7.91577 1.22661 7.89359 1.18749 7.85415L0.895823 7.56248C0.856383 7.52336 0.834198 7.47011 0.834198 7.41456C0.834198 7.35901 0.856383 7.30576 0.895823 7.26665L4.22916 3.93331C4.26696 3.89303 4.31975 3.87018 4.37499 3.87018C4.43023 3.87018 4.48302 3.89303 4.52082 3.93331L5.62499 5.03748L7.41249 3.24581L6.72916 2.56248C6.68847 2.52328 6.66584 2.46897 6.66666 2.41248V2.29165C6.66666 2.17659 6.75993 2.08331 6.87499 2.08331H8.95832C9.07338 2.08331 9.16666 2.17659 9.16666 2.29165Z"
+                  fill=""
+                />
+              </svg>
+            </Badge>
+            <p class="font-12sb text-primary">+06% Inc</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="83"
+            height="83"
+            viewBox="0 0 83 83"
+            fill="none"
+            class=""
+          >
+            <ellipse
+              cx="41.5793"
+              cy="41.5"
+              rx="36.5793"
+              ry="36.5"
+              stroke="#E5F3FD"
+              stroke-width="9"
+              stroke-linecap="round"
+            />
+            <path
+              d="M5 41.5C5 61.6584 21.3771 78 41.5793 78C61.7815 78 78.1586 61.6584 78.1586 41.5C78.1586 21.3416 61.7815 5 41.5793 5"
+              stroke="#2499EF"
+              stroke-width="9"
+              stroke-linecap="round"
+            />
+          </svg>
+          <p class="absolute flex inset-0 items-center justify-center">70%</p>
+        </div>
+      </CardContent>
+    </Card>
+
+    <!-- Enrolled Courses -->
+    <Card class="p-[21px] col-span-3 lg:col-span-1 row-span-2 shadow-small">
+      <CardContent class="">
+        <div class="flex flex-col items-center gap-1.5">
+          <img src="@/assets/images/avatar/avatar-3.png" class="mx-auto" />
+          <Badge variant="translucent" class="px-[13px] py-[2px] font-10m"
+            >Pro</Badge
+          >
+          <p class="font-14sb text-main">Neelesh Chaudhary</p>
+          <p class="font-12m text-muted">UI / UX Designer</p>
+          <p class="flex items-center gap-1 text-primary fill-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.6667 8.33335C16.6667 4.65146 13.6819 1.66669 10 1.66669C6.31814 1.66669 3.33337 4.65146 3.33337 8.33335C3.33337 11.454 4.8588 12.6808 6.27471 13.8194C7.21058 14.5721 8.09861 15.2862 8.46671 16.4834L8.89171 17.7667C9.01087 18.1212 9.35158 18.3528 9.72504 18.3334H10.1917C10.5652 18.3528 10.9059 18.1212 11.025 17.7667L11.45 16.4834C11.8482 15.2953 12.7455 14.583 13.6855 13.8366C15.1259 12.6931 16.6667 11.4698 16.6667 8.33335ZM10 3.33335C7.23862 3.33335 5.00004 5.57193 5.00004 8.33335C5.00004 10.6667 5.98337 11.45 7.35004 12.5C8.49905 13.2765 9.41511 14.351 10 15.6084C10.5878 14.3528 11.5033 13.279 12.65 12.5C14.0167 11.45 15 10.6667 15 8.33335C15 5.57193 12.7615 3.33335 10 3.33335ZM11.6667 8.33335C11.6667 9.25383 10.9205 10 10 10C9.07957 10 8.33337 9.25383 8.33337 8.33335C8.33337 7.41288 9.07957 6.66669 10 6.66669C10.9205 6.66669 11.6667 7.41288 11.6667 8.33335Z"
+                fill="#2499EF"
+              />
+            </svg>
+            New York, US
+          </p>
+        </div>
+
+        <!-- Recent Job -->
+        <div class="mt-12">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="font-14sb text-main">Recent Job Posted</h4>
+            <Button variant="text" class="p-0">View all</Button>
+          </div>
+
+          <div>
+            <div
+              class="flex items-center justify-between py-2"
+              v-for="(job, index) in recentJobPostedList"
+              :key="index"
+            >
+              <div class="flex items-center gap-[10px]">
+                <Badge
+                  variant="translucent"
+                  class="h-[58px] w-[63px] text-3xl"
+                  >{{ job.number }}</Badge
+                >
+                <div class="">
+                  <p class="font-14sb dark:text-dark-text200">
+                    {{ job.jobTitle }}
+                  </p>
+                  <p class="font-12m text-muted300 dark:text-dark-mute">
+                    {{ job.description }}
+                  </p>
+                </div>
+              </div>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  class="border-0 p-0 hover:bg-transparent"
+                  variant="outline"
+                  color="primary"
+                >
+                  <IconButton variant="icon" color="secondary" size="small">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      fill=""
+                      class=""
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6 10.5C7.10457 10.5 8 11.3954 8 12.5C8 13.6046 7.10457 14.5 6 14.5C4.89543 14.5 4 13.6046 4 12.5C4 11.3954 4.89543 10.5 6 10.5ZM14 12.5C14 11.3954 13.1046 10.5 12 10.5C10.8954 10.5 10 11.3954 10 12.5C10 13.6046 10.8954 14.5 12 14.5C13.1046 14.5 14 13.6046 14 12.5ZM18 10.5C19.1046 10.5 20 11.3954 20 12.5C20 13.6046 19.1046 14.5 18 14.5C16.8954 14.5 16 13.6046 16 12.5C16 11.3954 16.8954 10.5 18 10.5Z"
+                        fill=""
+                      />
+                    </svg>
+                  </IconButton>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="start"
+                  class="rounded-lg border-0 w-24"
+                >
+                  <DropdownMenuItem variant="outline">View</DropdownMenuItem>
+                  <DropdownMenuItem variant="outline">Edit</DropdownMenuItem>
+                  <DropdownMenuItem variant="outline">Delete</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </div>
+
+          <div class="flex gap-4 w-full justify-between mt-10">
+            <Button variant="outline" class="grow">Message</Button>
+            <Button variant="filled" class="grow">Connect</Button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+
+    <!-- Results -->
     <Card class="py-6 px-5 col-span-3 xl:col-span-1 shadow-small">
-      <CardTitle class="mb-4 dark:text-white">Study Time Last Week</CardTitle>
+      <CardTitle class="mb-4 dark:text-white">Result</CardTitle>
       <CardContent>
         <table class="w-full">
           <tbody>
@@ -94,329 +319,44 @@ watchEffect((cleanupFn) => {
       </CardContent>
     </Card>
 
-    <!-- Upcoming Task -->
+    <!-- Acquisitons -->
     <Card class="py-6 px-5 col-span-3 xl:col-span-1 shadow-small">
-      <CardTitle class="mb-4"
-        ><div class="flex items-center justify-between">
-          <p class="dark:text-white">Upcoming Task</p>
-          <Button variant="link" color="primary" size="none"
-            >View all Tasks</Button
-          >
-        </div></CardTitle
-      >
-
+      <CardTitle class="mb-4 dark:text-white">Acquisitons</CardTitle>
       <CardContent>
-        <div
-          class="flex items-center justify-between py-4 last:!pb-0"
-          v-for="(task, index) in upcomingTasks"
-          :key="index"
-        >
-          <div class="border-l-4 border-l-primary pl-3">
-            <p class="font-14m dark:text-dark-text200">{{ task.taskTitle }}</p>
-            <p class="font-12m text-muted300 dark:text-dark-mute">
-              {{ task.time }}
-            </p>
-          </div>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              class="border-0 p-0 hover:bg-transparent"
-              variant="outline"
-              color="primary"
-            >
-              <IconButton variant="icon" color="secondary" size="small">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill=""
-                  class=""
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6 10.5C7.10457 10.5 8 11.3954 8 12.5C8 13.6046 7.10457 14.5 6 14.5C4.89543 14.5 4 13.6046 4 12.5C4 11.3954 4.89543 10.5 6 10.5ZM14 12.5C14 11.3954 13.1046 10.5 12 10.5C10.8954 10.5 10 11.3954 10 12.5C10 13.6046 10.8954 14.5 12 14.5C13.1046 14.5 14 13.6046 14 12.5ZM18 10.5C19.1046 10.5 20 11.3954 20 12.5C20 13.6046 19.1046 14.5 18 14.5C16.8954 14.5 16 13.6046 16 12.5C16 11.3954 16.8954 10.5 18 10.5Z"
-                    fill=""
-                  />
-                </svg>
-              </IconButton>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" class="rounded-lg border-0 w-24">
-              <DropdownMenuItem variant="outline">View</DropdownMenuItem>
-              <DropdownMenuItem variant="outline">Edit</DropdownMenuItem>
-              <DropdownMenuItem variant="outline">Delete</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </CardContent>
-    </Card>
-
-    <!-- Course Completed -->
-    <Card class="py-7 px-5 col-span-3 lg:col-span-1 shadow-small">
-      <CardContent class="flex gap-6 items-center">
-        <IconButton
-          variant="translucent"
-          color="primary"
-          class="fill-primary rounded-full h-[40px] w-[40px] shrink-0"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill=""
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M22 5.5V15.5C22 15.7761 21.7761 16 21.5 16H2.5C2.22386 16 2 15.7761 2 15.5V5.5C2 5.22386 2.22386 5 2.5 5H2.88C3.27769 5.00035 3.65897 5.15862 3.94 5.44L7 8.5L11.28 4.22C11.4205 4.07931 11.6112 4.00018 11.81 4H12.19C12.3888 4.00018 12.5795 4.07931 12.72 4.22L17 8.5L20.06 5.44C20.341 5.15862 20.7223 5.00035 21.12 5H21.5C21.7761 5 22 5.22386 22 5.5ZM22 18.5V19.5C22 19.7761 21.7761 20 21.5 20H2.5C2.22386 20 2 19.7761 2 19.5V18.5C2 18.2239 2.22386 18 2.5 18H21.5C21.7761 18 22 18.2239 22 18.5ZM18 10.33L20 8.33V14H4V8.35L6 10.35C6.10227 10.4456 6.24058 10.493 6.38 10.48H7.66C7.79559 10.482 7.92592 10.4277 8.02 10.33L12.02 6.33L16.02 10.33C16.1141 10.4277 16.2444 10.482 16.38 10.48H17.64C17.7756 10.482 17.9059 10.4277 18 10.33Z"
-              fill=""
-            />
-          </svg>
-        </IconButton>
-        <div>
-          <p class="font-14sb dark:text-dark-text200">Course Completed</p>
-          <p class="font-semibold text-2xl text-primary">1450</p>
-        </div>
-      </CardContent>
-    </Card>
-
-    <!-- Enrolled Courses -->
-    <Card class="py-7 px-5 col-span-3 lg:col-span-1 shadow-small">
-      <CardContent class="flex gap-6 items-center">
-        <IconButton
-          variant="translucent"
-          color="warning"
-          size="large"
-          class="rounded-full"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill=""
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M12.94 2.23C14.85 3.81 19 7.76 19 12.33C18.9959 15.8066 16.4409 18.7533 13 19.25V21.5C13 21.7761 12.7761 22 12.5 22H11.5C11.2239 22 11 21.7761 11 21.5V19.25C7.55907 18.7533 5.00407 15.8066 5 12.33C5 7.76 9.15 3.81 11.06 2.23C11.2399 2.08092 11.4663 1.99955 11.7 2H12.3C12.5337 1.99955 12.7601 2.08092 12.94 2.23ZM13 10.5V17.23C15.3431 16.7518 17.0196 14.6814 17 12.29C17 9 14 5.74 12 4C10 5.78 7 9.06 7 12.33C6.99951 14.7063 8.67167 16.7547 11 17.23V10.5C11 10.2239 11.2239 10 11.5 10H12.5C12.7761 10 13 10.2239 13 10.5Z"
-              fill=""
-            />
-          </svg>
-        </IconButton>
-        <div>
-          <p class="font-14sb dark:text-dark-text200">Enrolled Courses</p>
-          <p class="font-semibold text-2xl text-warning">1250</p>
-        </div>
-      </CardContent>
-    </Card>
-
-    <!-- Course Completed -->
-    <Card class="py-7 px-5 col-span-3 lg:col-span-1 shadow-small">
-      <CardContent class="flex gap-6 items-center">
-        <IconButton
-          variant="translucent"
-          color="primary"
-          size="large"
-          class="rounded-full"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill=""
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M22 5.5V15.5C22 15.7761 21.7761 16 21.5 16H2.5C2.22386 16 2 15.7761 2 15.5V5.5C2 5.22386 2.22386 5 2.5 5H2.88C3.27769 5.00035 3.65897 5.15862 3.94 5.44L7 8.5L11.28 4.22C11.4205 4.07931 11.6112 4.00018 11.81 4H12.19C12.3888 4.00018 12.5795 4.07931 12.72 4.22L17 8.5L20.06 5.44C20.341 5.15862 20.7223 5.00035 21.12 5H21.5C21.7761 5 22 5.22386 22 5.5ZM22 18.5V19.5C22 19.7761 21.7761 20 21.5 20H2.5C2.22386 20 2 19.7761 2 19.5V18.5C2 18.2239 2.22386 18 2.5 18H21.5C21.7761 18 22 18.2239 22 18.5ZM18 10.33L20 8.33V14H4V8.35L6 10.35C6.10227 10.4456 6.24058 10.493 6.38 10.48H7.66C7.79559 10.482 7.92592 10.4277 8.02 10.33L12.02 6.33L16.02 10.33C16.1141 10.4277 16.2444 10.482 16.38 10.48H17.64C17.7756 10.482 17.9059 10.4277 18 10.33Z"
-              fill=""
-            />
-          </svg>
-        </IconButton>
-        <div>
-          <p class="font-14sb dark:text-dark-text200">Course Completed</p>
-          <p class="font-semibold text-2xl text-primary">1450</p>
-        </div>
-      </CardContent>
-    </Card>
-
-    <!-- Course Status -->
-    <Card
-      class="col-span-3 shadow-small lg:col-span-2 dark:bg-dark-bgSecondary px-6 py-9"
-    >
-      <CardTitle>
-        <h5 class="title-3 text-main mb-2 dark:text-dark-text200">
-          Course Status
-        </h5>
-      </CardTitle>
-
-      <CardContent class="">
-        <table class="table-auto w-full">
-          <thead class="border-b border-b-muted/20">
-            <tr class="">
-              <th
-                class="py-4 font-13m text-start text-main dark:text-dark-text200"
-              >
-                Name
-              </th>
-              <th
-                class="font-13m text-main text-start px-3 dark:text-dark-text200"
-              >
-                Category
-              </th>
-              <th class="font-13m text-main px-3 dark:text-dark-text200">
-                Earned
-              </th>
-              <th class="font-13m text-main dark:text-dark-text200">Visitor</th>
-            </tr>
-          </thead>
-
+        <table class="w-full">
           <tbody>
-            <tr v-for="(item, index) in courseStatus" :key="index">
-              <td
-                class="pt-3"
-                :class="{
-                  'pb-3': index + 1 !== courseStatus.length,
-                }"
-              >
-                <div class="flex gap-2 items-center">
-                  <img src="@/assets/images/Course/course-thumnail-1.png" />
-                  <div>
-                    <p class="font-13m dark:text-dark-text200">
-                      {{ item.courseName }}
-                    </p>
-                    <p class="font-12m text-muted300 dark:text-dark-mute">
-                      {{ item.description }}
-                    </p>
-                  </div>
-                </div>
-              </td>
-              <td class="px-3">
-                <div
-                  class="flex items-center gap-2 shrink-0"
-                  :class="{
-                    'text-primary fill-primary':
-                      item.category === 'Graphic Template',
-                    'text-warning fill-warning':
-                      item.category === 'Development',
-                    'text-success fill-success': item.category === 'Music',
-                    'text-error fill-error': item.category === 'Editing',
-                  }"
-                >
+            <tr v-for="(data, index) in acquisitions" :key="index">
+              <td class="min-w-[90px] py-4 last:!pb-0">
+                <div class="flex items-baseline gap-2 shrink-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="10"
                     height="10"
                     viewBox="0 0 10 10"
-                    fill=""
+                    fill="none"
                   >
-                    <rect width="10" height="10" rx="5" fill="" />
+                    <rect width="10" height="10" rx="5" fill="#2499EF" />
                   </svg>
-                  <p>{{ item.category }}</p>
+
+                  <p class="text-main dark:text-dark-text200">
+                    {{ data.title }}
+                  </p>
                 </div>
               </td>
-              <td class="text-center px-3 xl:px-10 dark:text-dark-text200">
-                ${{ item.earned }}
+              <td class="px-4 w-full">
+                <Progress
+                  :model-value="data.progressPerchantage"
+                  class="h-2 w-full"
+                />
               </td>
-              <td class="text-center dark:text-dark-text200">
-                {{ item.visitor }}
+              <td class="">
+                <p class="font-12sb dark:text-dark-text200">
+                  {{ data.progressPerchantage }}%
+                </p>
               </td>
             </tr>
           </tbody>
         </table>
-      </CardContent>
-    </Card>
-
-    <!-- Your Downloads -->
-    <Card
-      class="col-span-3 shadow-small lg:col-span-1 dark:bg-dark-bgSecondary px-6 py-9"
-    >
-      <CardTitle>
-        <h5 class="text-main mb-4 dark:text-dark-text200">Your Downloads</h5>
-      </CardTitle>
-
-      <CardContent class="">
-        <!-- Uploading Stage -->
-        <div class="flex items-start justify-between py-4">
-          <div class="flex gap-2 items-start">
-            <svg
-              width="33"
-              height="43"
-              viewBox="0 0 21 28"
-              fill=""
-              xmlns="http://www.w3.org/2000/svg"
-              class="fill-primary"
-            >
-              <path
-                d="M3.5 0H12.7628C13.2268 9.91155e-05 13.6719 0.184539 14 0.51275L20.4872 7C20.8155 7.32811 20.9999 7.77316 21 8.23725V24.5C21 25.4283 20.6313 26.3185 19.9749 26.9749C19.3185 27.6313 18.4283 28 17.5 28H3.5C2.57174 28 1.6815 27.6313 1.02513 26.9749C0.368749 26.3185 0 25.4283 0 24.5V3.5C0 2.57174 0.368749 1.6815 1.02513 1.02513C1.6815 0.368749 2.57174 0 3.5 0V0ZM13.125 2.625V6.125C13.125 6.58913 13.3094 7.03425 13.6376 7.36244C13.9658 7.69063 14.4109 7.875 14.875 7.875H18.375L13.125 2.625Z"
-                fill=""
-              />
-              <path
-                d="M4.91872 20.2153C4.76692 20.2153 4.6421 20.1714 4.54428 20.0837C4.44982 19.9926 4.4026 19.8813 4.4026 19.7498C4.4026 19.6148 4.44982 19.5018 4.54428 19.4107C4.6421 19.3197 4.76692 19.2741 4.91872 19.2741C5.06714 19.2741 5.18858 19.3197 5.28304 19.4107C5.38086 19.5018 5.42978 19.6148 5.42978 19.7498C5.42978 19.8813 5.38086 19.9926 5.28304 20.0837C5.18858 20.1714 5.06714 20.2153 4.91872 20.2153ZM9.05221 17.7662C9.05221 17.972 9.00498 18.1609 8.91053 18.333C8.81607 18.5016 8.67102 18.6383 8.47537 18.7428C8.27971 18.8474 8.03683 18.8997 7.74673 18.8997H7.21037V20.1748H6.34511V16.6227H7.74673C8.03009 16.6227 8.26959 16.6716 8.46525 16.7694C8.6609 16.8673 8.80764 17.0022 8.90547 17.1742C9.00329 17.3463 9.05221 17.5436 9.05221 17.7662ZM7.68095 18.2115C7.84624 18.2115 7.96937 18.1727 8.05033 18.0951C8.13129 18.0176 8.17177 17.9079 8.17177 17.7662C8.17177 17.6246 8.13129 17.5149 8.05033 17.4373C7.96937 17.3598 7.84624 17.321 7.68095 17.321H7.21037V18.2115H7.68095ZM11.2366 16.6227C11.611 16.6227 11.9382 16.6969 12.2182 16.8453C12.4982 16.9938 12.7141 17.2029 12.8659 17.4728C13.0211 17.7393 13.0987 18.0479 13.0987 18.3987C13.0987 18.7462 13.0211 19.0549 12.8659 19.3247C12.7141 19.5946 12.4965 19.8037 12.2132 19.9522C11.9332 20.1006 11.6076 20.1748 11.2366 20.1748H9.90579V16.6227H11.2366ZM11.1809 19.4259C11.5081 19.4259 11.7628 19.3365 11.945 19.1577C12.1271 18.979 12.2182 18.726 12.2182 18.3987C12.2182 18.0715 12.1271 17.8168 11.945 17.6347C11.7628 17.4525 11.5081 17.3614 11.1809 17.3614H10.7711V19.4259H11.1809ZM16.2977 16.6227V17.3159H14.8506V18.0648H15.9334V18.7378H14.8506V20.1748H13.9853V16.6227H16.2977Z"
-                fill="white"
-              />
-            </svg>
-
-            <div class="">
-              <p class="-mt-1 dark:text-dark-text200">
-                ReactJS-for-beginner.pdf
-              </p>
-              <p class="font-12m text-muted300 mb-1">4.5 MB</p>
-              <Progress :model-value="50" class="h-[7px]" />
-            </div>
-          </div>
-
-          <div class="flex flex-col items-end justify-between">
-            <Button
-              class="font-10m mb-3"
-              color="secondary"
-              variant="text"
-              size="none"
-              >Cancel</Button
-            >
-            <p class="font-12sb text-primary">50%</p>
-          </div>
-        </div>
-
-        <!-- Uploaded -->
-        <div
-          v-for="(item, index) in downloads"
-          :key="index"
-          class="flex items-center justify-between py-4 last:pb-0"
-        >
-          <div class="flex gap-2 items-start">
-            <svg
-              width="33"
-              height="43"
-              viewBox="0 0 21 28"
-              fill=""
-              xmlns="http://www.w3.org/2000/svg"
-              class="fill-muted"
-            >
-              <path
-                d="M3.5 0H12.7628C13.2268 9.91155e-05 13.6719 0.184539 14 0.51275L20.4872 7C20.8155 7.32811 20.9999 7.77316 21 8.23725V24.5C21 25.4283 20.6313 26.3185 19.9749 26.9749C19.3185 27.6313 18.4283 28 17.5 28H3.5C2.57174 28 1.6815 27.6313 1.02513 26.9749C0.368749 26.3185 0 25.4283 0 24.5V3.5C0 2.57174 0.368749 1.6815 1.02513 1.02513C1.6815 0.368749 2.57174 0 3.5 0V0ZM13.125 2.625V6.125C13.125 6.58913 13.3094 7.03425 13.6376 7.36244C13.9658 7.69063 14.4109 7.875 14.875 7.875H18.375L13.125 2.625Z"
-                fill=""
-              />
-              <path
-                d="M4.91872 20.2153C4.76692 20.2153 4.6421 20.1714 4.54428 20.0837C4.44982 19.9926 4.4026 19.8813 4.4026 19.7498C4.4026 19.6148 4.44982 19.5018 4.54428 19.4107C4.6421 19.3197 4.76692 19.2741 4.91872 19.2741C5.06714 19.2741 5.18858 19.3197 5.28304 19.4107C5.38086 19.5018 5.42978 19.6148 5.42978 19.7498C5.42978 19.8813 5.38086 19.9926 5.28304 20.0837C5.18858 20.1714 5.06714 20.2153 4.91872 20.2153ZM9.05221 17.7662C9.05221 17.972 9.00498 18.1609 8.91053 18.333C8.81607 18.5016 8.67102 18.6383 8.47537 18.7428C8.27971 18.8474 8.03683 18.8997 7.74673 18.8997H7.21037V20.1748H6.34511V16.6227H7.74673C8.03009 16.6227 8.26959 16.6716 8.46525 16.7694C8.6609 16.8673 8.80764 17.0022 8.90547 17.1742C9.00329 17.3463 9.05221 17.5436 9.05221 17.7662ZM7.68095 18.2115C7.84624 18.2115 7.96937 18.1727 8.05033 18.0951C8.13129 18.0176 8.17177 17.9079 8.17177 17.7662C8.17177 17.6246 8.13129 17.5149 8.05033 17.4373C7.96937 17.3598 7.84624 17.321 7.68095 17.321H7.21037V18.2115H7.68095ZM11.2366 16.6227C11.611 16.6227 11.9382 16.6969 12.2182 16.8453C12.4982 16.9938 12.7141 17.2029 12.8659 17.4728C13.0211 17.7393 13.0987 18.0479 13.0987 18.3987C13.0987 18.7462 13.0211 19.0549 12.8659 19.3247C12.7141 19.5946 12.4965 19.8037 12.2132 19.9522C11.9332 20.1006 11.6076 20.1748 11.2366 20.1748H9.90579V16.6227H11.2366ZM11.1809 19.4259C11.5081 19.4259 11.7628 19.3365 11.945 19.1577C12.1271 18.979 12.2182 18.726 12.2182 18.3987C12.2182 18.0715 12.1271 17.8168 11.945 17.6347C11.7628 17.4525 11.5081 17.3614 11.1809 17.3614H10.7711V19.4259H11.1809ZM16.2977 16.6227V17.3159H14.8506V18.0648H15.9334V18.7378H14.8506V20.1748H13.9853V16.6227H16.2977Z"
-                fill="white"
-              />
-            </svg>
-
-            <div class="">
-              <p class="dark:text-dark-text200">{{ item.fileTitle }}</p>
-              <p class="font-12m text-muted300">{{ item.size }}</p>
-            </div>
-          </div>
-
-          <Button class="font-12sb" color="secondary" variant="text" size="none"
-            >Download</Button
-          >
-        </div>
       </CardContent>
     </Card>
 
