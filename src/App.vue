@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import DefaultLayout from "./layout/DefaultLayout.vue";
+import DefaultLayout from "@/layout/DefaultLayout.vue";
 import { RouterView } from "vue-router";
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HeaderArea from "@/components/Header/HeaderArea.vue";
-import SidebarArea from "@/components/Sidebar/SidebarArea.vue";
 import { useSidebar } from "@/stores/sidebar";
+import SidebarArea from "@/components/Sidebar/SidebarArea.vue";
+import HeaderArea from "@/components/Header/HeaderArea.vue";
 
 const sidebarStore = useSidebar();
 </script>
@@ -10,7 +10,6 @@ const sidebarStore = useSidebar();
   <!-- Page Wrapper -->
   <div class="">
     <!-- Sidebar -->
-
     <SidebarArea />
 
     <!-- Header & Content Area -->
