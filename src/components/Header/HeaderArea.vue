@@ -92,7 +92,7 @@ onClickOutside(target, (event) => {
   <header
     class="sticky top-0 z-[1001] 9 px-7 2xl:px-20 w-full flex items-center justify-between py-5 mx-auto transition-all"
     :class="{
-      'bg-white shadow-sm py-4 dark:bg-dark-bgPrimary dark:border-l-gray-700':
+      'bg-white/80 shadow-sm py-4 dark:bg-dark-bgPrimary dark:border-l-gray-700':
         y > 0,
     }"
   >

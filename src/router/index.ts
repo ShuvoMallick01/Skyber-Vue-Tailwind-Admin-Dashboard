@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "../pages/Home.vue";
-import LearningManagement from "@/pages/LearningManagement.vue";
 import NotFound from "@/pages/NotFound.vue";
+import LearningManagement from "@/pages/LearningManagement.vue";
+import JobManagementVue from "@/pages/JobManagement.vue.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,6 +12,14 @@ const router = createRouter({
       name: "home",
       component: LearningManagement,
       alias: "/analytics",
+      meta: {
+        title: "Learning Dashboard",
+      },
+    },
+    {
+      path: "/job-management",
+      name: "job-management",
+      component: JobManagementVue,
       meta: {
         title: "Learning Dashboard",
       },
