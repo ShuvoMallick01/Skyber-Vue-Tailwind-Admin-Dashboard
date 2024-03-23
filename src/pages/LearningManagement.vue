@@ -369,10 +369,20 @@ watchEffect((cleanupFn) => {
         <table class="table-auto w-full">
           <thead class="border-b border-b-muted/20">
             <tr class="">
-              <th class="py-4 font-13m text-start text-main">Name</th>
-              <th class="font-13m text-main text-start px-3">Category</th>
-              <th class="font-13m text-main px-3">Earned</th>
-              <th class="font-13m text-main">Visitor</th>
+              <th
+                class="py-4 font-13m text-start text-main dark:text-dark-text200"
+              >
+                Name
+              </th>
+              <th
+                class="font-13m text-main text-start px-3 dark:text-dark-text200"
+              >
+                Category
+              </th>
+              <th class="font-13m text-main px-3 dark:text-dark-text200">
+                Earned
+              </th>
+              <th class="font-13m text-main dark:text-dark-text200">Visitor</th>
             </tr>
           </thead>
 
@@ -387,8 +397,10 @@ watchEffect((cleanupFn) => {
                 <div class="flex gap-2 items-center">
                   <img src="@/assets/images/Course/course-thumnail-1.png" />
                   <div>
-                    <p class="font-13m">{{ item.courseName }}</p>
-                    <p class="font-12m text-muted300">
+                    <p class="font-13m dark:text-dark-text200">
+                      {{ item.courseName }}
+                    </p>
+                    <p class="font-12m text-muted300 dark:text-dark-mute">
                       {{ item.description }}
                     </p>
                   </div>
@@ -418,8 +430,12 @@ watchEffect((cleanupFn) => {
                   <p>{{ item.category }}</p>
                 </div>
               </td>
-              <td class="text-center px-3 xl:px-10">${{ item.earned }}</td>
-              <td class="text-center">{{ item.visitor }}</td>
+              <td class="text-center px-3 xl:px-10 dark:text-dark-text200">
+                ${{ item.earned }}
+              </td>
+              <td class="text-center dark:text-dark-text200">
+                {{ item.visitor }}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -431,7 +447,7 @@ watchEffect((cleanupFn) => {
       class="col-span-3 shadow-small lg:col-span-1 dark:bg-dark-bgSecondary px-6 py-9"
     >
       <CardTitle>
-        <h5 class="text-main mb-3 dark:text-dark-text200">Your Downloads</h5>
+        <h5 class="text-main mb-4 dark:text-dark-text200">Your Downloads</h5>
       </CardTitle>
 
       <CardContent class="">
@@ -457,7 +473,9 @@ watchEffect((cleanupFn) => {
             </svg>
 
             <div class="">
-              <p class="-mt-1">ReactJS-for-beginner.pdf</p>
+              <p class="-mt-1 dark:text-dark-text200">
+                ReactJS-for-beginner.pdf
+              </p>
               <p class="font-12m text-muted300 mb-1">4.5 MB</p>
               <Progress :model-value="50" class="h-[7px]" />
             </div>
@@ -479,7 +497,7 @@ watchEffect((cleanupFn) => {
         <div
           v-for="(item, index) in downloads"
           :key="index"
-          class="flex items-center justify-between py-3"
+          class="flex items-center justify-between py-3 last:pb-0"
         >
           <div class="flex gap-2 items-start">
             <svg
@@ -501,7 +519,7 @@ watchEffect((cleanupFn) => {
             </svg>
 
             <div class="">
-              <p class="">{{ item.fileTitle }}</p>
+              <p class="dark:text-dark-text200">{{ item.fileTitle }}</p>
               <p class="font-12m text-muted300">{{ item.size }}</p>
             </div>
           </div>
