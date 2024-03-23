@@ -2,9 +2,7 @@
 import { ref } from "vue";
 import { menuSidebar } from "@/data/menuSidebar";
 import { useSidebar } from "@/stores/sidebar";
-import { onClickOutside } from "@vueuse/core";
-import SidebarItem from "./SidebarItem.vue";
-import { onMounted } from "vue";
+import SidebarItem from "@/components/Sidebar/SidebarItem.vue";
 
 // State
 const sidebarStore = useSidebar();
