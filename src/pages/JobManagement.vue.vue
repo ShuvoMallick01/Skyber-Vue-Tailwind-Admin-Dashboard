@@ -51,8 +51,14 @@ watchEffect((cleanupFn) => {
     <Card class="py-6 px-6 col-span-3 lg:col-span-1 shadow-small">
       <CardContent class="flex gap-6 items-center justify-between">
         <div>
-          <p class="font-14sb text-muted">Total Applications</p>
-          <p class="text-2xl font-semibold text-main mb-[14px]">672</p>
+          <p class="font-14sb text-muted dark:text-dark-text200">
+            Total Applications
+          </p>
+          <p
+            class="text-2xl font-semibold text-main mb-[14px] dark:text-dark-text200"
+          >
+            672
+          </p>
 
           <div class="flex items-center gap-1">
             <Badge
@@ -104,7 +110,11 @@ watchEffect((cleanupFn) => {
               stroke-linecap="round"
             />
           </svg>
-          <p class="absolute flex inset-0 items-center justify-center">70%</p>
+          <p
+            class="absolute flex inset-0 items-center justify-center dark:text-dark-text200"
+          >
+            70%
+          </p>
         </div>
       </CardContent>
     </Card>
@@ -113,8 +123,14 @@ watchEffect((cleanupFn) => {
     <Card class="py-6 px-6 col-span-3 lg:col-span-1 shadow-small">
       <CardContent class="flex gap-6 items-center justify-between">
         <div>
-          <p class="font-14sb text-muted">Shortlisted Canditates</p>
-          <p class="text-2xl font-semibold text-main mb-[14px]">4582</p>
+          <p class="font-14sb text-muted dark:text-dark-text200">
+            Shortlisted Canditates
+          </p>
+          <p
+            class="text-2xl font-semibold text-main mb-[14px] dark:text-dark-text200"
+          >
+            4582
+          </p>
 
           <div class="flex items-center gap-1">
             <Badge
@@ -166,7 +182,11 @@ watchEffect((cleanupFn) => {
               stroke-linecap="round"
             />
           </svg>
-          <p class="absolute flex inset-0 items-center justify-center">70%</p>
+          <p
+            class="absolute flex inset-0 items-center justify-center dark:text-dark-text200"
+          >
+            70%
+          </p>
         </div>
       </CardContent>
     </Card>
@@ -179,8 +199,12 @@ watchEffect((cleanupFn) => {
           <Badge variant="translucent" class="px-[13px] py-[2px] font-10m"
             >Pro</Badge
           >
-          <p class="font-14sb text-main">Neelesh Chaudhary</p>
-          <p class="font-12m text-muted">UI / UX Designer</p>
+          <p class="font-14sb text-main dark:text-dark-text200">
+            Neelesh Chaudhary
+          </p>
+          <p class="font-12m text-muted dark:text-dark-mute">
+            UI / UX Designer
+          </p>
           <p class="flex items-center gap-1 text-primary fill-primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +227,9 @@ watchEffect((cleanupFn) => {
         <!-- Recent Job -->
         <div class="mt-12">
           <div class="flex items-center justify-between mb-4">
-            <h4 class="font-14sb text-main">Recent Job Posted</h4>
+            <h4 class="font-14sb text-main dark:text-dark-text200">
+              Recent Job Posted
+            </h4>
             <Button variant="text" class="p-0">View all</Button>
           </div>
 
