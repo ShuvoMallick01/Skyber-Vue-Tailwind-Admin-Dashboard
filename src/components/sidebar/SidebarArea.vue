@@ -21,10 +21,9 @@ const target = ref(null);
 
 <template>
   <!-- Sidebar -->
-
   <aside
     v-if="sidebarStore.windowWidth < 768"
-    class="h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] z-[1111] dark:bg-dark-bgPrimary"
+    class="sidebar h-screen fixed left-0 top-0 duration-300 ease-linear w-[259px] z-[1111] dark:bg-dark-bgPrimary"
     :class="
       sidebarStore.isSidebarOpen
         ? '-translate-x-0'
@@ -86,7 +85,7 @@ const target = ref(null);
   <!-- 2ND SIDEBAR -->
   <aside
     v-else
-    class="h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] md:-translate-x-0 -translate-x-full z-999! dark:bg-dark-bgPrimary"
+    class="sidebar h-screen fixed left-0 top-0 bg-white duration-300 ease-linear w-[259px] md:-translate-x-0 -translate-x-full z-999! dark:bg-dark-bgPrimary"
     :class="` w-[${sidebarStore.sidebarWidth.width}px]`"
     ref="target"
   >
@@ -142,7 +141,6 @@ const target = ref(null);
     </div>
 
     <!-- Sidebar Menu -->
-
     <div class="h-screen overflow-y-auto duration-300 ease-linear">
       <perfect-scrollbar>
         <nav class="pb-4 space-y-5 mx-5">

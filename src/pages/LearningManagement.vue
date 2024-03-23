@@ -28,11 +28,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { upcomingTaskList } from "@/data/upcomingTask";
+import { courseStatusList } from "@/data/courseStatus";
+import { downloadList } from "@/data/downloadList";
 
 // State
 const progress = ref(13);
 const results = ref([...resultsData]);
 const upcomingTasks = ref([...upcomingTaskList]);
+const courseStatus = ref([...courseStatusList]);
+const downloads = ref([...downloadList]);
 
 // Methods
 watchEffect((cleanupFn) => {
@@ -43,9 +47,9 @@ watchEffect((cleanupFn) => {
 
 <!-- === TEMPLATE === -->
 <template>
-  <div class="grid grid-cols-3 gap-7 mb-40">
+  <div class="grid grid-cols-3 gap-7 mb-6">
     <!-- Welcome Card -->
-    <Card class="col-span-3 shadow-small lg:col-span-2 dark:bg-gray400">
+    <Card class="col-span-3 shadow-small xl:col-span-2 dark:bg-gray400">
       <CardContent
         class="flex items-center justify-between bg-white px-6 py-9 gap-4 rounded dark:bg-dark-bgSecondary"
       >
@@ -95,7 +99,7 @@ watchEffect((cleanupFn) => {
     </Card>
 
     <!-- Upgrade to Pro Card -->
-    <Card class="col-span-3 lg:col-span-1 px-3 shadow-small py-2 gradient-bg-2">
+    <Card class="col-span-3 xl:col-span-1 px-3 shadow-small py-2 gradient-bg-2">
       <div class="flex justify-between items-center">
         <div>
           <h3 class="title-3 text-main mb-3">
@@ -110,7 +114,7 @@ watchEffect((cleanupFn) => {
     </Card>
 
     <!-- Results -->
-    <Card class="py-6 px-5 col-span-3 lg:col-span-2 xl:col-span-1 shadow-small">
+    <Card class="py-6 px-5 col-span-3 xl:col-span-1 shadow-small">
       <CardTitle class="mb-4 dark:text-white">Result</CardTitle>
       <CardContent>
         <table class="w-full">
@@ -156,7 +160,7 @@ watchEffect((cleanupFn) => {
     </Card>
 
     <!-- Study Time Last Week -->
-    <Card class="py-6 px-5 col-span-3 lg:col-span-2 xl:col-span-1 shadow-small">
+    <Card class="py-6 px-5 col-span-3 xl:col-span-1 shadow-small">
       <CardTitle class="mb-4 dark:text-white">Study Time Last Week</CardTitle>
       <CardContent>
         <table class="w-full">
@@ -202,7 +206,7 @@ watchEffect((cleanupFn) => {
     </Card>
 
     <!-- Upcoming Task -->
-    <Card class="py-6 px-5 col-span-3 lg:col-span-2 xl:col-span-1 shadow-small">
+    <Card class="py-6 px-5 col-span-3 xl:col-span-1 shadow-small">
       <CardTitle class="mb-4"
         ><div class="flex items-center justify-between">
           <p class="dark:text-white">Upcoming Task</p>
@@ -260,7 +264,7 @@ watchEffect((cleanupFn) => {
     </Card>
 
     <!-- Course Completed -->
-    <Card class="py-7 px-5 col-span-3 xl:col-span-1 shadow-small">
+    <Card class="py-7 px-5 col-span-3 lg:col-span-1 shadow-small">
       <CardContent class="flex gap-6 items-center">
         <IconButton
           variant="translucent"
@@ -290,7 +294,7 @@ watchEffect((cleanupFn) => {
     </Card>
 
     <!-- Enrolled Courses -->
-    <Card class="py-7 px-5 col-span-3 xl:col-span-1 shadow-small">
+    <Card class="py-7 px-5 col-span-3 lg:col-span-1 shadow-small">
       <CardContent class="flex gap-6 items-center">
         <IconButton
           variant="translucent"
@@ -321,7 +325,7 @@ watchEffect((cleanupFn) => {
     </Card>
 
     <!-- Course Completed -->
-    <Card class="py-7 px-5 col-span-3 xl:col-span-1 shadow-small">
+    <Card class="py-7 px-5 col-span-3 lg:col-span-1 shadow-small">
       <CardContent class="flex gap-6 items-center">
         <IconButton
           variant="translucent"
@@ -348,6 +352,172 @@ watchEffect((cleanupFn) => {
           <p class="font-14sb dark:text-dark-text200">Course Completed</p>
           <p class="font-semibold text-2xl text-primary">1450</p>
         </div>
+      </CardContent>
+    </Card>
+
+    <!-- Course Status -->
+    <Card
+      class="col-span-3 shadow-small lg:col-span-2 dark:bg-dark-bgSecondary px-6 py-9"
+    >
+      <CardTitle>
+        <h5 class="title-3 text-main mb-2 dark:text-dark-text200">
+          Course Status
+        </h5>
+      </CardTitle>
+
+      <CardContent class="">
+        <table class="table-auto w-full">
+          <thead class="border-b border-b-muted/20">
+            <tr class="">
+              <th class="py-4 font-13m text-start text-main">Name</th>
+              <th class="font-13m text-main text-start px-3">Category</th>
+              <th class="font-13m text-main px-3">Earned</th>
+              <th class="font-13m text-main">Visitor</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr v-for="(item, index) in courseStatus" :key="index">
+              <td
+                class="pt-3"
+                :class="{
+                  'pb-3': index + 1 !== courseStatus.length,
+                }"
+              >
+                <div class="flex gap-2 items-center">
+                  <img src="@/assets/images/Course/course-thumnail-1.png" />
+                  <div>
+                    <p class="font-13m">{{ item.courseName }}</p>
+                    <p class="font-12m text-muted300">
+                      {{ item.description }}
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-3">
+                <div
+                  class="flex items-center gap-2 shrink-0"
+                  :class="{
+                    'text-primary fill-primary':
+                      item.category === 'Graphic Template',
+                    'text-warning fill-warning':
+                      item.category === 'Development',
+                    'text-success fill-success': item.category === 'Music',
+                    'text-error fill-error': item.category === 'Editing',
+                  }"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill=""
+                  >
+                    <rect width="10" height="10" rx="5" fill="" />
+                  </svg>
+                  <p>{{ item.category }}</p>
+                </div>
+              </td>
+              <td class="text-center px-3 xl:px-10">${{ item.earned }}</td>
+              <td class="text-center">{{ item.visitor }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </CardContent>
+    </Card>
+
+    <!-- Your Downloads -->
+    <Card
+      class="col-span-3 shadow-small lg:col-span-1 dark:bg-dark-bgSecondary px-6 py-9"
+    >
+      <CardTitle>
+        <h5 class="text-main mb-3 dark:text-dark-text200">Your Downloads</h5>
+      </CardTitle>
+
+      <CardContent class="">
+        <!-- Uploading Stage -->
+        <div class="flex items-start justify-between py-3">
+          <div class="flex gap-2 items-start">
+            <svg
+              width="33"
+              height="43"
+              viewBox="0 0 21 28"
+              fill=""
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-primary"
+            >
+              <path
+                d="M3.5 0H12.7628C13.2268 9.91155e-05 13.6719 0.184539 14 0.51275L20.4872 7C20.8155 7.32811 20.9999 7.77316 21 8.23725V24.5C21 25.4283 20.6313 26.3185 19.9749 26.9749C19.3185 27.6313 18.4283 28 17.5 28H3.5C2.57174 28 1.6815 27.6313 1.02513 26.9749C0.368749 26.3185 0 25.4283 0 24.5V3.5C0 2.57174 0.368749 1.6815 1.02513 1.02513C1.6815 0.368749 2.57174 0 3.5 0V0ZM13.125 2.625V6.125C13.125 6.58913 13.3094 7.03425 13.6376 7.36244C13.9658 7.69063 14.4109 7.875 14.875 7.875H18.375L13.125 2.625Z"
+                fill=""
+              />
+              <path
+                d="M4.91872 20.2153C4.76692 20.2153 4.6421 20.1714 4.54428 20.0837C4.44982 19.9926 4.4026 19.8813 4.4026 19.7498C4.4026 19.6148 4.44982 19.5018 4.54428 19.4107C4.6421 19.3197 4.76692 19.2741 4.91872 19.2741C5.06714 19.2741 5.18858 19.3197 5.28304 19.4107C5.38086 19.5018 5.42978 19.6148 5.42978 19.7498C5.42978 19.8813 5.38086 19.9926 5.28304 20.0837C5.18858 20.1714 5.06714 20.2153 4.91872 20.2153ZM9.05221 17.7662C9.05221 17.972 9.00498 18.1609 8.91053 18.333C8.81607 18.5016 8.67102 18.6383 8.47537 18.7428C8.27971 18.8474 8.03683 18.8997 7.74673 18.8997H7.21037V20.1748H6.34511V16.6227H7.74673C8.03009 16.6227 8.26959 16.6716 8.46525 16.7694C8.6609 16.8673 8.80764 17.0022 8.90547 17.1742C9.00329 17.3463 9.05221 17.5436 9.05221 17.7662ZM7.68095 18.2115C7.84624 18.2115 7.96937 18.1727 8.05033 18.0951C8.13129 18.0176 8.17177 17.9079 8.17177 17.7662C8.17177 17.6246 8.13129 17.5149 8.05033 17.4373C7.96937 17.3598 7.84624 17.321 7.68095 17.321H7.21037V18.2115H7.68095ZM11.2366 16.6227C11.611 16.6227 11.9382 16.6969 12.2182 16.8453C12.4982 16.9938 12.7141 17.2029 12.8659 17.4728C13.0211 17.7393 13.0987 18.0479 13.0987 18.3987C13.0987 18.7462 13.0211 19.0549 12.8659 19.3247C12.7141 19.5946 12.4965 19.8037 12.2132 19.9522C11.9332 20.1006 11.6076 20.1748 11.2366 20.1748H9.90579V16.6227H11.2366ZM11.1809 19.4259C11.5081 19.4259 11.7628 19.3365 11.945 19.1577C12.1271 18.979 12.2182 18.726 12.2182 18.3987C12.2182 18.0715 12.1271 17.8168 11.945 17.6347C11.7628 17.4525 11.5081 17.3614 11.1809 17.3614H10.7711V19.4259H11.1809ZM16.2977 16.6227V17.3159H14.8506V18.0648H15.9334V18.7378H14.8506V20.1748H13.9853V16.6227H16.2977Z"
+                fill="white"
+              />
+            </svg>
+
+            <div class="">
+              <p class="-mt-1">ReactJS-for-beginner.pdf</p>
+              <p class="font-12m text-muted300 mb-1">4.5 MB</p>
+              <Progress :model-value="50" class="h-[7px]" />
+            </div>
+          </div>
+
+          <div class="flex flex-col items-end justify-between">
+            <Button
+              class="font-10m mb-3"
+              color="secondary"
+              variant="text"
+              size="none"
+              >Cancel</Button
+            >
+            <p class="font-12sb text-primary">50%</p>
+          </div>
+        </div>
+
+        <!-- Uploaded -->
+        <div
+          v-for="(item, index) in downloads"
+          :key="index"
+          class="flex items-center justify-between py-3"
+        >
+          <div class="flex gap-2 items-start">
+            <svg
+              width="33"
+              height="43"
+              viewBox="0 0 21 28"
+              fill=""
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-muted"
+            >
+              <path
+                d="M3.5 0H12.7628C13.2268 9.91155e-05 13.6719 0.184539 14 0.51275L20.4872 7C20.8155 7.32811 20.9999 7.77316 21 8.23725V24.5C21 25.4283 20.6313 26.3185 19.9749 26.9749C19.3185 27.6313 18.4283 28 17.5 28H3.5C2.57174 28 1.6815 27.6313 1.02513 26.9749C0.368749 26.3185 0 25.4283 0 24.5V3.5C0 2.57174 0.368749 1.6815 1.02513 1.02513C1.6815 0.368749 2.57174 0 3.5 0V0ZM13.125 2.625V6.125C13.125 6.58913 13.3094 7.03425 13.6376 7.36244C13.9658 7.69063 14.4109 7.875 14.875 7.875H18.375L13.125 2.625Z"
+                fill=""
+              />
+              <path
+                d="M4.91872 20.2153C4.76692 20.2153 4.6421 20.1714 4.54428 20.0837C4.44982 19.9926 4.4026 19.8813 4.4026 19.7498C4.4026 19.6148 4.44982 19.5018 4.54428 19.4107C4.6421 19.3197 4.76692 19.2741 4.91872 19.2741C5.06714 19.2741 5.18858 19.3197 5.28304 19.4107C5.38086 19.5018 5.42978 19.6148 5.42978 19.7498C5.42978 19.8813 5.38086 19.9926 5.28304 20.0837C5.18858 20.1714 5.06714 20.2153 4.91872 20.2153ZM9.05221 17.7662C9.05221 17.972 9.00498 18.1609 8.91053 18.333C8.81607 18.5016 8.67102 18.6383 8.47537 18.7428C8.27971 18.8474 8.03683 18.8997 7.74673 18.8997H7.21037V20.1748H6.34511V16.6227H7.74673C8.03009 16.6227 8.26959 16.6716 8.46525 16.7694C8.6609 16.8673 8.80764 17.0022 8.90547 17.1742C9.00329 17.3463 9.05221 17.5436 9.05221 17.7662ZM7.68095 18.2115C7.84624 18.2115 7.96937 18.1727 8.05033 18.0951C8.13129 18.0176 8.17177 17.9079 8.17177 17.7662C8.17177 17.6246 8.13129 17.5149 8.05033 17.4373C7.96937 17.3598 7.84624 17.321 7.68095 17.321H7.21037V18.2115H7.68095ZM11.2366 16.6227C11.611 16.6227 11.9382 16.6969 12.2182 16.8453C12.4982 16.9938 12.7141 17.2029 12.8659 17.4728C13.0211 17.7393 13.0987 18.0479 13.0987 18.3987C13.0987 18.7462 13.0211 19.0549 12.8659 19.3247C12.7141 19.5946 12.4965 19.8037 12.2132 19.9522C11.9332 20.1006 11.6076 20.1748 11.2366 20.1748H9.90579V16.6227H11.2366ZM11.1809 19.4259C11.5081 19.4259 11.7628 19.3365 11.945 19.1577C12.1271 18.979 12.2182 18.726 12.2182 18.3987C12.2182 18.0715 12.1271 17.8168 11.945 17.6347C11.7628 17.4525 11.5081 17.3614 11.1809 17.3614H10.7711V19.4259H11.1809ZM16.2977 16.6227V17.3159H14.8506V18.0648H15.9334V18.7378H14.8506V20.1748H13.9853V16.6227H16.2977Z"
+                fill="white"
+              />
+            </svg>
+
+            <div class="">
+              <p class="">{{ item.fileTitle }}</p>
+              <p class="font-12m text-muted300">{{ item.size }}</p>
+            </div>
+          </div>
+
+          <Button class="font-12sb" color="secondary" variant="text" size="none"
+            >Download</Button
+          >
+        </div>
+      </CardContent>
+    </Card>
+
+    <!-- Footer -->
+    <Card class="col-span-3 shadow-small dark:bg-dark-bgSecondary px-6 py-10">
+      <CardContent class="flex items-center gap-4">
+        <Button class="px-12 py-[18px] font-12sb">Buy Uko</Button>
+        <p class="font-14sb text-muted">UI Lib 2021-2022</p>
       </CardContent>
     </Card>
   </div>

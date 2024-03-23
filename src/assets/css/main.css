@@ -247,11 +247,12 @@
   }
   ::-webkit-scrollbar:hover {
     @apply transition-all;
-    width: 12px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
     all: unset;
+    border-radius: 10px;
     @apply bg-white dark:!bg-dark-bgPrimary;
   }
 
@@ -259,8 +260,7 @@
     @apply bg-transparent;
     border-radius: 10px;
   }
-
-  ::-webkit-scrollbar-thumb:hover {
+  .sidebar:hover ::-webkit-scrollbar-thumb {
     @apply bg-slate-400 transition-all dark:!bg-slate-700;
     border-radius: 10px;
   }

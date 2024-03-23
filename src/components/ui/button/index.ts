@@ -11,6 +11,7 @@ export const buttonVariants = cva(
           "text-black border border-black dark:text-white dark:border-white",
         translucent: "text-gray-400 bg-black/10 text-center ",
         link: "text-black",
+        text: "text-black",
       },
       color: {
         primary:
@@ -119,6 +120,17 @@ export const buttonVariants = cva(
         color: "secondary",
         class:
           "text-slate-400 hover:text-slate-600 bg-transparent hover:bg-transparent ",
+      },
+
+      {
+        variant: "text",
+        color: "primary",
+        class: "text-primary bg-transparent hover:bg-transparent",
+      },
+      {
+        variant: "text",
+        color: "secondary",
+        class: "text-muted bg-transparent hover:bg-transparent",
       },
     ],
 

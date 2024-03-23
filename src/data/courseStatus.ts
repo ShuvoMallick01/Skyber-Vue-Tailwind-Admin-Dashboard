@@ -1,0 +1,38 @@
+export const courseStatusList = [
+  {
+    id: 1,
+    image: "@/assets/images/Course/course-thumnail-1.png",
+    courseName: "Flat Line Illustration",
+    description: "SketchApp, Adobe Illustration",
+    category: "Graphic Template",
+    earned: 19.0,
+    visitor: 1500,
+  },
+  {
+    id: 2,
+    image: "@/assets/images/Course/course-thumnail-1.png",
+    courseName: "React Live",
+    description: "Visual Studio, React",
+    category: "Development",
+    earned: 45.0,
+    visitor: 1200,
+  },
+  {
+    id: 3,
+    image: "@/assets/images/Course/course-thumnail-1.png",
+    courseName: "Guitar Lessons",
+    description: "SketchApp, Adobe Illustration",
+    category: "Music",
+    earned: 45.0,
+    visitor: 1200,
+  },
+  {
+    id: 4,
+    image: "@/assets/images/Course/course-thumnail-1.png",
+    courseName: "Video Editing",
+    description: "SketchApp, Adobe Illustration",
+    category: "Editing",
+    earned: 45.0,
+    visitor: 1200,
+  },
+];

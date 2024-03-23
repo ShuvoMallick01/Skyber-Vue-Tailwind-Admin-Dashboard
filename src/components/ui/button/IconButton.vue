@@ -12,7 +12,7 @@ const buttonVariants = cva(
         outline:
           "text-black border border-black dark:text-white dark:border-white",
         translucent: "text-gray-400 bg-black/10 text-center ",
-        icon: "fill-dark",
+        icon: "fill-black",
       },
       color: {
         primary: "text-white bg-primary border-primary hover:bg-primary-darker",
