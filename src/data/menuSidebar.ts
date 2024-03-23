@@ -16,8 +16,8 @@ export const menuSidebar: any = [
             route: "/",
           },
           {
-            label: "Marketing",
-            route: "/marketing",
+            label: "Job Management",
+            route: "/job-management",
           },
           {
             label: "CRM & Stocks",
