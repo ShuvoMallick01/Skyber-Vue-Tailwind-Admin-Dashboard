@@ -27,15 +27,19 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import ActionDropdownBtn from "@/components/ui/button/ActionDropdownBtn.vue";
 import { recentJobPostedList } from "@/data/recentJobPosted";
 import { acquisitionsList } from "@/data/acquisitionsList";
 import Badge from "@/components/ui/badge/Badge.vue";
+import { jobList } from "@/data/jobList";
 
 // State
 const progress = ref(13);
 const recentJobsPosted = ref([...recentJobPostedList]);
 const results = ref([...resultsData]);
 const acquisitions = ref([...acquisitionsList]);
+const actions = ref(["Delete", "View"]);
+const jobs = ref([...jobList]);
 
 // Methods
 watchEffect((cleanupFn) => {
@@ -383,6 +387,239 @@ watchEffect((cleanupFn) => {
             </tr>
           </tbody>
         </table>
+      </CardContent>
+    </Card>
+
+    <!-- Job List  -->
+    <Card class="py-6 px-5 col-span-3 xl:col-span-2 shadow-small">
+      <CardTitle class="mb-4 dark:text-white">Job List</CardTitle>
+      <CardContent>
+        <div class="grid grid-cols-5 font-13m text-main py-2.5 border-b">
+          <p class="col-span-2">Posts</p>
+          <p class="text-center">Posted at</p>
+          <p class="text-center">Applications</p>
+          <p class="text-end">Actions</p>
+        </div>
+
+        <div
+          v-for="job in jobs"
+          class="grid grid-cols-5 font-13m text-main py-[14px] last:pb-0"
+        >
+          <div class="col-span-2 flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <circle cx="8" cy="8" r="8" fill="#E5F3FD" />
+              <circle cx="8" cy="8" r="2" fill="#45ABF6" />
+            </svg>
+            <p>{{ job.jobTitle }}</p>
+          </div>
+          <p class="text-center">{{ job.postedAt }}</p>
+          <div class="text-center mx-auto">
+            <div class="flex items-center">
+              <img
+                src="@/assets/images/profile-img/01.jpeg"
+                class="h-[24px] w-[24px] rounded-full object-cover z-30"
+              />
+              <img
+                src="@/assets/images/profile-img/02.jpeg"
+                class="h-[24px] w-[24px] rounded-full object-cover -ml-1 z-20"
+              />
+              <img
+                src="@/assets/images/profile-img/03.jpeg"
+                class="h-[24px] w-[24px] rounded-full object-cover -ml-1 z-10"
+              />
+              <Badge
+                class="h-[24px] w-[24px] -ml-1"
+                variant="translucent"
+                shape="circle"
+                >5</Badge
+              >
+            </div>
+          </div>
+          <div class="text-end">
+            <ActionDropdownBtn :menuList="actions">
+              <IconButton variant="icon" color="secondary" size="small">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill=""
+                  class=""
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6 10.5C7.10457 10.5 8 11.3954 8 12.5C8 13.6046 7.10457 14.5 6 14.5C4.89543 14.5 4 13.6046 4 12.5C4 11.3954 4.89543 10.5 6 10.5ZM14 12.5C14 11.3954 13.1046 10.5 12 10.5C10.8954 10.5 10 11.3954 10 12.5C10 13.6046 10.8954 14.5 12 14.5C13.1046 14.5 14 13.6046 14 12.5ZM18 10.5C19.1046 10.5 20 11.3954 20 12.5C20 13.6046 19.1046 14.5 18 14.5C16.8954 14.5 16 13.6046 16 12.5C16 11.3954 16.8954 10.5 18 10.5Z"
+                    fill=""
+                  />
+                </svg> </IconButton
+            ></ActionDropdownBtn>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+
+    <!-- Candidates by Gender -->
+    <Card class="py-6 px-6 col-span-3 lg:col-span-1 shadow-small">
+      <CardTitle class="text-center mb-8">Candidates by Gender</CardTitle>
+
+      <CardContent class="">
+        <div class="relative mx-auto flex justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="179"
+            height="179"
+            viewBox="0 0 179 179"
+            fill="none"
+          >
+            <ellipse
+              cx="89.677"
+              cy="89.5"
+              rx="81.677"
+              ry="81.5"
+              stroke="#E5F3FD"
+              stroke-width="14.7345"
+              stroke-linecap="round"
+            />
+            <path
+              d="M8 89.5C8 134.511 44.5681 171 89.677 171C134.786 171 171.354 134.511 171.354 89.5C171.354 44.4888 134.786 8 89.677 8"
+              stroke="#2499EF"
+              stroke-width="14.7345"
+              stroke-linecap="round"
+            />
+          </svg>
+          <p
+            class="absolute flex text-3xl font-semibold text-primary inset-0 items-center justify-center dark:text-dark-text200"
+          >
+            70%
+          </p>
+        </div>
+      </CardContent>
+
+      <div class="gap-6 flex justify-center mt-8">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+          >
+            <rect width="10" height="10" rx="5" fill="#2499EF" />
+          </svg>
+          <p>Male</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+          >
+            <rect width="10" height="10" rx="5" fill="#E5F3FD" />
+          </svg>
+          <p>Female</p>
+        </div>
+      </div>
+    </Card>
+
+    <!-- Application Recieved Time  -->
+    <Card class="py-6 px-5 col-span-3 xl:col-span-2 shadow-small">
+      <CardTitle class="mb-4 dark:text-white"
+        >Application Recieved Time</CardTitle
+      >
+      <CardContent>
+        <div class="grid grid-cols-5 font-13m text-main py-2.5 border-b">
+          <p class="col-span-2">Posts</p>
+          <p class="text-center">Posted at</p>
+          <p class="text-center">Applications</p>
+          <p class="text-end">Actions</p>
+        </div>
+
+        <div
+          v-for="job in jobs"
+          class="grid grid-cols-5 font-13m text-main py-[14px] last:pb-0"
+        >
+          <div class="col-span-2 flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <circle cx="8" cy="8" r="8" fill="#E5F3FD" />
+              <circle cx="8" cy="8" r="2" fill="#45ABF6" />
+            </svg>
+            <p>{{ job.jobTitle }}</p>
+          </div>
+          <p class="text-center">{{ job.postedAt }}</p>
+          <div class="text-center mx-auto">
+            <div class="flex items-center">
+              <img
+                src="@/assets/images/profile-img/01.jpeg"
+                class="h-[24px] w-[24px] rounded-full object-cover z-30"
+              />
+              <img
+                src="@/assets/images/profile-img/02.jpeg"
+                class="h-[24px] w-[24px] rounded-full object-cover -ml-1 z-20"
+              />
+              <img
+                src="@/assets/images/profile-img/03.jpeg"
+                class="h-[24px] w-[24px] rounded-full object-cover -ml-1 z-10"
+              />
+              <Badge
+                class="h-[24px] w-[24px] -ml-1"
+                variant="translucent"
+                shape="circle"
+                >5</Badge
+              >
+            </div>
+          </div>
+          <div class="text-end">
+            <ActionDropdownBtn :menuList="actions">
+              <IconButton variant="icon" color="secondary" size="small">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill=""
+                  class=""
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6 10.5C7.10457 10.5 8 11.3954 8 12.5C8 13.6046 7.10457 14.5 6 14.5C4.89543 14.5 4 13.6046 4 12.5C4 11.3954 4.89543 10.5 6 10.5ZM14 12.5C14 11.3954 13.1046 10.5 12 10.5C10.8954 10.5 10 11.3954 10 12.5C10 13.6046 10.8954 14.5 12 14.5C13.1046 14.5 14 13.6046 14 12.5ZM18 10.5C19.1046 10.5 20 11.3954 20 12.5C20 13.6046 19.1046 14.5 18 14.5C16.8954 14.5 16 13.6046 16 12.5C16 11.3954 16.8954 10.5 18 10.5Z"
+                    fill=""
+                  />
+                </svg> </IconButton
+            ></ActionDropdownBtn>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+
+    <!-- Candidates by Gender -->
+    <Card class="py-6 px-6 col-span-3 lg:col-span-1 shadow-small">
+      <CardTitle class="text-center mb-8 !text-lg font-semibold"
+        >Upgrade to <span class="text-primary">PRO</span> for <br />
+        more resources</CardTitle
+      >
+
+      <CardContent class="">
+        <img
+          src="../assets/images/illustration/Illustration-1.svg"
+          class="w-full"
+        />
       </CardContent>
     </Card>
 

@@ -24,7 +24,7 @@ const badgeVariants = cva(
 
       shape: {
         rounded: "rounded",
-        circle: "rounded-full relative flex items-center justify-center",
+        circle: "rounded-full relative shrink-0",
       },
 
       size: {
