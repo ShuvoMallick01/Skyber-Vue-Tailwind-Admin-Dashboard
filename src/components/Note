@@ -1,0 +1,45 @@
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+// Progress
+import { Progress } from "@/components/ui/progress";
+const progress = ref(13);
+// Methods
+watchEffect((cleanupFn) => {
+  const timer = setTimeout(() => (progress.value = 66), 500);
+  cleanupFn(() => clearTimeout(timer));
+});
+
+// === Components ====
+import { type HTMLAttributes, computed } from "vue";
+import { cn } from "@/lib/utils";
+import { ObjectType } from "typescript";
+
+const props = defineProps<{
+  title: String;
+  number: Number | String;
+  perchantage: Number | String;
+  class?: HTMLAttributes["class"];
+}>();
+
+interface ObjectType {
+  id: number;
+  title: string;
+  date: number | string;
+  progressPerchantage: number;
+}
+
+const props = defineProps<{
+  dataList: ObjectType;
+  class?: HTMLAttributes["class"];
+  dropDownMenu?:  ObjectType[];
+}>();
+
+
+:class="cn('px-4 py-4', props.class)"
