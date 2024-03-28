@@ -16,7 +16,7 @@ const courseStatus = ref([...courseStatusList]);
 <!-- === TEMPLATE === -->
 <template>
   <Card
-    class="col-span-3 shadow-small lg:col-span-2 dark:bg-dark-bgSecondary px-6 py-9"
+    class="col-span-3 shadow-small lg:col-span-2 dark:bg-dark-bgSecondary px-6 pt-9"
   >
     <CardTitle>
       <h5 class="title-3 text-main mb-2 dark:text-dark-text200">

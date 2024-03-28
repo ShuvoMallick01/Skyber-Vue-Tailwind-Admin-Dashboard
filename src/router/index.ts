@@ -11,7 +11,7 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: LearningManagement,
-      alias: "/analytics",
+      alias: "/learning-management",
       meta: {
         title: "Learning Dashboard",
       },

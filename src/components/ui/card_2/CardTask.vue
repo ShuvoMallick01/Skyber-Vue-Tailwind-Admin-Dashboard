@@ -37,7 +37,7 @@ watchEffect((cleanupFn) => {
     :key="task.id"
   >
     <div class="flex items-center">
-      <slot></slot>
+      <slot v-if="$slots.default"></slot>
       <div>
         <p class="font-14m dark:text-dark-text200">
           {{ task.taskTitle || task.jobtitle }}

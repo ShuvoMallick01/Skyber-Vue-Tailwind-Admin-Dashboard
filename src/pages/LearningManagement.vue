@@ -8,7 +8,7 @@ import StudyTimeLastWeek from "@/sections/learning-management/StudyTimeLastWeek.
 import UpcomingTask from "@/sections/learning-management/UpcomingTask.vue";
 import Widget1 from "@/components/Widget/Widget1.vue";
 import CourseStatus from "@/sections/learning-management/CourseStatus.vue";
-import YourDownloads from "@/sections/learning-management/YourDownloads.vue";
+import YourDownloads from "@/sections/learning-management/your-downloads/YourDownloads.vue";
 import Footer1 from "@/components/Footer/Footer1.vue";
 </script>
 

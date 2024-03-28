@@ -24,7 +24,7 @@ const props = defineProps<MyComponentProps>();
         class="group relative flex font-12m text-muted300 items-center gap-3 border-l-[2px] border-l-transparent px-3 rounded-s-[2px] duration-300 ease-in-out py-3.5 rounded-e hover:font-medium hover:border-l-primary hover:text-primary hover:bg-primary100"
         :class="
           route.path === childItem.route
-            ? 'bg-primary100 text-primary  dark:bg-gray-800 dark:border-l-gray-600'
+            ? 'bg-primary100 text-primary !border-l-primary dark:bg-gray-800 dark:border-l-gray-600'
             : ''
         "
       >
